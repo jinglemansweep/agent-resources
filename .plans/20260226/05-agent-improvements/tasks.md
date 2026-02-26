@@ -18,23 +18,23 @@
 
 ### Add Preferred Stack Section
 
-- [ ] **Add Preferred Stack subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a new `### Preferred Stack` subsection inside the Domain Expertise section, positioned after the existing bullets. This subsection defines the default technologies for new frontend work. Include the following:
-  - [ ] **TailwindCSS v4+** — Specify TailwindCSS as the preferred CSS framework. Note that v4 uses CSS-based configuration (no `tailwind.config.js`). The PostCSS plugin is `@tailwindcss/postcss`.
-  - [ ] **DaisyUI** — Specify DaisyUI as the preferred component library. It provides 30+ ready-to-use UI components as a Tailwind plugin with minimal overhead. Use DaisyUI v5.x which is compatible with Tailwind v4.
-  - [ ] **Alpine.js** — Specify Alpine.js as the preferred JavaScript behaviour layer for interactivity. It is ~14 KB, uses Light DOM only (no Shadow DOM friction with Tailwind), requires no build step, and is declarative via HTML attributes (`x-data`, `x-show`, `x-bind`). Note that Alpine.js is preferred over web component libraries like Lit because Tailwind utility classes work natively without Shadow DOM workarounds.
-  - [ ] **Fallback rule** — Add a clear rule: the preferred stack applies when starting new work or when the project has no established frontend framework. When a project already uses React, Vue, Svelte, or another framework, follow that project's conventions instead.
+- [x] **Add Preferred Stack subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a new `### Preferred Stack` subsection inside the Domain Expertise section, positioned after the existing bullets. This subsection defines the default technologies for new frontend work. Include the following:
+  - [x] **TailwindCSS v4+** — Specify TailwindCSS as the preferred CSS framework. Note that v4 uses CSS-based configuration (no `tailwind.config.js`). The PostCSS plugin is `@tailwindcss/postcss`.
+  - [x] **DaisyUI** — Specify DaisyUI as the preferred component library. It provides 30+ ready-to-use UI components as a Tailwind plugin with minimal overhead. Use DaisyUI v5.x which is compatible with Tailwind v4.
+  - [x] **Alpine.js** — Specify Alpine.js as the preferred JavaScript behaviour layer for interactivity. It is ~14 KB, uses Light DOM only (no Shadow DOM friction with Tailwind), requires no build step, and is declarative via HTML attributes (`x-data`, `x-show`, `x-bind`). Note that Alpine.js is preferred over web component libraries like Lit because Tailwind utility classes work natively without Shadow DOM workarounds.
+  - [x] **Fallback rule** — Add a clear rule: the preferred stack applies when starting new work or when the project has no established frontend framework. When a project already uses React, Vue, Svelte, or another framework, follow that project's conventions instead.
 
 ### Add Tooling Philosophy
 
-- [ ] **Add Tooling Philosophy subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a `### Tooling Philosophy` subsection inside the Domain Expertise section, after the Preferred Stack subsection. Include the following principles:
+- [x] **Add Tooling Philosophy subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a `### Tooling Philosophy` subsection inside the Domain Expertise section, after the Preferred Stack subsection. Include the following principles:
   - Prefer lightweight tools and dependencies with minimal transitive dependencies
   - Avoid heavy framework lock-in and monolithic JS/TS frameworks when simpler alternatives exist
   - Choose tools that compose well together over all-in-one solutions
 
 ### Update Existing Domain Expertise Bullets
 
-- [ ] **Update component frameworks bullet** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, update the first bullet in Domain Expertise from `- Component frameworks: React, Vue, Svelte, Angular — follow whichever the project uses` to `- Component frameworks: Alpine.js preferred for new projects; React, Vue, Svelte, Angular — follow whichever an existing project uses`. This reflects the new preferred stack while preserving the fallback.
-- [ ] **Update styling bullet** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, update the styling bullet from `- Styling: CSS, Tailwind, CSS Modules, styled-components — match the project's approach` to `- Styling: TailwindCSS v4 + DaisyUI preferred for new projects; match the project's existing approach otherwise`. This reflects the new preferred stack.
+- [x] **Update component frameworks bullet** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, update the first bullet in Domain Expertise from `- Component frameworks: React, Vue, Svelte, Angular — follow whichever the project uses` to `- Component frameworks: Alpine.js preferred for new projects; React, Vue, Svelte, Angular — follow whichever an existing project uses`. This reflects the new preferred stack while preserving the fallback.
+- [x] **Update styling bullet** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, update the styling bullet from `- Styling: CSS, Tailwind, CSS Modules, styled-components — match the project's approach` to `- Styling: TailwindCSS v4 + DaisyUI preferred for new projects; match the project's existing approach otherwise`. This reflects the new preferred stack.
 
 ## Frontend Agent — Responsive & Theming Requirements
 

@@ -1,5 +1,7 @@
 # agent-resources
 
+![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
+
 A personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
 
 Licensed under GPL-3.0.
@@ -42,15 +44,15 @@ Personal Skills and Agents.
 **Skills:**
 
 - `jms-init` — Initialize the `.plans` directory structure for a project
-- `jms-phase-new` — Create a new datestamped planning phase directory
-- `jms-plan` — Generate a high-level implementation plan from a prompt
-- `jms-review` — Review and resolve issues in a plan
-- `jms-taskify` — Generate a detailed task list from a plan
-- `jms-execute` — Implement tasks from a task list with quality gates and commits
+- `jms-phase-new` — Create a new datestamped planning phase directory with sequential numbering
+- `jms-plan` — Generate a high-level implementation plan, research, and issues from a prompt file
+- `jms-review` — Review and resolve issues in a plan directory through interactive user decisions
+- `jms-taskify` — Generate a detailed, actionable task list from an existing plan
+- `jms-execute` — Implement tasks from a task list with quality gates and git commits per group
 
 **Agents:**
 
-- `jms-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
+- `jms-planner` — Guides the full planning workflow: init, phase selection, plan creation, issue review, and task list generation
 - `jms-role-general` — General-purpose implementation specialist for mixed or unclassified tasks
 - `jms-role-python` — Python backend implementation specialist
 - `jms-role-nodejs` — JavaScript/TypeScript/Node implementation specialist

@@ -1,6 +1,6 @@
 # Project
 
-Claude Code plugin marketplace containing skills and agents. Currently hosts the `plan-quick` plugin.
+Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
 
 ```
 marketplace.json   — Marketplace metadata listing available plugins
@@ -16,7 +16,7 @@ See `README.md` for the complete directory structure and plugin documentation.
 - Plugins live under `plugins/<plugin-name>/` and contain `plugin.json`, `install.sh`, `skills/`, and `agents/` directories.
 - Each skill is a directory under `skills/` containing a single `SKILL.md` file.
 - Each agent is a single Markdown file in the `agents/` directory.
-- Plugin-scoped resources use a short prefix for skill and agent names (e.g. `pq-` for `plan-quick`).
+- Plugin-scoped resources use a short prefix for skill and agent names (e.g. `jms-` for `jinglemansweep`).
 - Metadata files (`marketplace.json`, `plugin.json`) are JSON.
 - All documentation and skill/agent definitions use Markdown.
 

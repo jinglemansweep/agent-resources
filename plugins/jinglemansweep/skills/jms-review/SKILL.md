@@ -1,17 +1,17 @@
 ---
-name: pq-review
+name: jms-review
 description: Review and resolve issues in a plan directory through interactive user decisions
 allowed-tools: Read, Edit, Write, Glob, AskUserQuestion
 ---
 
-# pq-review
+# jms-review
 
 Review and resolve issues in a plan directory. Reads all plan artifacts, presents each unresolved issue to the user for a decision, then propagates those decisions into the plan and research files. Designed to be run multiple times — each run resolves open items and may surface new ones.
 
 ## Usage
 
 ```
-/pq-review <plan-dir>
+/jms-review <plan-dir>
 ```
 
 **Argument:**
@@ -42,8 +42,8 @@ The skill only processes unresolved items. Resolved items are left in place as a
 
 Read the following files from `<plan-dir>/`:
 
-1. `issues.md` — **required**. If missing, stop and tell the user to run `pq-plan` first.
-2. `plan.md` — **required**. If missing, stop and tell the user to run `pq-plan` first.
+1. `issues.md` — **required**. If missing, stop and tell the user to run `jms-plan` first.
+2. `plan.md` — **required**. If missing, stop and tell the user to run `jms-plan` first.
 3. `research.md` — read if present.
 4. `prompt.md` — read if present, for original context.
 
@@ -105,7 +105,7 @@ After all resolutions are applied, re-read the updated `plan.md` and `research.m
 If new issues are found:
 
 1. **Add them to `issues.md`** under the appropriate category, as unresolved bullets.
-2. **Do NOT present them to the user in this run.** They will be addressed in the next invocation of `pq-review`. This prevents infinite review loops.
+2. **Do NOT present them to the user in this run.** They will be addressed in the next invocation of `jms-review`. This prevents infinite review loops.
 3. Note the new issues in the Step 6 report.
 
 ### Step 6: Report
@@ -120,15 +120,15 @@ Report a summary to the user:
 
 If there are new or remaining unresolved issues, prompt the user:
 
-> There are still unresolved issues. Run `/pq-review <plan-dir>` again to address them.
+> There are still unresolved issues. Run `/jms-review <plan-dir>` again to address them.
 
 If all issues are resolved and no new issues were found:
 
-> All issues are resolved. The plan is ready for task list generation (`/pq-taskify <plan-dir>`) or implementation (`/pq-execute <plan-dir>`).
+> All issues are resolved. The plan is ready for task list generation (`/jms-taskify <plan-dir>`) or implementation (`/jms-execute <plan-dir>`).
 
 ## Guidelines
 
-- **This is a review and resolution skill, not a re-planning skill.** Do not rewrite or restructure the plan. Make targeted edits to reflect decisions. If a decision fundamentally changes the project direction, recommend the user re-run `pq-plan` instead.
+- **This is a review and resolution skill, not a re-planning skill.** Do not rewrite or restructure the plan. Make targeted edits to reflect decisions. If a decision fundamentally changes the project direction, recommend the user re-run `jms-plan` instead.
 - **Respect settled decisions.** If `prompt.md` contains explicit decisions (e.g. a decisions table), do not re-open them as issues. Only raise issues that are genuinely unresolved or newly discovered.
 - **Be opinionated but not prescriptive.** Recommend options where you have expertise, but always let the user choose. Clearly explain trade-offs.
 - **Edits should be surgical.** When updating `plan.md`, change only the affected sections. Do not reformat, reorganize, or rewrite surrounding content.

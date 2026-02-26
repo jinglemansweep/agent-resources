@@ -1,17 +1,17 @@
 ---
-name: pq-phase-new
+name: jms-phase-new
 description: Create a new datestamped planning phase directory with sequential numbering
 allowed-tools: Bash, Glob, Write
 ---
 
-# pq-phase-new
+# jms-phase-new
 
 Create a new planning phase directory with a datestamped path and sequential numbering.
 
 ## Usage
 
 ```
-/pq-phase-new <description>
+/jms-phase-new <description>
 ```
 
 **Argument:**
@@ -21,7 +21,7 @@ Create a new planning phase directory with a datestamped path and sequential num
 
 ### Step 1: Validate
 
-Ensure the `.plans` directory exists in the repository root. If not, stop and tell the user to run `/pq-init` first.
+Ensure the `.plans` directory exists in the repository root. If not, stop and tell the user to run `/jms-init` first.
 
 ### Step 2: Determine Date Directory
 
@@ -59,8 +59,8 @@ Create the directory: `.plans/YYYYMMDD/NN-<slug>/`
 
 ### Step 5: Create Prompt File
 
-Create an empty `prompt.md` file inside the new phase directory. This file is the starting point for the planning workflow — the user will write their requirements here before running `/pq-plan`.
+Create an empty `prompt.md` file inside the new phase directory. This file is the starting point for the planning workflow — the user will write their requirements here before running `/jms-plan`.
 
 ### Step 6: Report
 
-Report the full path of the created phase directory to the user, and remind them to write their requirements in `prompt.md` before running `/pq-plan`.
+Report the full path of the created phase directory to the user, and remind them to write their requirements in `prompt.md` before running `/jms-plan`.

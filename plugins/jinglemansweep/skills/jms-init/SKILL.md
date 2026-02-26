@@ -1,17 +1,17 @@
 ---
-name: pq-init
+name: jms-init
 description: Initialize the .plans directory structure for a project
 allowed-tools: Bash, Glob
 ---
 
-# pq-init
+# jms-init
 
 Initialize the plans directory structure for a project.
 
 ## Usage
 
 ```
-/pq-init
+/jms-init
 ```
 
 No arguments required.

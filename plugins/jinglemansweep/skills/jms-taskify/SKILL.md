@@ -1,17 +1,17 @@
 ---
-name: pq-taskify
+name: jms-taskify
 description: Generate a detailed, actionable task list from an existing plan
 allowed-tools: Read, Write, Glob
 ---
 
-# pq-taskify
+# jms-taskify
 
-Generate a detailed, actionable task list from an existing plan. This is the second stage of a two-step workflow — it consumes the outputs of `pq-plan` and produces a comprehensive task list that can drive implementation directly.
+Generate a detailed, actionable task list from an existing plan. This is the second stage of a two-step workflow — it consumes the outputs of `jms-plan` and produces a comprehensive task list that can drive implementation directly.
 
 ## Usage
 
 ```
-/pq-taskify <plan-dir>
+/jms-taskify <plan-dir>
 ```
 
 **Argument:**
@@ -33,7 +33,7 @@ Generate a detailed, actionable task list from an existing plan. This is the sec
 ### Step 1: Read Inputs
 
 Read the following files from `<plan-dir>/`:
-1. `plan.md` — **required**. If missing, stop and tell the user to run `pq-plan` first.
+1. `plan.md` — **required**. If missing, stop and tell the user to run `jms-plan` first.
 2. `research.md` — read if present, skip if not.
 3. `issues.md` — read if present, skip if not.
 4. `prompt.md` — read if present, for additional context.

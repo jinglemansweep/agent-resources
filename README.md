@@ -1,6 +1,6 @@
 # agent-resources
 
-A collection of Claude Code plugins (skills and agents) distributed as a plugin marketplace. The repository currently contains the `plan-quick` plugin for planning workflows, and is designed to host multiple plugins.
+A personal Claude Code agent and skill toolkit. The repository currently contains the `jinglemansweep` plugin for planning workflows, and is designed to host multiple plugins.
 
 Licensed under GPL-3.0.
 
@@ -9,26 +9,26 @@ Licensed under GPL-3.0.
 ```
 marketplace.json            # Marketplace metadata listing available plugins
 plugins/                    # Directory containing all plugins
-  plan-quick/               # The plan-quick plugin
+  jinglemansweep/               # The jinglemansweep plugin
     plugin.json             # Plugin metadata (name, version, skills, agents)
     install.sh              # Installation script
     skills/                 # Skill definitions
-      pq-init/
-      pq-phase-new/
-      pq-plan/
-      pq-review/
-      pq-taskify/
-      pq-execute/
+      jms-init/
+      jms-phase-new/
+      jms-plan/
+      jms-review/
+      jms-taskify/
+      jms-execute/
     agents/                 # Agent definitions
-      pq-planner.md
-      pq-executor.md
+      jms-planner.md
+      jms-executor.md
 LICENSE                     # GPL-3.0 license
 README.md                   # This file
 ```
 
 ## Plugins
 
-### plan-quick
+### jinglemansweep
 
 Quick and simple Plan, Review, Taskify and Execute skills.
 
@@ -36,17 +36,17 @@ Quick and simple Plan, Review, Taskify and Execute skills.
 
 **Skills:**
 
-- `pq-init` — Initialize the `.plans` directory structure for a project
-- `pq-phase-new` — Create a new datestamped planning phase directory
-- `pq-plan` — Generate a high-level implementation plan from a prompt
-- `pq-review` — Review and resolve issues in a plan
-- `pq-taskify` — Generate a detailed task list from a plan
-- `pq-execute` — Implement tasks from a task list with quality gates and commits
+- `jms-init` — Initialize the `.plans` directory structure for a project
+- `jms-phase-new` — Create a new datestamped planning phase directory
+- `jms-plan` — Generate a high-level implementation plan from a prompt
+- `jms-review` — Review and resolve issues in a plan
+- `jms-taskify` — Generate a detailed task list from a plan
+- `jms-execute` — Implement tasks from a task list with quality gates and commits
 
 **Agents:**
 
-- `pq-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
-- `pq-executor` — Confirms a plan phase directory and executes its task list group by group
+- `jms-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
+- `jms-executor` — Confirms a plan phase directory and executes its task list group by group
 
 ## Installation
 
@@ -56,7 +56,7 @@ Quick and simple Plan, Review, Taskify and Execute skills.
    ```
 2. Navigate to the plugin directory:
    ```bash
-   cd plugins/plan-quick
+   cd plugins/jinglemansweep
    ```
 3. Run the install script:
    ```bash
@@ -73,13 +73,13 @@ CLAUDE_DIR=/path/to/custom/.claude bash install.sh
 
 ## Configuration
 
-Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `plan-quick` plugin includes a settings file at `plugins/plan-quick/.claude/settings.local.json` which configures automatic permission for the `pq-init` skill:
+Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `jinglemansweep` plugin includes a settings file at `plugins/jinglemansweep/.claude/settings.local.json` which configures automatic permission for the `jms-init` skill:
 
 ```json
 {
   "permissions": {
     "allow": [
-      "Skill(pq-init)"
+      "Skill(jms-init)"
     ]
   }
 }

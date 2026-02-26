@@ -1,0 +1,24 @@
+{
+  "name": "jinglemansweep",
+  "version": "0.2.0",
+  "description": "Quick and simple Plan, Review, Taskify and Execute skills",
+  "skills": [
+    "jms-init",
+    "jms-phase-new",
+    "jms-plan",
+    "jms-review",
+    "jms-taskify",
+    "jms-execute"
+  ],
+  "agents": [
+    "jms-planner",
+    "jms-executor",
+    "jms-role-general",
+    "jms-role-python",
+    "jms-role-nodejs",
+    "jms-role-frontend",
+    "jms-role-devops",
+    "jms-role-docs"
+  ],
+  "commands": []
+}

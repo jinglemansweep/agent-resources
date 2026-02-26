@@ -3,9 +3,9 @@
   "description": "Infrastructure, homelab, and mesh networking skills",
   "plugins": [
     {
-      "name": "plan-quick",
+      "name": "jinglemansweep",
       "description": "Quick and simple Plan, Research, Taskify and Execute skills",
-      "path": "plugins/plan-quick"
+      "path": "plugins/jinglemansweep"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "name": "jinglemansweep's Claude Skills",
-  "description": "Infrastructure, homelab, and mesh networking skills",
+  "description": "Personal Skills and Agents",
   "plugins": [
     {
       "name": "jinglemansweep",
-      "description": "Quick and simple Plan, Research, Taskify and Execute skills",
+      "description": "Personal Skills and Agents",
       "path": "plugins/jinglemansweep"
     }
   ]

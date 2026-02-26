@@ -122,7 +122,9 @@ Detect which tools are available by checking project config files (`package.json
 
 ### Step 7: Git Commit (After the Group)
 
-Create a single git commit (do NOT push) with all changes from the group. The commit message should follow the format:
+Create a single git commit (do NOT push) with all changes from the group. Before staging, also add any new or modified files in the `<plan-dir>/` directory (e.g. `prompt.md`, `research.md`, `plan.md`, `issues.md`, `tasks.md`) so that plan resources are always included in the commit.
+
+The commit message should follow the format:
 
 ```text
 <type>: <concise description of what was implemented>

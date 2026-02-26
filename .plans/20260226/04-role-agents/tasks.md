@@ -67,48 +67,48 @@
 
 ### jms-role-general
 
-- [ ] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-general.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
+- [x] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-general.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
   - Run `pre-commit run --all-files` if a `.pre-commit-config.yaml` exists
   - If the gate fails, fix the issue before moving on
   - No additional domain-specific gates (this agent handles mixed/unclassified tasks)
 
-- [ ] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-general.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
+- [x] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-general.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
 
 ### jms-role-nodejs
 
-- [ ] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-nodejs.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
+- [x] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-nodejs.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
   - Run `pre-commit run --all-files` if a `.pre-commit-config.yaml` exists
   - Run `npm run test` (or `yarn test`, `pnpm test`, `bun test` — match the project's package manager and test script) if tests exist
   - If any gate fails, fix the issue before moving on
 
-- [ ] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-nodejs.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
+- [x] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-nodejs.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
 
 ### jms-role-frontend
 
-- [ ] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-frontend.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
+- [x] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-frontend.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
   - Run `pre-commit run --all-files` if a `.pre-commit-config.yaml` exists
   - Run `npm run test` (or equivalent, matching the project's package manager) if tests exist
   - Run `npm run build` (or equivalent) to verify no build breakage
   - If any gate fails, fix the issue before moving on
 
-- [ ] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-frontend.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
+- [x] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-frontend.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
 
 ### jms-role-devops
 
-- [ ] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-devops.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
+- [x] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-devops.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
   - Run `pre-commit run --all-files` if a `.pre-commit-config.yaml` exists
   - For Terraform projects: run `terraform validate` and `terraform fmt -check`
   - For Ansible projects: run `ansible-lint` if available
   - For shell scripts: run `shellcheck` if available
   - If any gate fails, fix the issue before moving on
 
-- [ ] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-devops.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
+- [x] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-devops.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
 
 ### jms-role-docs
 
-- [ ] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-docs.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
+- [x] **Add Quality Gates section to `plugins/jinglemansweep/agents/jms-role-docs.md`** — Insert a `## Quality Gates` section after `## Domain Expertise` and before `## Constraints`. Content: "After every unit of work, run the following gates. Do not skip them." List:
   - Run `pre-commit run --all-files` if a `.pre-commit-config.yaml` exists (this covers markdownlint and other doc-related hooks)
   - If the gate fails, fix the issue before moving on
   - No additional domain-specific gates
 
-- [ ] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-docs.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.
+- [x] **Update Constraints section in `plugins/jinglemansweep/agents/jms-role-docs.md`** — Remove the line `- Do NOT run quality gates (linting, tests, builds) — the caller handles that` from the `## Constraints` section. Keep all other constraint lines unchanged.

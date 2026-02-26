@@ -21,4 +21,4 @@
 
 ## Documentation
 
-- [ ] **Update `README.md` with pre-commit setup** — Add a section to `README.md` documenting the pre-commit configuration. Include: what the pre-commit hooks enforce (JSON/YAML validation, Markdown linting, shell linting, whitespace/EOF fixes, merge conflict detection, large file prevention, private key detection), how to install (`pip install pre-commit && pre-commit install`), how to run manually (`pre-commit run --all-files`), and a note about the `.markdownlint.yaml` config customizations.
+- [x] **Update `README.md` with pre-commit setup** — Add a section to `README.md` documenting the pre-commit configuration. Include: what the pre-commit hooks enforce (JSON/YAML validation, Markdown linting, shell linting, whitespace/EOF fixes, merge conflict detection, large file prevention, private key detection), how to install (`pip install pre-commit && pre-commit install`), how to run manually (`pre-commit run --all-files`), and a note about the `.markdownlint.yaml` config customizations.

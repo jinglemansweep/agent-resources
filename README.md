@@ -102,6 +102,52 @@ Plugins may include their own `.claude/settings.local.json` with plugin-specific
 
 The `install.sh` script copies skill and agent files but does not copy settings. Users may need to merge plugin settings into their own `.claude/settings.local.json` depending on their environment.
 
+## Pre-Commit Hooks
+
+This repository uses [pre-commit](https://pre-commit.com/) to run automated checks before each commit. The configuration is defined in `.pre-commit-config.yaml`.
+
+### What the Hooks Enforce
+
+| Hook | Purpose |
+|---|---|
+| `check-json` | Validates JSON syntax |
+| `check-yaml` | Validates YAML syntax |
+| `trailing-whitespace` | Removes trailing whitespace |
+| `end-of-file-fixer` | Ensures files end with a newline |
+| `check-merge-conflict` | Detects unresolved merge conflict markers |
+| `check-added-large-files` | Prevents committing large files |
+| `detect-private-key` | Prevents committing private keys |
+| `markdownlint` | Lints Markdown files (excludes `.plans/`) |
+| `shellcheck` | Lints shell scripts |
+
+### Installation
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+Once installed, hooks run automatically on every `git commit`.
+
+### Manual Usage
+
+To run all hooks against every file in the repository:
+
+```bash
+pre-commit run --all-files
+```
+
+### Markdownlint Configuration
+
+The `.markdownlint.yaml` file customizes the Markdown linting rules for this project:
+
+- **MD013** (line length) — disabled because existing files have long prose lines
+- **MD024** (no duplicate headings) — disabled because skill files reuse heading names like "Step 1", "Step 2"
+- **MD033** (no inline HTML) — disabled because template files use HTML comments
+- **MD041** (first line heading) — disabled because SKILL.md files start with YAML front matter
+
+The `.plans/` directory is excluded from Markdown linting via both the markdownlint config (`ignores` key) and the pre-commit hook config (`exclude` pattern).
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.

@@ -16,15 +16,15 @@
 
 ### Version and Description
 
-- [ ] **Update plugin version in README.md** — In `README.md`, change `**Version:** 0.1.0` to `**Version:** 0.2.0` (line 35). This aligns with the version in `plugins/jinglemansweep/plugin.json`.
+- [x] **Update plugin version in README.md** — In `README.md`, change `**Version:** 0.1.0` to `**Version:** 0.2.0` (line 35). This aligns with the version in `plugins/jinglemansweep/plugin.json`.
 
-- [ ] **Update plugin tagline in README.md** — In `README.md`, change the plugin description `Quick and simple Plan, Review, Taskify and Execute skills.` (line 33) to `Personal Skills and Agents.` to match the updated metadata files.
+- [x] **Update plugin tagline in README.md** — In `README.md`, change the plugin description `Quick and simple Plan, Review, Taskify and Execute skills.` (line 33) to `Personal Skills and Agents.` to match the updated metadata files.
 
-- [ ] **Update repository introduction in README.md** — In `README.md`, change line 3 from `A personal Claude Code agent and skill toolkit. The repository currently contains the 'jinglemansweep' plugin for planning workflows, and is designed to host multiple plugins.` to `A personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin.` to align with CLAUDE.md and reflect that the plugin now covers more than just planning workflows.
+- [x] **Update repository introduction in README.md** — In `README.md`, change line 3 from `A personal Claude Code agent and skill toolkit. The repository currently contains the 'jinglemansweep' plugin for planning workflows, and is designed to host multiple plugins.` to `A personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin.` to align with CLAUDE.md and reflect that the plugin now covers more than just planning workflows.
 
 ### Directory Tree
 
-- [ ] **Add role agent files to directory tree in README.md** — In the `Directory Structure` code block in `README.md`, add the six new role agent files under the `agents/` directory so the full agents section reads:
+- [x] **Add role agent files to directory tree in README.md** — In the `Directory Structure` code block in `README.md`, add the six new role agent files under the `agents/` directory so the full agents section reads:
   ```
       agents/                 # Agent definitions
         jms-planner.md
@@ -40,7 +40,7 @@
 
 ### Agents List
 
-- [ ] **Add role agents to the agents list in README.md** — In the `**Agents:**` section under the jinglemansweep plugin (after line 49), add the six new role agents so the full agents list reads:
+- [x] **Add role agents to the agents list in README.md** — In the `**Agents:**` section under the jinglemansweep plugin (after line 49), add the six new role agents so the full agents list reads:
   ```
   - `jms-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
   - `jms-executor` — Confirms a plan phase directory and executes its task list group by group

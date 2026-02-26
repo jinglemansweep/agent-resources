@@ -1,6 +1,6 @@
 # agent-resources
 
-A personal Claude Code agent and skill toolkit. The repository currently contains the `jinglemansweep` plugin for planning workflows, and is designed to host multiple plugins.
+A personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
 
 Licensed under GPL-3.0.
 
@@ -22,6 +22,12 @@ plugins/                    # Directory containing all plugins
     agents/                 # Agent definitions
       jms-planner.md
       jms-executor.md
+      jms-role-general.md
+      jms-role-python.md
+      jms-role-nodejs.md
+      jms-role-frontend.md
+      jms-role-devops.md
+      jms-role-docs.md
 LICENSE                     # GPL-3.0 license
 README.md                   # This file
 ```
@@ -30,9 +36,9 @@ README.md                   # This file
 
 ### jinglemansweep
 
-Quick and simple Plan, Review, Taskify and Execute skills.
+Personal Skills and Agents.
 
-**Version:** 0.1.0
+**Version:** 0.2.0
 
 **Skills:**
 
@@ -47,6 +53,12 @@ Quick and simple Plan, Review, Taskify and Execute skills.
 
 - `jms-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
 - `jms-executor` — Confirms a plan phase directory and executes its task list group by group
+- `jms-role-general` — General-purpose implementation specialist for mixed or unclassified tasks
+- `jms-role-python` — Python backend implementation specialist
+- `jms-role-nodejs` — JavaScript/TypeScript/Node implementation specialist
+- `jms-role-frontend` — Frontend/UI implementation specialist
+- `jms-role-devops` — Infrastructure and CI/CD implementation specialist
+- `jms-role-docs` — Documentation implementation specialist
 
 ## Installation
 

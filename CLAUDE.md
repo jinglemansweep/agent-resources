@@ -29,3 +29,4 @@ See `README.md` for the complete directory structure and plugin documentation.
 - Maintain backward compatibility with the `install.sh` script.
 - Keep instructions general rather than listing specific file inventories to avoid staleness.
 - Update `README.md` when skills or agents are added, removed, or renamed.
+- Never add `Co-Authored-By` trailers to git commit messages.

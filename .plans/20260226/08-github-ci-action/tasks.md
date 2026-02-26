@@ -52,4 +52,4 @@
 
 ## README Update
 
-- [ ] **Update the H1 title in `README.md`** — Change line 1 from `# agent-resources` to `# Agentic Dev Resources`. No other content in the file should change. Verify by reading the first line of the file after the edit.
+- [x] **Update the H1 title in `README.md`** — Change line 1 from `# agent-resources` to `# Agentic Dev Resources`. No other content in the file should change. Verify by reading the first line of the file after the edit.

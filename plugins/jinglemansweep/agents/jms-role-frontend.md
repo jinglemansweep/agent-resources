@@ -31,6 +31,14 @@ The following stack is the default for new frontend work or projects with no est
 - Avoid heavy framework lock-in and monolithic JS/TS frameworks when simpler alternatives exist
 - Choose tools that compose well together over all-in-one solutions
 
+### Responsive & Theming
+
+- **Responsive design** — All web content must be fully responsive using a mobile-first approach. Use Tailwind's responsive breakpoint prefixes (`sm:`, `md:`, `lg:`, `xl:`) to adapt layouts.
+- **Dark mode detection** — Detect system colour scheme preference via the CSS `prefers-color-scheme` media query.
+- **DaisyUI theme toggling** — Apply themes using DaisyUI's `data-theme` attribute on the `<html>` element (e.g. `<html data-theme="light">` or `<html data-theme="dark">`).
+- **User override persistence** — Store the user's theme preference in `localStorage`. On page load, check `localStorage` first; if no stored preference, fall back to the system `prefers-color-scheme` value. Update `localStorage` whenever the user explicitly toggles the theme.
+- **Light and dark as minimum** — Every project must support at least `light` and `dark` themes. Additional DaisyUI themes may be added as needed.
+
 ## Quality Gates
 
 After every unit of work, run the following gates. Do not skip them.

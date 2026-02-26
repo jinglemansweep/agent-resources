@@ -40,9 +40,9 @@
 
 ### Add Responsive & Theming Subsection
 
-- [ ] **Add Responsive & Theming subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a new `### Responsive & Theming` subsection inside the Domain Expertise section, after the Tooling Philosophy subsection. Include the following mandatory requirements:
-  - [ ] **Responsive design** — All web content must be fully responsive using a mobile-first approach. Use Tailwind's responsive breakpoint prefixes (`sm:`, `md:`, `lg:`, `xl:`) to adapt layouts.
-  - [ ] **Dark mode detection** — Detect system colour scheme preference via CSS `prefers-color-scheme` media query.
-  - [ ] **DaisyUI theme toggling** — Apply themes using DaisyUI's `data-theme` attribute on the `<html>` element (e.g. `<html data-theme="light">` or `<html data-theme="dark">`).
-  - [ ] **User override persistence** — Store the user's theme preference in `localStorage`. On page load, check `localStorage` first; if no stored preference, fall back to the system `prefers-color-scheme` value. Update `localStorage` whenever the user explicitly toggles the theme.
-  - [ ] **Light and dark as minimum** — Every project must support at least `light` and `dark` themes. Additional DaisyUI themes may be added as needed.
+- [x] **Add Responsive & Theming subsection to Frontend agent** — In `plugins/jinglemansweep/agents/jms-role-frontend.md`, add a new `### Responsive & Theming` subsection inside the Domain Expertise section, after the Tooling Philosophy subsection. Include the following mandatory requirements:
+  - [x] **Responsive design** — All web content must be fully responsive using a mobile-first approach. Use Tailwind's responsive breakpoint prefixes (`sm:`, `md:`, `lg:`, `xl:`) to adapt layouts.
+  - [x] **Dark mode detection** — Detect system colour scheme preference via CSS `prefers-color-scheme` media query.
+  - [x] **DaisyUI theme toggling** — Apply themes using DaisyUI's `data-theme` attribute on the `<html>` element (e.g. `<html data-theme="light">` or `<html data-theme="dark">`).
+  - [x] **User override persistence** — Store the user's theme preference in `localStorage`. On page load, check `localStorage` first; if no stored preference, fall back to the system `prefers-color-scheme` value. Update `localStorage` whenever the user explicitly toggles the theme.
+  - [x] **Light and dark as minimum** — Every project must support at least `light` and `dark` themes. Additional DaisyUI themes may be added as needed.

@@ -1,0 +1,11 @@
+{
+  "name": "jinglemansweep's Claude Skills",
+  "description": "Infrastructure, homelab, and mesh networking skills",
+  "plugins": [
+    {
+      "name": "plan-quick",
+      "description": "Quick and simple Plan, Research, Taskify and Execute skills",
+      "path": "plugins/plan-quick"
+    }
+  ]
+}

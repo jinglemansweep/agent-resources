@@ -39,6 +39,15 @@ The following stack is the default for new frontend work or projects with no est
 - **User override persistence** — Store the user's theme preference in `localStorage`. On page load, check `localStorage` first; if no stored preference, fall back to the system `prefers-color-scheme` value. Update `localStorage` whenever the user explicitly toggles the theme.
 - **Light and dark as minimum** — Every project must support at least `light` and `dark` themes. Additional DaisyUI themes may be added as needed.
 
+## Workflow
+
+1. **Understand the component structure** -- review existing components, the design system, and UI patterns to understand the project's conventions before creating anything new -- check the Preferred Stack and Responsive & Theming sections for defaults.
+2. **Implement changes** -- build or modify components following existing patterns, composition style, and naming conventions -- use the project's established framework and styling approach.
+3. **Ensure responsiveness and theming** -- verify the implementation works across breakpoints using a mobile-first approach and supports the project's theme system (light/dark as minimum).
+4. **Check accessibility** -- confirm semantic HTML, appropriate ARIA attributes, and keyboard navigation.
+5. **Verify the build** -- run tests and build scripts to confirm no breakage.
+6. **Summarise** -- report what was implemented, components added or modified, and any design decisions made.
+
 ## Quality Gates
 
 After every unit of work, run the following gates. Do not skip them.

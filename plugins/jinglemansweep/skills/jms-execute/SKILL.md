@@ -10,16 +10,17 @@ Implement tasks from a task list, grouped by section, with quality gates and com
 
 ## Usage
 
-```
+```text
 /jms-execute <plan-dir>
 ```
 
 **Argument:**
+
 - `<plan-dir>` — Path to the plan directory (e.g. `.plans/20260115/01-initial-implementation`). This directory must contain `tasks.md`.
 
 **Directory convention:**
 
-```
+```text
 <plan-dir>/
 ├── prompt.md       ← original requirements (not read by this skill)
 ├── research.md     ← research findings (not read by this skill)
@@ -76,7 +77,7 @@ Spawn the detected role agent using the `Task` tool with `subagent_type` set to 
 
 Example prompt structure:
 
-```
+```text
 You are acting as the jms-role-python agent. Follow the instructions in your agent definition.
 
 tasks.md path: <plan-dir>/tasks.md
@@ -97,6 +98,7 @@ Implement each task in order and mark it done in tasks.md.
 Re-read `tasks.md` after the sub-agent returns. Check that all tasks in the current group are now marked done (`- [x]`).
 
 If any tasks in the current group remain unchecked:
+
 - Report which tasks were not completed
 - Stop and ask the user how to proceed (retry, skip, or fix manually)
 - Do NOT continue to quality gates with incomplete tasks
@@ -113,6 +115,7 @@ After all tasks in the group are verified complete, run **all** applicable quali
 Detect which tools are available by checking project config files (`package.json`, `pyproject.toml`, `Makefile`, `.github/workflows/`, etc.) and use whatever is configured.
 
 **ALL errors and warnings must be resolved before proceeding.** If a quality gate fails:
+
 1. Fix the issue.
 2. Re-run **all** quality gates from the beginning (not just the one that failed).
 3. Repeat until every gate passes cleanly.
@@ -121,7 +124,7 @@ Detect which tools are available by checking project config files (`package.json
 
 Create a single git commit (do NOT push) with all changes from the group. The commit message should follow the format:
 
-```
+```text
 <type>: <concise description of what was implemented>
 
 Group: <group heading from tasks.md>
@@ -133,6 +136,7 @@ Where `<type>` is one of: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `c
 ### Step 8: Stop
 
 **STOP.** Report to the user:
+
 - Which group was completed
 - Which role agent was used (and whether fallback was needed)
 - Summary of tasks implemented
@@ -171,7 +175,7 @@ Use the `gh` CLI to create a pull request. Derive the title and description from
 - **Title:** Use the plan directory name, converted from kebab-case to a readable title (e.g. `03-api-error-handling` → `API error handling`). Strip the numeric prefix.
 - **Body:** Build a summary using this format:
 
-```
+```bash
 gh pr create --title "<title>" --body "$(cat <<'EOF'
 ## Summary
 

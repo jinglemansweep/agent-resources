@@ -10,16 +10,17 @@ Review and resolve issues in a plan directory. Reads all plan artifacts, present
 
 ## Usage
 
-```
+```text
 /jms-review <plan-dir>
 ```
 
 **Argument:**
+
 - `<plan-dir>` — Path to the plan directory (e.g. `.plans/20260115/01-initial-implementation`). This directory must already contain `issues.md` and at least `plan.md`.
 
 **Directory convention:**
 
-```
+```text
 <plan-dir>/
 ├── prompt.md       ← original requirements (read for context)
 ├── research.md     ← research findings (read + updated)
@@ -80,7 +81,8 @@ For each issue:
 After the user responds to each issue:
 
 1. **Update `issues.md`** — mark the resolved item with the `[RESOLVED]` prefix and append the decision:
-   ```
+
+   ```text
    - [RESOLVED] Original issue text → **Decision:** What was decided. Rationale if non-obvious.
    ```
 

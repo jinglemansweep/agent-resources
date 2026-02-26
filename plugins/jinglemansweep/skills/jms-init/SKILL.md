@@ -10,7 +10,7 @@ Initialize the plans directory structure for a project.
 
 ## Usage
 
-```
+```text
 /jms-init
 ```
 

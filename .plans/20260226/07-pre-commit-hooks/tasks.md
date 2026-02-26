@@ -17,7 +17,7 @@
 
 ## Validation
 
-- [ ] **Run pre-commit against all files** — Execute `pre-commit run --all-files` from the repository root. Review the output for each hook. The `trailing-whitespace` and `end-of-file-fixer` hooks may auto-fix existing files on first run — this is expected. If markdownlint or shellcheck report errors, investigate whether they are legitimate issues or require config adjustments. Stage and include any auto-fixes.
+- [x] **Run pre-commit against all files** — Execute `pre-commit run --all-files` from the repository root. Review the output for each hook. The `trailing-whitespace` and `end-of-file-fixer` hooks may auto-fix existing files on first run — this is expected. If markdownlint or shellcheck report errors, investigate whether they are legitimate issues or require config adjustments. Stage and include any auto-fixes.
 
 ## Documentation
 

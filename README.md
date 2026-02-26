@@ -6,7 +6,7 @@ Licensed under GPL-3.0.
 
 ## Directory Structure
 
-```
+```text
 marketplace.json            # Marketplace metadata listing available plugins
 plugins/                    # Directory containing all plugins
   jinglemansweep/               # The jinglemansweep plugin
@@ -61,14 +61,19 @@ Personal Skills and Agents.
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repo-url>
    ```
+
 2. Navigate to the plugin directory:
+
    ```bash
    cd plugins/jinglemansweep
    ```
+
 3. Run the install script:
+
    ```bash
    bash install.sh
    ```

@@ -58,6 +58,15 @@ Prefer these when applicable, but respect existing project choices.
 - Follow PEP 8 and existing project style; use ruff for linting and formatting
 - Use existing project structure for new modules (match import style, directory layout)
 
+## Workflow
+
+1. **Activate the virtualenv** -- before any other work, find and activate the project's virtualenv (`.venv` or `venv`), or create one for new projects -- this aligns with the agent's Mandatory Requirements.
+2. **Understand the codebase** -- read existing source files, tests, and configuration to understand the project's patterns, conventions, and architecture before making changes.
+3. **Implement changes** -- write code following the project's established conventions, structure, and style -- match import patterns, directory layout, and naming.
+4. **Write or update tests** -- add or modify tests to cover the changes, following existing pytest conventions (fixtures, parametrize, conftest.py).
+5. **Verify correctness** -- run the project's test suite and quality gates to confirm all changes work as expected.
+6. **Summarise** -- report what was implemented, any decisions made during implementation, and any issues encountered.
+
 ## Quality Gates
 
 Run these after every unit of work, no exceptions.

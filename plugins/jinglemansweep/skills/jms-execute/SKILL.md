@@ -40,7 +40,7 @@ Read `<plan-dir>/tasks.md`. If missing, stop and tell the user to run `jms-taski
 
 ### Step 2: Find the Next Incomplete Group
 
-Scan `tasks.md` for the first group (heading section) that contains at least one unchecked task (`- [ ]`). This is the current group. If all tasks across all groups are checked (`- [x]`), report that all tasks are complete and stop.
+Scan `tasks.md` for the first group (heading section) that contains at least one unchecked task (`- [ ]`). This is the current group. If all tasks across all groups are checked (`- [x]`), report that all tasks are complete and proceed to **Step 9** (Push & PR).
 
 ### Step 3: Detect Role
 
@@ -140,11 +140,56 @@ Where `<type>` is one of: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `c
 - The git commit that was created
 - How many groups remain
 
-Then prompt the user to clear context before continuing:
+**If groups remain**, prompt the user to clear context before continuing:
 
 > Context should be cleared before the next group. Run `/clear` then re-invoke `/jms-execute <plan-dir>` to continue.
 
 **Do NOT proceed to the next group.** Each group runs in a fresh context to avoid accumulated context degradation.
+
+**If no groups remain** (this was the last group), proceed to **Step 9** (Push & PR).
+
+### Step 9: Push & PR (All Tasks Complete)
+
+When all tasks across all groups are complete, ask the user whether they would like to push the commits and create a pull request.
+
+1. **Ask the user:** "All tasks are complete. Would you like to push commits and create a pull request?"
+2. **If the user declines**, stop and report completion.
+3. **If the user accepts**, proceed:
+
+#### 9a: Push
+
+Push the current branch to the remote:
+
+```bash
+git push -u origin HEAD
+```
+
+#### 9b: Create Pull Request
+
+Use the `gh` CLI to create a pull request. Derive the title and description from the plan directory:
+
+- **Title:** Use the plan directory name, converted from kebab-case to a readable title (e.g. `03-api-error-handling` → `API error handling`). Strip the numeric prefix.
+- **Body:** Build a summary using this format:
+
+```
+gh pr create --title "<title>" --body "$(cat <<'EOF'
+## Summary
+
+<Brief description of what was implemented, derived from the group headings and tasks in tasks.md>
+
+## Changes
+
+<Bulleted list of completed groups from tasks.md>
+
+## Plan
+
+Plan directory: `<plan-dir>`
+
+EOF
+)"
+```
+
+Report the PR URL to the user when done.
 
 ## Guidelines
 

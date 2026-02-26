@@ -1,6 +1,6 @@
 # Project
 
-Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
+Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin, which provides planning/execution workflow skills and role-based specialist agents.
 
 ```
 marketplace.json   — Marketplace metadata listing available plugins
@@ -28,3 +28,4 @@ See `README.md` for the complete directory structure and plugin documentation.
 - Keep skills self-contained — one `SKILL.md` per skill directory, no auxiliary files unless necessary.
 - Maintain backward compatibility with the `install.sh` script.
 - Keep instructions general rather than listing specific file inventories to avoid staleness.
+- Update `README.md` when skills or agents are added, removed, or renamed.

@@ -57,8 +57,8 @@
 
 ### Project Description
 
-- [ ] **Mention role-based agents in CLAUDE.md project description** — In `CLAUDE.md`, update the `# Project` section description to briefly note that the plugin includes both workflow agents (planning/execution) and role-based specialist agents, without listing every agent file. For example, change `Personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin.` to `Personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin, which provides planning/execution workflow skills and role-based specialist agents.`
+- [x] **Mention role-based agents in CLAUDE.md project description** — In `CLAUDE.md`, update the `# Project` section description to briefly note that the plugin includes both workflow agents (planning/execution) and role-based specialist agents, without listing every agent file. For example, change `Personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin.` to `Personal Claude Code agent and skill toolkit. Currently hosts the 'jinglemansweep' plugin, which provides planning/execution workflow skills and role-based specialist agents.`
 
 ### New Convention
 
-- [ ] **Add README update convention to CLAUDE.md** — In the `# Rules` section of `CLAUDE.md`, add a new bullet: `- Update 'README.md' when skills or agents are added, removed, or renamed.` This addresses the resolved future consideration from `issues.md` about documentation drift.
+- [x] **Add README update convention to CLAUDE.md** — In the `# Rules` section of `CLAUDE.md`, add a new bullet: `- Update 'README.md' when skills or agents are added, removed, or renamed.` This addresses the resolved future consideration from `issues.md` about documentation drift.

@@ -1,6 +1,6 @@
 # Agentic Dev Resources
 
-![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
+![pre-commit](https://github.com/jinglemansweep/agent-resources/actions/workflows/pre-commit.yml/badge.svg) ![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 
 A personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
 
@@ -9,12 +9,20 @@ Licensed under GPL-3.0.
 ## Directory Structure
 
 ```text
+.github/
+  workflows/
+    pre-commit.yml          # CI workflow — runs pre-commit on push/PR to main
+.markdownlint.yaml          # Markdownlint rule overrides
+.pre-commit-config.yaml     # Pre-commit hook configuration
+CLAUDE.md                   # Claude Code agent instructions and project conventions
 marketplace.json            # Marketplace metadata listing available plugins
 plugins/                    # Directory containing all plugins
-  jinglemansweep/               # The jinglemansweep plugin
+  jinglemansweep/           # The jinglemansweep plugin
+    .claude/
+      settings.local.json   # Plugin-specific Claude permissions
     plugin.json             # Plugin metadata (name, version, skills, agents)
     install.sh              # Installation script
-    skills/                 # Skill definitions
+    skills/                 # Skill definitions (each contains a SKILL.md)
       jms-init/
       jms-phase-new/
       jms-plan/

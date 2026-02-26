@@ -10,16 +10,17 @@ Generate a detailed, actionable task list from an existing plan. This is the sec
 
 ## Usage
 
-```
+```text
 /jms-taskify <plan-dir>
 ```
 
 **Argument:**
+
 - `<plan-dir>` — Path to the plan directory (e.g. `.plans/20260115/01-initial-implementation`). This directory must already contain `plan.md` and should contain `research.md` and `issues.md`.
 
 **Directory convention:**
 
-```
+```text
 <plan-dir>/
 ├── prompt.md       ← original requirements
 ├── research.md     ← research findings (input)
@@ -33,6 +34,7 @@ Generate a detailed, actionable task list from an existing plan. This is the sec
 ### Step 1: Read Inputs
 
 Read the following files from `<plan-dir>/`:
+
 1. `plan.md` — **required**. If missing, stop and tell the user to run `jms-plan` first.
 2. `research.md` — read if present, skip if not.
 3. `issues.md` — read if present, skip if not.
@@ -41,6 +43,7 @@ Read the following files from `<plan-dir>/`:
 ### Step 2: Analyze
 
 Study all inputs and identify:
+
 - Every component, file, and system described in the plan
 - The dependency order between components (what must be built first)
 - Research findings that affect implementation (version constraints, API details, compatibility notes)
@@ -80,6 +83,7 @@ Write the task list to `<plan-dir>/tasks.md`.
 ### Step 4: Report
 
 Report a brief summary to the user confirming what was written:
+
 - Total number of groups
 - Total number of tasks (including subtasks)
 - Any issues from `issues.md` that were incorporated as tasks
@@ -89,6 +93,7 @@ Report a brief summary to the user confirming what was written:
 ### Task Detail
 
 Each task must contain enough information for an implementing agent to execute it **without reading any other file**. This means:
+
 - **Specify file paths** — not "create the config file" but "create `src/config/schema.py`"
 - **Specify content** — not "add the mapping" but "add a field `name` of type `string` with validation for non-empty values"
 - **Specify behaviour** — not "handle errors" but "if the input is invalid, raise a `ValueError` with a message describing which field failed validation"

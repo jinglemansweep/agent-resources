@@ -10,11 +10,12 @@ Create a new planning phase directory with a datestamped path and sequential num
 
 ## Usage
 
-```
+```text
 /jms-phase-new <description>
 ```
 
 **Argument:**
+
 - `<description>` — A concise description of this planning phase (e.g. "auth-refactor", "api-endpoints", "bug-fixes"). Keep it to 2-3 essential words — omit articles, prepositions, and filler words.
 
 ## Instructions
@@ -28,6 +29,7 @@ Ensure the `.plans` directory exists in the repository root. If not, stop and te
 Check the current git branch. If on `main` or `master`, suggest creating a new feature branch before proceeding. Derive the suggested branch name from the phase description slug using the format `plan/<slug>` (e.g. `plan/auth-implementation`).
 
 Use `AskUserQuestion` to ask the user whether they want to:
+
 1. **Create the suggested branch** (recommended) — create and switch to the new branch before continuing.
 2. **Stay on the current branch** — skip branch creation and continue on main/master.
 
@@ -44,6 +46,7 @@ Create the date directory if it does not already exist.
 List existing subdirectories in the date directory. Each subdirectory is expected to be prefixed with a two-digit number (e.g. `01-initial-implementation`, `02-fixes`).
 
 Calculate the next sequential number:
+
 - If no subdirectories exist, the next number is `01`.
 - If subdirectories exist, find the highest existing number prefix and add 1 (e.g. if `02-fixes` exists, next is `03`).
 - Format as two digits with leading zero (e.g. `01`, `02`, `03`).
@@ -51,6 +54,7 @@ Calculate the next sequential number:
 ### Step 5: Create Phase Directory
 
 Convert the description to a concise, filename-friendly slug:
+
 - Remove stop words (articles, prepositions, conjunctions: a, an, the, of, for, to, in, on, at, by, with, and, or, but, is, it, this, that, from, into, etc.)
 - Convert to lowercase
 - Replace spaces and underscores with hyphens
@@ -62,6 +66,7 @@ Convert the description to a concise, filename-friendly slug:
 Create the directory: `.plans/YYYYMMDD/NN-<slug>/`
 
 **Examples:**
+
 - "testing the plan workflow" → `01-plan-workflow-testing`
 - "initial implementation of auth" → `01-auth-implementation`
 - "add user registration endpoints" → `01-registration-endpoints`

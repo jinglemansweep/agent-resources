@@ -1,0 +1,20 @@
+# Markdownlint configuration
+# https://github.com/DavidAnson/markdownlint
+
+# MD013 - Line length: disabled because existing files have long prose lines
+MD013: false
+
+# MD024 - No duplicate heading: disabled because skill files reuse heading
+# names like "Step 1", "Step 2"
+MD024: false
+
+# MD033 - No inline HTML: disabled because template files use HTML comments
+MD033: false
+
+# MD041 - First line heading: disabled because SKILL.md files start with
+# YAML front matter
+MD041: false
+
+# Exclude the .plans/ directory from linting
+ignores:
+  - ".plans/**"

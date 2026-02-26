@@ -2,7 +2,7 @@
 
 Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin, which provides planning/execution workflow skills and role-based specialist agents.
 
-```
+```text
 marketplace.json   — Marketplace metadata listing available plugins
 plugins/           — All plugins, each in its own subdirectory
 LICENSE            — GPL-3.0 license
@@ -11,7 +11,7 @@ README.md          — Full directory tree and detailed documentation
 
 See `README.md` for the complete directory structure and plugin documentation.
 
-# Conventions
+## Conventions
 
 - Plugins live under `plugins/<plugin-name>/` and contain `plugin.json`, `install.sh`, `skills/`, and `agents/` directories.
 - Each skill is a directory under `skills/` containing a single `SKILL.md` file.
@@ -20,7 +20,7 @@ See `README.md` for the complete directory structure and plugin documentation.
 - Metadata files (`marketplace.json`, `plugin.json`) are JSON.
 - All documentation and skill/agent definitions use Markdown.
 
-# Rules
+## Rules
 
 - Respect the GPL-3.0 license; do not modify `LICENSE`.
 - Follow the existing plugin directory structure when adding or modifying plugins.

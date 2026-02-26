@@ -46,6 +46,11 @@ Scan the prompt for any external references — URLs, GitHub repos, library/tool
    - Installation/integration requirements
    - Licence compatibility
 2. **Record findings** in `<plan-dir>/research.md`.
+3. **Perform web and GitHub issue searches** (e.g. `<component> + <other component> issues`) to surface known real-world integration problems. Record findings under an **Integration Verification** field for each reference.
+
+After completing per-reference research, analyse cross-component compatibility. Identify how the researched components interact with each other, check for version conflicts or overlapping responsibilities, and note any known incompatibilities. Record findings in a **Compatibility Matrix** section in `research.md`.
+
+After the Compatibility Matrix, compile a licence summary table listing each external dependency's licence type and a brief compatibility note. Record this in a **Licence Summary** section at the end of `research.md`.
 
 Structure `research.md` as follows:
 
@@ -61,8 +66,22 @@ Structure `research.md` as follows:
 - **Compatibility:** <assessment against project stack>
 - **Key Findings:** <bullet points of relevant details>
 - **Concerns:** <any issues, limitations, or risks discovered>
+- **Integration Verification:** <results of web/GitHub issue searches for known integration problems>
 
 ## ...
+
+## Compatibility Matrix
+<!-- Analyse how the components above interact with each other.
+     Note version conflicts, overlapping responsibilities,
+     and known incompatibilities. -->
+| Component A | Component B | Status | Notes |
+|-------------|-------------|--------|-------|
+| ... | ... | Compatible / Conflict / Unknown | ... |
+
+## Licence Summary
+| Dependency | Licence | Compatibility Notes |
+|------------|---------|---------------------|
+| ... | ... | ... |
 ```
 
 If the prompt contains no external references, still create `research.md` with a note that no external references were found.

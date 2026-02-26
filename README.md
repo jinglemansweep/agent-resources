@@ -21,7 +21,6 @@ plugins/                    # Directory containing all plugins
       jms-execute/
     agents/                 # Agent definitions
       jms-planner.md
-      jms-executor.md
       jms-role-general.md
       jms-role-python.md
       jms-role-nodejs.md
@@ -52,7 +51,6 @@ Personal Skills and Agents.
 **Agents:**
 
 - `jms-planner` — Guides through the full planning workflow (init, phase selection, plan creation, issue review, and task list generation)
-- `jms-executor` — Confirms a plan phase directory and executes its task list group by group
 - `jms-role-general` — General-purpose implementation specialist for mixed or unclassified tasks
 - `jms-role-python` — Python backend implementation specialist
 - `jms-role-nodejs` — JavaScript/TypeScript/Node implementation specialist

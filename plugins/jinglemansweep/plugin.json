@@ -12,7 +12,6 @@
   ],
   "agents": [
     "jms-planner",
-    "jms-executor",
     "jms-role-general",
     "jms-role-python",
     "jms-role-nodejs",

@@ -21,7 +21,7 @@ tree:
     jinglemansweep/:
       plugin.json: "plugin metadata: skills + agents lists"
       install.sh: "copies skills + agents to ~/.claude/"
-      agents/: "role-based agent definitions (jms-*)"
+      agents/: "planner + role-based agent definitions (jms-*)"
       skills/:
         jms-init/: "skill: init .plans directory"
         jms-phase-new/: "skill: create new plan phase"

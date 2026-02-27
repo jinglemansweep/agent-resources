@@ -1,11 +1,11 @@
-<!-- tags: agentmap, codemap, orientation, generation -->
-<!-- category: codebase-tools -->
-
 ---
 name: agentmap-generate
 description: Generate or update an .agentmap.yaml codebase orientation map
 allowed-tools: Read, Write, Bash, Glob, Grep
 ---
+
+<!-- tags: agentmap, codemap, orientation, generation -->
+<!-- category: codebase-tools -->
 
 # agentmap-generate
 

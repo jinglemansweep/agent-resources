@@ -1,0 +1,64 @@
+# Agentmap — taskflow
+# A FastAPI web app with CLI, REST API, Celery workers, and PostgreSQL
+
+meta:
+  project: "taskflow"
+  version: 1
+  updated: "2026-02-27"
+  stack:
+    - python
+    - fastapi
+    - sqlalchemy
+    - celery
+    - postgres
+
+tasks:
+  install: "pip install -e '.[dev]'"
+  # build omitted — no build step for this project
+  test: "pytest tests/ -x --tb=short"
+  run: "uvicorn src.main:app --reload"
+  lint: "ruff check src/ && mypy src/"
+
+tree: |
+  src/
+    main.py                # FastAPI app factory [entry-point]
+    config.py              # Pydantic-settings env loader [config]
+    cli.py                 # Typer CLI, management commands
+    api/
+      routes.py            # REST endpoint definitions
+      deps.py              # Dependency injection (DB session, auth)
+      schemas.py           # Pydantic request/response models
+    models/
+      base.py              # Declarative base, common mixins
+      user.py              # User + role models
+      task.py              # Task + assignment models
+    services/
+      task_service.py      # Task CRUD orchestration
+      notification.py      # Email and webhook dispatch
+    workers/
+      celery_app.py        # Celery app instance [entry-point]
+      tasks.py             # Async job definitions
+  tests/
+    conftest.py            # Shared fixtures, test DB setup
+  migrations/              # Alembic migration scripts
+  docker-compose.yaml      # Local dev stack (app + postgres + redis)
+
+key_symbols:
+  - src/main.py::create_app — app factory, lifespan hooks [entry-point]
+  - src/api/routes.py::@require_auth — JWT bearer auth decorator
+  - src/api/deps.py::.get_db — yields SQLAlchemy session per request
+  - src/models/base.py::TimestampMixin — created_at/updated_at columns
+  - src/services/task_service.py::TaskService — CRUD + assignment logic
+  - src/workers/celery_app.py::celery — Celery instance [entry-point]
+  - src/config.py::Settings — env-based config via pydantic-settings [config]
+  - src/cli.py::app — Typer CLI group, invoke via `python -m src.cli`
+
+conventions:
+  - routes return Pydantic models: never raw dicts or SQLAlchemy objects
+  - background tasks use Celery: no in-process threads or asyncio.create_task
+  - env config via pydantic-settings: no manual os.environ reads
+  - alembic for all DDL: no raw SQL schema changes
+
+# NOTE: sub_maps is experimental — less battle-tested than core sections
+sub_maps:
+  - path: workers/.agentmap.yaml

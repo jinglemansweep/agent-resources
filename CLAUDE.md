@@ -1,6 +1,6 @@
 # Project
 
-> **Agentmap:** On conversation start, run `/agentmap-read` if `.agentmap.yaml` exists in the project root.
+AGENT INSTRUCTION: ALWAYS run `/agentmap-read` if skill and `.agentmap.yaml` exists in the project root to prime context
 
 Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` and `agentmap` plugins.
 

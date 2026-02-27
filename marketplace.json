@@ -6,6 +6,11 @@
       "name": "jinglemansweep",
       "description": "Personal Skills and Agents",
       "path": "plugins/jinglemansweep"
+    },
+    {
+      "name": "agentmap",
+      "description": "AI-powered codebase orientation maps",
+      "path": "plugins/agentmap"
     }
   ]
 }

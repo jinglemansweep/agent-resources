@@ -1,6 +1,6 @@
 # Project
 
-Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin, which provides planning/execution workflow skills and role-based specialist agents.
+Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` and `agentmap` plugins.
 
 ```text
 marketplace.json   — Marketplace metadata listing available plugins

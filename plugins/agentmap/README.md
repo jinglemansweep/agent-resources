@@ -1,6 +1,6 @@
 # agentmap
 
-An agentmap is a lightweight YAML file (`.agentmap.yaml`) that acts as a codebase routing table for AI agents. It tells agents where things are -- entry points, config, key abstractions, common commands -- so they can orient themselves without reading every file. This plugin provides two Claude Code skills: one to teach agents how to consume existing maps, and one to generate or update maps on demand.
+An agentmap is a lightweight YAML file (`.agentmap.yaml`) that acts as a codebase routing table for AI agents. It tells agents where things are -- entry points, config, key abstractions, common commands -- so they can orient themselves without reading every file. This plugin provides three Claude Code skills: one to check for and guide initial setup, one to teach agents how to consume existing maps, and one to generate or update maps on demand.
 
 ## Installation
 
@@ -18,8 +18,9 @@ CLAUDE_DIR=/path/to/custom/.claude bash install.sh
 
 ## Usage
 
-The plugin provides two skills:
+The plugin provides three skills:
 
+- **agentmap-init** -- Check for `.agentmap.yaml` and guide initial setup if missing. Run via `/agentmap-init`.
 - **agentmap-read** -- Automatically loaded context that teaches agents how to consume `.agentmap.yaml` files. Not invoked directly; agents pick it up as background knowledge.
 - **agentmap-generate** -- Invoked on demand via `/agentmap-generate` to create a new `.agentmap.yaml` or update an existing one. Walks the agent through reconnaissance, schema population, validation, and saving.
 

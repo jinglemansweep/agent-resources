@@ -2,7 +2,7 @@
 
 ![pre-commit](https://github.com/jinglemansweep/agent-resources/actions/workflows/pre-commit.yml/badge.svg) ![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 
-A personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` plugin.
+A personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` and `agentmap` plugins.
 
 Licensed under GPL-3.0.
 
@@ -37,6 +37,14 @@ plugins/                    # Directory containing all plugins
       jms-role-frontend.md
       jms-role-devops.md
       jms-role-docs.md
+  agentmap/                 # The agentmap plugin
+    plugin.json             # Plugin metadata (name, version, skills)
+    install.sh              # Installation script
+    README.md               # Plugin documentation
+    example.agentmap.yaml   # Reference agentmap demonstrating all schema sections
+    skills/                 # Skill definitions (each contains a SKILL.md)
+      agentmap-read/
+      agentmap-generate/
 LICENSE                     # GPL-3.0 license
 README.md                   # This file
 ```
@@ -67,6 +75,17 @@ Personal Skills and Agents.
 - `jms-role-frontend` — Frontend/UI implementation specialist
 - `jms-role-devops` — Infrastructure and CI/CD implementation specialist
 - `jms-role-docs` — Documentation implementation specialist
+
+### agentmap
+
+AI-powered codebase orientation maps.
+
+**Version:** 0.1.0
+
+**Skills:**
+
+- `agentmap-read` — Teaches agents how to consume `.agentmap.yaml` codebase orientation maps
+- `agentmap-generate` — Generate or update an `.agentmap.yaml` codebase orientation map
 
 ## Installation
 

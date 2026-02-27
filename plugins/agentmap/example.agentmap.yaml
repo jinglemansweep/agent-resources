@@ -19,29 +19,29 @@ tasks:
   run: "uvicorn src.main:app --reload"
   lint: "ruff check src/ && mypy src/"
 
-tree: |
-  src/
-    main.py                # FastAPI app factory [entry-point]
-    config.py              # Pydantic-settings env loader [config]
-    cli.py                 # Typer CLI, management commands
-    api/
-      routes.py            # REST endpoint definitions
-      deps.py              # Dependency injection (DB session, auth)
-      schemas.py           # Pydantic request/response models
-    models/
-      base.py              # Declarative base, common mixins
-      user.py              # User + role models
-      task.py              # Task + assignment models
-    services/
-      task_service.py      # Task CRUD orchestration
-      notification.py      # Email and webhook dispatch
-    workers/
-      celery_app.py        # Celery app instance [entry-point]
-      tasks.py             # Async job definitions
-  tests/
-    conftest.py            # Shared fixtures, test DB setup
-  migrations/              # Alembic migration scripts
-  docker-compose.yaml      # Local dev stack (app + postgres + redis)
+tree:
+  src/:
+    main.py: "FastAPI app factory [entry-point]"
+    config.py: "pydantic-settings env loader [config]"
+    cli.py: "Typer CLI, management commands"
+    api/:
+      routes.py: "REST endpoint definitions"
+      deps.py: "dependency injection (DB session, auth)"
+      schemas.py: "Pydantic request/response models"
+    models/:
+      base.py: "declarative base, common mixins"
+      user.py: "user + role models"
+      task.py: "task + assignment models"
+    services/:
+      task_service.py: "task CRUD orchestration"
+      notification.py: "email and webhook dispatch"
+    workers/:
+      celery_app.py: "Celery app instance [entry-point]"
+      tasks.py: "async job definitions"
+  tests/:
+    conftest.py: "shared fixtures, test DB setup"
+  migrations/: "Alembic migration scripts"
+  docker-compose.yaml: "local dev stack (app + postgres + redis)"
 
 key_symbols:
   - src/main.py::create_app — app factory, lifespan hooks [entry-point]

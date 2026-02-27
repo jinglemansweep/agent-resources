@@ -87,21 +87,23 @@ tasks:
   lint: "ruff check src/"
 
 # ── tree (required) ──────────────────────────────────────────────
-# Annotated directory structure. Use indentation for nesting.
-# Terse descriptions after # comments — sentence fragments, no articles.
-tree: |
-  src/
-    main.py            # FastAPI app factory, entry point
-    config.py          # Settings via pydantic-settings
-    api/
-      routes.py        # Route definitions
-      deps.py          # Dependency injection helpers
-    models/
-      user.py          # SQLAlchemy user model
-    workers/
-      tasks.py         # Celery task definitions
-  tests/
-  migrations/          # Alembic migration scripts
+# Annotated directory structure as nested YAML mappings.
+# Directories are keys containing child mappings.
+# Files are keys with a terse description string (or null if the name is self-explanatory).
+# Sentence fragments, no articles.
+tree:
+  src/:
+    main.py: "FastAPI app factory, entry point"
+    config.py: "settings via pydantic-settings"
+    api/:
+      routes.py: "route definitions"
+      deps.py: "dependency injection helpers"
+    models/:
+      user.py: "SQLAlchemy user model"
+    workers/:
+      tasks.py: "Celery task definitions"
+  tests/:
+  migrations/: "Alembic migration scripts"
 
 # ── key_symbols (optional) ───────────────────────────────────────
 # Important code entities an agent should know about.

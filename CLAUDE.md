@@ -1,5 +1,7 @@
 # Project
 
+> **Agentmap:** On conversation start, run `/agentmap-read` if `.agentmap.yaml` exists in the project root.
+
 Personal Claude Code agent and skill toolkit. Currently hosts the `jinglemansweep` and `agentmap` plugins.
 
 ```text

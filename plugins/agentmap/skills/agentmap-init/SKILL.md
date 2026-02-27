@@ -16,8 +16,16 @@ Bootstrap agentmap support for a project.
 When this skill is invoked, immediately:
 
 1. Use Glob to check for `.agentmap.yaml` in the working directory (fall back to the repository root).
-1. If the file **exists**, output `Agentmap already present — no setup needed. Run /agentmap-read to load it or /agentmap-generate to regenerate.` Then continue to **Step 2** (auto-load instruction).
-1. If the file is **not found**, inform the user and proceed through both steps below.
+2. If the file **exists**, output:
+
+```text
+Agentmap already present — no setup needed.
+Run `/agentmap-read` to load it or `/agentmap-generate` to regenerate.
+```
+
+Then continue to **Step 2** (auto-load instruction).
+
+3. If the file is **not found**, inform the user and proceed through both steps below.
 
 ### Step 1 — Generate the agentmap
 

@@ -66,10 +66,10 @@
 
 ## Plugin Registration & Documentation
 
-- [ ] **Add `jms-git-push` to `plugins/jinglemansweep/plugin.json`** — Edit `plugins/jinglemansweep/plugin.json` and add `"jms-git-push"` to the `skills` array. Insert it after `"jms-execute"` (the last current entry) to maintain logical ordering. The resulting array should be: `["jms-init", "jms-phase-new", "jms-plan", "jms-review", "jms-taskify", "jms-execute", "jms-git-push"]`.
+- [x] **Add `jms-git-push` to `plugins/jinglemansweep/plugin.json`** — Edit `plugins/jinglemansweep/plugin.json` and add `"jms-git-push"` to the `skills` array. Insert it after `"jms-execute"` (the last current entry) to maintain logical ordering. The resulting array should be: `["jms-init", "jms-phase-new", "jms-plan", "jms-review", "jms-taskify", "jms-execute", "jms-git-push"]`.
 
-- [ ] **Update `README.md` with `jms-git-push`** — Edit `README.md` in two places:
+- [x] **Update `README.md` with `jms-git-push`** — Edit `README.md` in two places:
   - In the **Directory Structure** section, add `jms-git-push/` under `skills/` in the tree listing, after `jms-execute/`.
   - In the **jinglemansweep Skills** list, add a new bullet: `` `jms-git-push` — Automate branch creation, PR submission, and auto-merge for accidental default-branch commits ``.
 
-- [ ] **Update `.agentmap.yaml` with `jms-git-push`** — Edit `.agentmap.yaml` and add a new entry under `tree.plugins/.jinglemansweep/.skills/`: `jms-git-push/: "skill: automate branch creation, PR, and auto-merge"`. Insert it after the `jms-execute/` entry.
+- [x] **Update `.agentmap.yaml` with `jms-git-push`** — Edit `.agentmap.yaml` and add a new entry under `tree.plugins/.jinglemansweep/.skills/`: `jms-git-push/: "skill: automate branch creation, PR, and auto-merge"`. Insert it after the `jms-execute/` entry.

@@ -29,6 +29,7 @@ tree:
         jms-review/: "skill: review plan issues"
         jms-taskify/: "skill: convert plan to task list"
         jms-execute/: "skill: execute task list"
+        jms-git-push/: "skill: automate branch creation, PR, and auto-merge"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 

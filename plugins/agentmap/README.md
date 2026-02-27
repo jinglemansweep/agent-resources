@@ -25,11 +25,10 @@ The plugin provides two skills:
 
 ## CLAUDE.md Setup
 
-Add these lines to your project's `CLAUDE.md` to integrate agentmap into your workflow:
+Run `/agentmap-init` to automatically insert the auto-load instruction, or manually add this line immediately after the first heading in your project's `CLAUDE.md`:
 
 ```text
-If .agentmap.yaml exists in the repo root, use the agentmap-read skill before starting any task.
-To create or update an agentmap, use the agentmap-generate skill.
+AGENT INSTRUCTION: ALWAYS run `/agentmap-read` if skill and `.agentmap.yaml` exists in the project root to prime context
 ```
 
 ## Example

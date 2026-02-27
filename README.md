@@ -43,6 +43,7 @@ plugins/                    # Directory containing all plugins
     README.md               # Plugin documentation
     example.agentmap.yaml   # Reference agentmap demonstrating all schema sections
     skills/                 # Skill definitions (each contains a SKILL.md)
+      agentmap-init/
       agentmap-read/
       agentmap-generate/
 LICENSE                     # GPL-3.0 license
@@ -84,6 +85,7 @@ AI-powered codebase orientation maps.
 
 **Skills:**
 
+- `agentmap-init` — Check for `.agentmap.yaml` and guide initial setup if missing
 - `agentmap-read` — Teaches agents how to consume `.agentmap.yaml` codebase orientation maps
 - `agentmap-generate` — Generate or update an `.agentmap.yaml` codebase orientation map
 

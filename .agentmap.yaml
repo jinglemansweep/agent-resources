@@ -7,30 +7,30 @@ meta:
     - bash
     - markdown
 
-tree: |
-  marketplace.json          # plugin registry, lists available plugins
-  CLAUDE.md                 # project conventions and rules
-  plugins/
-    agentmap/
-      plugin.json           # plugin metadata: skills list
-      install.sh            # copies skills + docs to ~/.claude/
-      example.agentmap.yaml # reference agentmap for other projects
-      skills/
-        agentmap-generate/  # skill: generate .agentmap.yaml
-        agentmap-read/      # skill: consume .agentmap.yaml
-    jinglemansweep/
-      plugin.json           # plugin metadata: skills + agents lists
-      install.sh            # copies skills + agents to ~/.claude/
-      agents/               # role-based agent definitions (jms-*)
-      skills/
-        jms-init/           # skill: init .plans directory
-        jms-phase-new/      # skill: create new plan phase
-        jms-plan/           # skill: generate plan from prompt
-        jms-review/         # skill: review plan issues
-        jms-taskify/        # skill: convert plan to task list
-        jms-execute/        # skill: execute task list
-  .plans/                   # planning phase artifacts (generated)
-  .github/workflows/        # CI: pre-commit hooks
+tree:
+  marketplace.json: "plugin registry, lists available plugins"
+  CLAUDE.md: "project conventions and rules"
+  plugins/:
+    agentmap/:
+      plugin.json: "plugin metadata: skills list"
+      install.sh: "copies skills + docs to ~/.claude/"
+      example.agentmap.yaml: "reference agentmap for other projects"
+      skills/:
+        agentmap-generate/: "skill: generate .agentmap.yaml"
+        agentmap-read/: "skill: consume .agentmap.yaml"
+    jinglemansweep/:
+      plugin.json: "plugin metadata: skills + agents lists"
+      install.sh: "copies skills + agents to ~/.claude/"
+      agents/: "role-based agent definitions (jms-*)"
+      skills/:
+        jms-init/: "skill: init .plans directory"
+        jms-phase-new/: "skill: create new plan phase"
+        jms-plan/: "skill: generate plan from prompt"
+        jms-review/: "skill: review plan issues"
+        jms-taskify/: "skill: convert plan to task list"
+        jms-execute/: "skill: execute task list"
+  .plans/: "planning phase artifacts (generated)"
+  .github/workflows/: "CI: pre-commit hooks"
 
 conventions:
   - plugins under plugins/<name>/: plugin.json, install.sh, skills/, agents/

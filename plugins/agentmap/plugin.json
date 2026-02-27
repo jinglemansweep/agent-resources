@@ -4,7 +4,8 @@
   "description": "AI-powered codebase orientation maps",
   "skills": [
     "agentmap-read",
-    "agentmap-generate"
+    "agentmap-generate",
+    "agentmap-init"
   ],
   "agents": [],
   "commands": []

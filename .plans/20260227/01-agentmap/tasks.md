@@ -50,14 +50,14 @@
 
 ### Verify All Deliverables
 
-- [ ] **Validate `example.agentmap.yaml` is valid YAML** — Parse the example file using a YAML parser (e.g. `python3 -c "import yaml; yaml.safe_load(open('plugins/agentmap/example.agentmap.yaml'))"` or the pre-commit `check-yaml` hook). Fix any syntax errors found.
+- [x] **Validate `example.agentmap.yaml` is valid YAML** — Parse the example file using a YAML parser (e.g. `python3 -c "import yaml; yaml.safe_load(open('plugins/agentmap/example.agentmap.yaml'))"` or the pre-commit `check-yaml` hook). Fix any syntax errors found.
 
-- [ ] **Validate read skill token budget** — Run `wc -w plugins/agentmap/skills/agentmap-read/SKILL.md` and verify the word count is under 190 words (rough proxy for 250 tokens). If over budget, trim until it fits. The 250-token cap is a hard requirement.
+- [x] **Validate read skill token budget** — Run `wc -w plugins/agentmap/skills/agentmap-read/SKILL.md` and verify the word count is under 190 words (rough proxy for 250 tokens). If over budget, trim until it fits. The 250-token cap is a hard requirement.
 
-- [ ] **Validate language-agnosticism** — Search both SKILL.md files for hardcoded language-specific assumptions that aren't clearly framed as examples. Commands like `grep -i "python\|javascript\|typescript\|rust\|go\|java" plugins/agentmap/skills/*/SKILL.md` — any hits should be in example/detection contexts only, not as assumptions about the target project.
+- [x] **Validate language-agnosticism** — Search both SKILL.md files for hardcoded language-specific assumptions that aren't clearly framed as examples. Commands like `grep -i "python\|javascript\|typescript\|rust\|go\|java" plugins/agentmap/skills/*/SKILL.md` — any hits should be in example/detection contexts only, not as assumptions about the target project.
 
-- [ ] **Validate schema consistency** — Manually compare the schema reference in `agentmap-generate/SKILL.md` against the structure of `example.agentmap.yaml`. Every section and field used in the example must be documented in the schema. Every required field in the schema must appear in the example.
+- [x] **Validate schema consistency** — Manually compare the schema reference in `agentmap-generate/SKILL.md` against the structure of `example.agentmap.yaml`. Every section and field used in the example must be documented in the schema. Every required field in the schema must appear in the example.
 
-- [ ] **Validate CLAUDE.md snippet** — Verify the CLAUDE.md snippet in `plugins/agentmap/README.md` references the correct skill names (`agentmap-read` and `agentmap-generate`). Verify it matches the skill names in `plugin.json`.
+- [x] **Validate CLAUDE.md snippet** — Verify the CLAUDE.md snippet in `plugins/agentmap/README.md` references the correct skill names (`agentmap-read` and `agentmap-generate`). Verify it matches the skill names in `plugin.json`.
 
-- [ ] **Run pre-commit hooks** — Run `pre-commit run --all-files` to verify all new and modified files pass the repository's pre-commit checks (JSON validation, YAML validation, markdown linting, trailing whitespace, end-of-file newlines, shellcheck on `install.sh`). Fix any failures.
+- [x] **Run pre-commit hooks** — Run `pre-commit run --all-files` to verify all new and modified files pass the repository's pre-commit checks (JSON validation, YAML validation, markdown linting, trailing whitespace, end-of-file newlines, shellcheck on `install.sh`). Fix any failures.

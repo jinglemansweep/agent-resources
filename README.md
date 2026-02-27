@@ -29,6 +29,7 @@ plugins/                    # Directory containing all plugins
       jms-review/
       jms-taskify/
       jms-execute/
+      jms-git-push/
     agents/                 # Agent definitions
       jms-planner.md
       jms-role-general.md
@@ -66,6 +67,7 @@ Personal Skills and Agents.
 - `jms-review` — Review and resolve issues in a plan directory through interactive user decisions
 - `jms-taskify` — Generate a detailed, actionable task list from an existing plan
 - `jms-execute` — Implement tasks from a task list with quality gates and git commits per group
+- `jms-git-push` — Automate branch creation, PR submission, and auto-merge for accidental default-branch commits
 
 **Agents:**
 

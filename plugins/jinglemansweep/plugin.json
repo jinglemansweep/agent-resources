@@ -8,7 +8,8 @@
     "jms-plan",
     "jms-review",
     "jms-taskify",
-    "jms-execute"
+    "jms-execute",
+    "jms-git-push"
   ],
   "agents": [
     "jms-planner",

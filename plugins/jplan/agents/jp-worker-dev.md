@@ -14,12 +14,12 @@ Before starting any task, examine the task description, files affected, and acce
 
 | Signal | Domain Skill | Skill Path (if available) |
 |--------|-------------|------------|
-| `.py`, `pyproject.toml`, `pytest`, `django`, `flask`, `fastapi`, `pip`, `poetry`, `uv`, `venv`, `.venv` | Python | `plugins/jplan/skills/jp-persona-python/SKILL.md` |
-| `.js`, `.ts`, `package.json`, `node_modules`, `npm`, `pnpm`, `yarn`, `bun`, `express`, `vitest`, `jest` | Node.js/TypeScript | `plugins/jplan/skills/jp-persona-nodejs/SKILL.md` |
-| `.html`, `.css`, `.scss`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `react`, `tailwind`, `component`, `styled` | Frontend/UI | `plugins/jplan/skills/jp-persona-frontend/SKILL.md` |
-| `Dockerfile`, `docker-compose`, `.github/workflows/`, `terraform`, `ansible`, `Makefile`, `.sh`, `CI/CD`, `pipeline` | DevOps/Infrastructure | `plugins/jplan/skills/jp-persona-devops/SKILL.md` |
-| `.md` (documentation), `README`, `CHANGELOG`, `docs/`, `CONTRIBUTING`, `API docs` | Documentation | `plugins/jplan/skills/jp-persona-docs/SKILL.md` |
-| `SKILL.md`, `skills/`, `agents/`, `skill-creator`, `plugin.json` | Skill Authoring | `plugins/jplan/skills/jp-persona-agent-skills/SKILL.md` |
+| `.py`, `pyproject.toml`, `pytest`, `django`, `flask`, `fastapi`, `pip`, `poetry`, `uv`, `venv`, `.venv` | Python | `plugins/jplan/skills/role-python/SKILL.md` |
+| `.js`, `.ts`, `package.json`, `node_modules`, `npm`, `pnpm`, `yarn`, `bun`, `express`, `vitest`, `jest` | Node.js/TypeScript | `plugins/jplan/skills/role-nodejs/SKILL.md` |
+| `.html`, `.css`, `.scss`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `react`, `tailwind`, `component`, `styled` | Frontend/UI | `plugins/jplan/skills/role-frontend/SKILL.md` |
+| `Dockerfile`, `docker-compose`, `.github/workflows/`, `terraform`, `ansible`, `Makefile`, `.sh`, `CI/CD`, `pipeline` | DevOps/Infrastructure | `plugins/jplan/skills/role-devops/SKILL.md` |
+| `.md` (documentation), `README`, `CHANGELOG`, `docs/`, `CONTRIBUTING`, `API docs` | Documentation | `plugins/jplan/skills/role-docs/SKILL.md` |
+| `SKILL.md`, `skills/`, `agents/`, `skill-creator`, `plugin.json` | Skill Authoring | `plugins/jplan/skills/role-agent-skills/SKILL.md` |
 
 Note: The domain skills listed above are optional dependencies from the `jplan` plugin. If a skill file is not available, proceed with the base behaviour described below.
 

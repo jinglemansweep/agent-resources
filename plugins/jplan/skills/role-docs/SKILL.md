@@ -1,5 +1,5 @@
 ---
-name: jp-persona-docs
+name: role-docs
 description: Documentation conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: documentation, readme, changelog, markdown, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jp-persona-docs
+# role-docs
 
 Documentation writing conventions, quality gates, and domain knowledge. Loaded by the jp-worker-dev agent when handling documentation tasks. This is not a user-invocable skill.
 

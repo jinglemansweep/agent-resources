@@ -1,5 +1,5 @@
 ---
-name: jp-persona-frontend
+name: role-frontend
 description: Frontend/UI conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: frontend, ui, css, html, react, tailwind, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jp-persona-frontend
+# role-frontend
 
 Frontend and UI conventions, quality gates, and domain knowledge. Loaded by the jp-worker-dev agent when handling frontend tasks. This is not a user-invocable skill.
 

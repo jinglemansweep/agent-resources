@@ -29,6 +29,14 @@ rm -rf "${DEST}/skills/jp-plan-task-review"
 rm -rf "${DEST}/skills/jp-plan-task-validate"
 rm -rf "${DEST}/skills/jp-plan-workflow"
 
+# Clean up old jp-persona-* skill directories renamed to role-*
+rm -rf "${DEST}/skills/jp-persona-python"
+rm -rf "${DEST}/skills/jp-persona-nodejs"
+rm -rf "${DEST}/skills/jp-persona-frontend"
+rm -rf "${DEST}/skills/jp-persona-devops"
+rm -rf "${DEST}/skills/jp-persona-docs"
+rm -rf "${DEST}/skills/jp-persona-agent-skills"
+
 # Clean up old agent files renamed in current phase
 rm -f "${DEST}/agents/jp-developer.md"
 

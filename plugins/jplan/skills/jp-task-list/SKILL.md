@@ -90,13 +90,13 @@ For each task, determine the most appropriate `suggested_role` based on the task
 
 | Role | Domain Skill | Use When |
 |------|-------------|----------|
-| `python` | `jp-persona-python` | Python implementation, Python tests, Python tooling |
-| `nodejs` | `jp-persona-nodejs` | Node.js/TypeScript implementation, frontend build tooling |
-| `devops` | `jp-persona-devops` | Docker, CI/CD, infrastructure, deployment, shell scripts |
-| `frontend` | `jp-persona-frontend` | HTML, CSS, React/Vue/Svelte, browser-side JavaScript |
+| `python` | `role-python` | Python implementation, Python tests, Python tooling |
+| `nodejs` | `role-nodejs` | Node.js/TypeScript implementation, frontend build tooling |
+| `devops` | `role-devops` | Docker, CI/CD, infrastructure, deployment, shell scripts |
+| `frontend` | `role-frontend` | HTML, CSS, React/Vue/Svelte, browser-side JavaScript |
 | `general` | (none -- base behaviour) | Tasks that do not fit a specific domain, or span multiple domains |
-| `docs` | `jp-persona-docs` | Documentation, README, changelog, API docs |
-| `skills` | `jp-persona-agent-skills` | Skill authoring, SKILL.md files, plugin definitions |
+| `docs` | `role-docs` | Documentation, README, changelog, API docs |
+| `skills` | `role-agent-skills` | Skill authoring, SKILL.md files, plugin definitions |
 
 If a task spans multiple domains, choose the primary domain. If genuinely ambiguous, use `general`.
 

@@ -1,17 +1,17 @@
 ---
-name: jms-plan-validate
+name: jms-plan-task-validate
 description: Run post-task automated validation checks on created or modified files
 allowed-tools: Bash, Read, Glob, Grep
 ---
 
-# jms-plan-validate
+# jms-plan-task-validate
 
 Run automated validation checks on files created or modified by a task. This is a standalone, user-invocable skill primarily called by the `jms-plan-execute` orchestrator after each task completes. It detects syntax errors, type issues, failing tests, broken imports, and misplaced files -- then reports results without attempting any fixes.
 
 ## Usage
 
 ```text
-/jms-plan-validate <file-paths>
+/jms-plan-task-validate <file-paths>
 ```
 
 **Argument:**
@@ -21,7 +21,7 @@ Run automated validation checks on files created or modified by a task. This is 
 Example:
 
 ```text
-/jms-plan-validate src/auth/handler.py src/auth/models.py tests/test_auth.py
+/jms-plan-task-validate src/auth/handler.py src/auth/models.py tests/test_auth.py
 ```
 
 ## Instructions

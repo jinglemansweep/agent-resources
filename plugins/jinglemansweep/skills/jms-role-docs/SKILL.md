@@ -1,5 +1,5 @@
 ---
-name: jms-skill-docs
+name: jms-role-docs
 description: Documentation conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: documentation, readme, changelog, markdown, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jms-skill-docs
+# jms-role-docs
 
 Documentation writing conventions, quality gates, and domain knowledge. Loaded by the jms-developer agent when handling documentation tasks. This is not a user-invocable skill.
 

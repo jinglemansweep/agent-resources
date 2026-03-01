@@ -28,4 +28,13 @@ rm -f "${DEST}/agents/jms-role-docs.md"
 rm -f "${DEST}/agents/jms-role-skills.md"
 rm -f "${DEST}/agents/jms-role-general.md"
 
+# Clean up old skill directories renamed in current phase
+rm -rf "${DEST}/skills/jms-plan-validate"
+rm -rf "${DEST}/skills/jms-skill-python"
+rm -rf "${DEST}/skills/jms-skill-nodejs"
+rm -rf "${DEST}/skills/jms-skill-frontend"
+rm -rf "${DEST}/skills/jms-skill-devops"
+rm -rf "${DEST}/skills/jms-skill-docs"
+rm -rf "${DEST}/skills/jms-skill-skills"
+
 echo "Cleaned up old skill and agent artefacts"

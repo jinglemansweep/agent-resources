@@ -1,6 +1,7 @@
 ---
 name: jms-planner
 description: Guides the full planning workflow — init, phase selection, PRD generation, PRD review, task breakdown, task review, and hand-off for execution
+model: opus
 ---
 
 # jms-planner

@@ -176,7 +176,7 @@ Files changed:
 
 After the report:
 
-- If fixes were applied, note that `/jms-plan-validate` should be run on the changed files to verify the fixes do not introduce syntax or test failures.
+- If fixes were applied, note that `/jms-plan-task-validate` should be run on the changed files to verify the fixes do not introduce syntax or test failures.
 - If all issues were deferred, note that no code changes were made and the deferred items should be logged as known issues in the project summary.
 
 ## Guidelines

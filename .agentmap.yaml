@@ -33,19 +33,19 @@ tree:
         jms-plan-task-breakdown/: "skill: convert PRD to task list"
         jms-plan-task-review/: "skill: validate task list against PRD"
         jms-plan-execute/: "skill: execute task list with review-fix loop"
-        jms-plan-validate/: "skill: run post-task validation checks"
+        jms-plan-task-validate/: "skill: run post-task validation checks"
         jms-plan-code-review/: "skill: holistic code review"
         jms-plan-fix/: "skill: apply targeted fixes for review issues"
         jms-plan-summary/: "skill: generate final summary report"
         jms-plan-workflow/: "skill: end-to-end pipeline orchestration"
         jms-git/: "skill: structured GitHub operations via gh CLI"
         jms-git-push/: "skill: automate branch creation, PR, and auto-merge"
-        jms-skill-python/: "domain skill: Python conventions and quality gates"
-        jms-skill-nodejs/: "domain skill: Node.js/TypeScript conventions"
-        jms-skill-frontend/: "domain skill: frontend/UI conventions"
-        jms-skill-devops/: "domain skill: infrastructure and CI/CD conventions"
-        jms-skill-docs/: "domain skill: documentation conventions"
-        jms-skill-skills/: "domain skill: skill authoring conventions"
+        jms-role-python/: "domain skill: Python conventions and quality gates"
+        jms-role-nodejs/: "domain skill: Node.js/TypeScript conventions"
+        jms-role-frontend/: "domain skill: frontend/UI conventions"
+        jms-role-devops/: "domain skill: infrastructure and CI/CD conventions"
+        jms-role-docs/: "domain skill: documentation conventions"
+        jms-role-agent-skills/: "domain skill: skill authoring conventions"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 
@@ -54,5 +54,5 @@ conventions:
   - one SKILL.md per skill directory: self-contained definition
   - agents are single markdown files: in agents/ directory
   - jms- prefix for jinglemansweep plugin: agentmap- prefix for agentmap plugin
-  - jms-plan-* prefix for planning pipeline skills: jms-skill-* prefix for domain skills
+  - jms-plan-* prefix for planning pipeline skills: jms-role-* prefix for domain skills
   - install.sh copies to ~/.claude/: CLAUDE_DIR overridable

@@ -33,7 +33,7 @@
 
 ### Create `jms-prd-review`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-prd-review/SKILL.md`** — New skill that critically evaluates the PRD before implementation. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-prd-review/SKILL.md`** — New skill that critically evaluates the PRD before implementation. The skill must:
   - Accept a phase path argument (optional — if omitted, list 5 most recent phases for selection)
   - Read `prd.md` and `prompt.md` from the phase directory
   - Generate `prd-review.md` in the phase directory containing: coverage assessment (does the PRD address all points from the original prompt?), contradiction detection, ambiguity flags, missing edge cases or error scenarios, feasibility concerns, and a verdict

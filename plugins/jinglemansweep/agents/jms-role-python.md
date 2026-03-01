@@ -38,6 +38,64 @@ Prefer these when applicable, but respect existing project choices.
 - **Alembic** — database migrations
 - **PAHO MQTT** — MQTT messaging
 
+## Core Principles
+
+- **Readability first** — prefer clear, obvious code over clever one-liners; optimise for the next reader
+- **Explicit over implicit** — avoid hidden side effects, magic methods that surprise, and implicit state changes
+- **EAFP** — use `try`/`except` rather than pre-condition checks; catch specific exceptions, not `Exception`
+
+## Type Hints
+
+- **Built-in generics** — use `list[str]`, `dict[str, Any]`, `tuple[int, ...]` (Python 3.10+); avoid `typing.List` etc.
+- **Protocol over ABC** — use `typing.Protocol` for structural (duck) typing instead of abstract base classes where possible
+- **TypeVar and aliases** — use `TypeVar` for generic functions; define `TypeAlias` for complex or repeated type expressions
+
+## Error Handling
+
+- **Specific exceptions** — always catch the narrowest exception type; never use bare `except:` or broad `except Exception`
+- **Exception chaining** — use `raise NewError(...) from e` to preserve the original traceback
+- **Custom hierarchies** — define a base `AppError` with specific subclasses (e.g. `ValidationError`, `NotFoundError`)
+
+## Context Managers
+
+- **`with` statements** — always use `with` for resource management: files, connections, locks, temporary state
+- **`@contextmanager`** — use `contextlib.contextmanager` for simple acquire/release patterns
+- **Class-based pattern** — implement `__enter__`/`__exit__` when the manager needs complex state or reuse
+
+## Comprehensions and Generators
+
+- **Generator expressions** — prefer `(x for x in items)` over `[x for x in items]` when the full list is not needed
+- **Complexity threshold** — if a comprehension has multiple conditions or nested loops, extract to a named function or loop
+- **`yield` for lazy iteration** — use generator functions for large or unbounded data to avoid loading everything into memory
+
+## Decorators
+
+- **`functools.wraps`** — always apply `@wraps(fn)` to wrapper functions to preserve name, docstring, and signature
+- **Parameterised decorators** — use a decorator factory (outer function returning the decorator) when arguments are needed
+- **Class-based decorators** — use a class with `__call__` when the decorator needs to track state across invocations
+
+## Concurrency
+
+- **I/O-bound** — use `concurrent.futures.ThreadPoolExecutor` for parallel I/O (network, disk)
+- **CPU-bound** — use `concurrent.futures.ProcessPoolExecutor` for parallel computation
+- **Async I/O** — use `asyncio` with `async`/`await` and `asyncio.gather` for high-concurrency async workloads
+
+## Performance
+
+- **`__slots__`** — define `__slots__` on data-heavy classes to reduce per-instance memory overhead
+- **String joining** — use `"".join(parts)` instead of repeated `+=` concatenation in loops
+- **Return generators** — return generators or iterators instead of materialised lists for large result sets
+
+## Anti-Patterns
+
+Avoid these; use the correction instead.
+
+- **Mutable default arguments** — never use `def f(x=[]):`; default to `None` and create inside the function
+- **`type()` for type checking** — use `isinstance(obj, cls)` instead of `type(obj) is cls`
+- **`== None` / `!= None`** — use `is None` / `is not None`
+- **Wildcard imports** — never use `from module import *`; import names explicitly
+- **Bare `except:`** — always catch a specific exception type
+
 ## Patterns
 
 - `pyproject.toml` as the single project configuration file
@@ -47,6 +105,8 @@ Prefer these when applicable, but respect existing project choices.
 - Separate `cli` module using Click if the project needs a CLI
 - Create mock objects for offline testing
 - Create applicable unit tests for new features with minimum coverage targets
+- **`NamedTuple`** — use `typing.NamedTuple` as an immutable, lightweight alternative to dataclasses when mutability is not needed
+- **`__post_init__`** — use dataclass `__post_init__` for field validation and derived-field computation at construction time
 
 ## Domain Expertise
 

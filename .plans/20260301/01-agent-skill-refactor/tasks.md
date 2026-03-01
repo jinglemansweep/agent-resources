@@ -189,7 +189,7 @@
 
 ### Update `jms-planner`
 
-- [ ] **Update `plugins/jinglemansweep/agents/jms-planner.md`** — Modify the existing planner agent to reflect the new pipeline stages. Requires: all new skills to be created. Changes:
+- [x] **Update `plugins/jinglemansweep/agents/jms-planner.md`** — Modify the existing planner agent to reflect the new pipeline stages. Requires: all new skills to be created. Changes:
   - Update the workflow from: init → phase → plan → hand off for review → taskify
   - To the new workflow: init → phase → plan → PRD review → task breakdown → task review → hand off for execution
   - Reference the new skill names: `/jms-prd-review`, `/jms-task-breakdown`, `/jms-task-review` (replacing `/jms-review` and `/jms-taskify`)

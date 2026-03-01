@@ -1,0 +1,19 @@
+# Fix ledger
+# Phase: .plans/2026/03/01/01-anthropic-skills
+# Maintained by: /jms-fix
+
+rounds:
+  - round: 1
+    review_file: "reviews/round-1.yaml"
+    issues_input: 1
+    issues_fixed: 1
+    issues_deferred: 0
+    issues_remaining: 0
+    regressions_introduced: 0
+    exit_reason: "fixes_applied"
+    fixes:
+      - issue_id: "ISSUE-001"
+        status: "fixed"
+        files_changed:
+          - "plugins/jinglemansweep/plugin.json"
+        description: "Added \"jms-role-skills\" to the agents array in plugin.json after \"jms-role-docs\" so the new agent is registered in the plugin metadata."

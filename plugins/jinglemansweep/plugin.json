@@ -23,7 +23,8 @@
     "jms-role-nodejs",
     "jms-role-frontend",
     "jms-role-devops",
-    "jms-role-docs"
+    "jms-role-docs",
+    "jms-role-skills"
   ],
   "commands": []
 }

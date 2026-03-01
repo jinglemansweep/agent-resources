@@ -24,30 +24,30 @@ plugins/                    # Directory containing all plugins
     install.sh              # Installation script
     skills/                 # Skill definitions (each contains a SKILL.md)
       jms-git/
-      jms-role-python/
-      jms-role-nodejs/
-      jms-role-frontend/
-      jms-role-devops/
-      jms-role-docs/
-      jms-role-agent-skills/
   jplan/                    # The jplan plugin (planning pipeline)
     plugin.json             # Plugin metadata (name, version, skills, agents)
     install.sh              # Installation script
     skills/                 # Skill definitions (each contains a SKILL.md)
-      jp-plan-init/
-      jp-plan-new/
-      jp-plan-prd/
-      jp-plan-prd-review/
-      jp-plan-task-breakdown/
-      jp-plan-task-review/
-      jp-plan-execute/
-      jp-plan-task-validate/
-      jp-plan-code-review/
-      jp-plan-fix/
-      jp-plan-summary/
-      jp-plan-workflow/
+      jp-setup/
+      jp-plan/
+      jp-prd/
+      jp-prd-review/
+      jp-task-list/
+      jp-task-review/
+      jp-execute/
+      jp-task-validate/
+      jp-codereview/
+      jp-codereview-fix/
+      jp-summary/
+      jp-quick/
+      jp-persona-python/
+      jp-persona-nodejs/
+      jp-persona-frontend/
+      jp-persona-devops/
+      jp-persona-docs/
+      jp-persona-agent-skills/
     agents/                 # Agent definitions
-      jp-developer.md
+      jp-worker-dev.md
   agentmap/                 # The agentmap plugin
     plugin.json             # Plugin metadata (name, version, skills)
     install.sh              # Installation script
@@ -71,18 +71,7 @@ Personal Skills.
 
 **Skills:**
 
-Git skills:
-
 - `jms-git` — Structured interface for GitHub operations using the `gh` CLI (pull requests, issues, CI/workflow runs, and API queries)
-
-Domain skills (loaded by the Developer agent based on task signals):
-
-- `jms-role-python` — Python backend conventions and quality gates
-- `jms-role-nodejs` — Node.js/TypeScript conventions and quality gates
-- `jms-role-frontend` — Frontend/UI conventions and quality gates
-- `jms-role-devops` — Infrastructure and CI/CD conventions and quality gates
-- `jms-role-docs` — Documentation conventions and quality gates
-- `jms-role-agent-skills` — Skill authoring conventions and quality gates
 
 ### jplan
 
@@ -90,7 +79,7 @@ Planning Pipeline Skills and Agents.
 
 **Version:** 0.1.0
 
-**Pipeline:** New Phase -> PRD -> PRD Review -> Task Breakdown -> Task Review -> Execute (with Validate, Code Review, Fix, Summary sub-stages)
+**Pipeline:** Plan -> PRD -> PRD Review -> Task List -> Task Review -> Execute (with Validate, Code Review, Fix, Summary sub-stages)
 
 **Phase directory format:** `.plans/YYYY/MM/DD/NN-slug`
 
@@ -98,22 +87,31 @@ Planning Pipeline Skills and Agents.
 
 **Skills:**
 
-- `jp-plan-init` — Initialize the `.plans` directory structure for a project
-- `jp-plan-new` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
-- `jp-plan-prd` — Generate a structured product requirements document (`prd.md`) from a prompt file
-- `jp-plan-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
-- `jp-plan-task-breakdown` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
-- `jp-plan-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
-- `jp-plan-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
-- `jp-plan-task-validate` — Post-task automated validation: syntax, linting, type checking, and tests
-- `jp-plan-code-review` — Holistic code review with severity-rated issue tracking in YAML format
-- `jp-plan-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
-- `jp-plan-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
-- `jp-plan-workflow` — End-to-end planning pipeline orchestration: runs the full pipeline from prompt to summary in a single invocation, with review verdict handling and resumption support
+- `jp-setup` — Initialize the `.plans` directory structure for a project
+- `jp-plan` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
+- `jp-prd` — Generate a structured product requirements document (`prd.md`) from a prompt file
+- `jp-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
+- `jp-task-list` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
+- `jp-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
+- `jp-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
+- `jp-task-validate` — Post-task automated validation: syntax, linting, type checking, and tests
+- `jp-codereview` — Holistic code review with severity-rated issue tracking in YAML format
+- `jp-codereview-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
+- `jp-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
+- `jp-quick` — End-to-end planning pipeline orchestration: runs the full pipeline from prompt to summary in a single invocation, with review verdict handling and resumption support
+
+Domain skills (loaded by the Developer agent based on task signals):
+
+- `jp-persona-python` — Python backend conventions and quality gates
+- `jp-persona-nodejs` — Node.js/TypeScript conventions and quality gates
+- `jp-persona-frontend` — Frontend/UI conventions and quality gates
+- `jp-persona-devops` — Infrastructure and CI/CD conventions and quality gates
+- `jp-persona-docs` — Documentation conventions and quality gates
+- `jp-persona-agent-skills` — Skill authoring conventions and quality gates
 
 **Agents:**
 
-- `jp-developer` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
+- `jp-worker-dev` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
 
 ### agentmap
 
@@ -157,19 +155,7 @@ CLAUDE_DIR=/path/to/custom/.claude bash install.sh
 
 ## Configuration
 
-Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `jinglemansweep` plugin includes a settings file at `plugins/jinglemansweep/.claude/settings.local.json` which configures automatic permission for the `jms-plan-init` skill:
-
-```json
-{
-  "permissions": {
-    "allow": [
-      "Skill(jms-plan-init)"
-    ]
-  }
-}
-```
-
-The `install.sh` script copies skill and agent files but does not copy settings. Users may need to merge plugin settings into their own `.claude/settings.local.json` depending on their environment.
+Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `install.sh` script copies skill and agent files but does not copy settings. Users may need to merge plugin settings into their own `.claude/settings.local.json` depending on their environment.
 
 ## Pre-Commit Hooks
 

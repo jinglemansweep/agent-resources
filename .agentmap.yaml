@@ -24,30 +24,30 @@ tree:
       install.sh: "copies skills + agents to ~/.claude/, cleans old artefacts"
       skills/:
         jms-git/: "skill: structured GitHub operations via gh CLI"
-        jms-role-python/: "domain skill: Python conventions and quality gates"
-        jms-role-nodejs/: "domain skill: Node.js/TypeScript conventions"
-        jms-role-frontend/: "domain skill: frontend/UI conventions"
-        jms-role-devops/: "domain skill: infrastructure and CI/CD conventions"
-        jms-role-docs/: "domain skill: documentation conventions"
-        jms-role-agent-skills/: "domain skill: skill authoring conventions"
     jplan/:
       plugin.json: "plugin metadata: skills + agents lists"
       install.sh: "copies skills + agents to ~/.claude/"
       agents/:
-        jp-developer.md: "agent: general-purpose developer with domain skill routing"
+        jp-worker-dev.md: "agent: general-purpose developer with domain skill routing"
       skills/:
-        jp-plan-init/: "skill: init .plans directory"
-        jp-plan-new/: "skill: create new plan phase"
-        jp-plan-prd/: "skill: generate PRD from prompt"
-        jp-plan-prd-review/: "skill: review PRD against prompt"
-        jp-plan-task-breakdown/: "skill: convert PRD to task list"
-        jp-plan-task-review/: "skill: validate task list against PRD"
-        jp-plan-execute/: "skill: execute task list with review-fix loop"
-        jp-plan-task-validate/: "skill: run post-task validation checks"
-        jp-plan-code-review/: "skill: holistic code review"
-        jp-plan-fix/: "skill: apply targeted fixes for review issues"
-        jp-plan-summary/: "skill: generate final summary report"
-        jp-plan-workflow/: "skill: end-to-end pipeline orchestration"
+        jp-setup/: "skill: init .plans directory"
+        jp-plan/: "skill: create new plan phase"
+        jp-prd/: "skill: generate PRD from prompt"
+        jp-prd-review/: "skill: review PRD against prompt"
+        jp-task-list/: "skill: convert PRD to task list"
+        jp-task-review/: "skill: validate task list against PRD"
+        jp-execute/: "skill: execute task list with review-fix loop"
+        jp-task-validate/: "skill: run post-task validation checks"
+        jp-codereview/: "skill: holistic code review"
+        jp-codereview-fix/: "skill: apply targeted fixes for review issues"
+        jp-summary/: "skill: generate final summary report"
+        jp-quick/: "skill: end-to-end pipeline orchestration"
+        jp-persona-python/: "domain skill: Python conventions and quality gates"
+        jp-persona-nodejs/: "domain skill: Node.js/TypeScript conventions"
+        jp-persona-frontend/: "domain skill: frontend/UI conventions"
+        jp-persona-devops/: "domain skill: infrastructure and CI/CD conventions"
+        jp-persona-docs/: "domain skill: documentation conventions"
+        jp-persona-agent-skills/: "domain skill: skill authoring conventions"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 
@@ -56,6 +56,5 @@ conventions:
   - one SKILL.md per skill directory: self-contained definition
   - agents are single markdown files: in agents/ directory
   - jms- prefix for jinglemansweep plugin: agentmap- prefix for agentmap plugin
-  - jp- prefix for jplan plugin: jp-plan-* for planning pipeline skills
-  - jms-role-* prefix for domain skills: jinglemansweep plugin
+  - jp- prefix for jplan plugin: jp-* for planning pipeline skills, jp-persona-* for domain skills
   - install.sh copies to ~/.claude/: CLAUDE_DIR overridable

@@ -3,13 +3,7 @@
   "version": "0.4.0",
   "description": "Personal Skills and Agents",
   "skills": [
-    "jms-git",
-    "jms-role-python",
-    "jms-role-nodejs",
-    "jms-role-frontend",
-    "jms-role-devops",
-    "jms-role-docs",
-    "jms-role-agent-skills"
+    "jms-git"
   ],
   "agents": [],
   "commands": []

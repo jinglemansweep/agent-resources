@@ -47,7 +47,7 @@
 
 ### Create `jms-task-breakdown` (replaces `jms-taskify`)
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-task-breakdown/SKILL.md`** — New skill that replaces `jms-taskify`. Converts the approved PRD into a structured YAML task list. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-task-breakdown/SKILL.md`** — New skill that replaces `jms-taskify`. Converts the approved PRD into a structured YAML task list. The skill must:
   - Accept a phase path argument (optional — if omitted, list 5 most recent phases for selection)
   - Read the approved `prd.md` from the phase directory
   - Generate `tasks.yaml` (not `tasks.md`) in the phase directory. Each task entry must have the following YAML fields:

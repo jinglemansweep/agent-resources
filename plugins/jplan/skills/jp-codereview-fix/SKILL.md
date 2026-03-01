@@ -22,15 +22,15 @@ Apply targeted corrections to address CRITICAL and MAJOR issues identified by `/
 
 ```text
 <phase-path>/
-├── prompt.md           <- context (original requirements)
-├── prd.md              <- context (approved PRD)
-├── tasks.yaml          <- context (task list)
+├── prompt.md             <- context (original requirements)
+├── prd.md                <- context (approved PRD)
+├── tasks.yaml            <- context (task list)
 ├── reviews/
-│   ├── round-1.yaml    <- input (review issues)
-│   └── round-N.yaml    <- input (latest review -- primary input)
-├── fix-ledger.yaml     <- output (created or appended by this skill)
-├── logs/               <- created by jp-plan
-└── state.yaml          <- created by jp-plan
+│   ├── cycle/
+│   │   ├── 001.yaml      <- input (review issues)
+│   │   └── NNN.yaml      <- input (latest review -- primary input)
+│   └── fixes.yaml        <- output (created or appended by this skill)
+└── state.yaml            <- created by jp-plan
 ```
 
 ## Instructions
@@ -43,17 +43,17 @@ Run `git rev-parse --show-toplevel` to determine the repository root. All `.plan
 
 1. Verify that `<phase-path>` exists.
 2. Verify that `tasks.yaml` and `prd.md` exist in the phase directory.
-3. Scan `<phase-path>/reviews/` for review round files matching `round-*.yaml`. If none exist, stop and tell the user to run `/jp-codereview` first.
-4. Identify the latest review round file by sorting `round-*.yaml` files and selecting the highest-numbered one. This is the primary input.
+3. Scan `<phase-path>/reviews/cycle/` for `*.yaml` files. If none exist, stop and tell the user to run `/jp-codereview` first.
+4. Identify the latest review cycle file by sorting `*.yaml` files in `reviews/cycle/` and selecting the highest-numbered one (e.g. `003.yaml`). This is the primary input.
 
 ### Step 2: Read Context
 
 Read the following files:
 
-1. The latest review round file (`reviews/round-N.yaml`) -- this contains the issues to fix.
+1. The latest review cycle file (`reviews/cycle/NNN.yaml`) -- this contains the issues to fix.
 2. `<phase-path>/tasks.yaml` -- for understanding the original task intent and file context.
 3. `<phase-path>/prd.md` -- for understanding the project requirements.
-4. `<phase-path>/fix-ledger.yaml` -- if it exists, read it to understand what was fixed in prior rounds and avoid regressions.
+4. `<phase-path>/reviews/fixes.yaml` -- if it exists, read it to understand what was fixed in prior rounds and avoid regressions.
 
 ### Step 3: Filter Issues
 
@@ -94,7 +94,7 @@ As each fix is applied, record:
 
 ### Step 6: Update Fix Ledger
 
-Create or update `<phase-path>/fix-ledger.yaml` to record this fix round. The ledger tracks the history of all fix rounds and their outcomes.
+Create or update `<phase-path>/reviews/fixes.yaml` to record this fix round. The ledger tracks the history of all fix rounds and their outcomes.
 
 If the file does not exist, create it. If it exists, append the new round entry.
 
@@ -105,7 +105,7 @@ If the file does not exist, create it. If it exists, append the new round entry.
 
 rounds:
   - round: N
-    review_file: "reviews/round-N.yaml"
+    review_file: "reviews/cycle/NNN.yaml"
     issues_input: 5
     issues_fixed: 3
     issues_deferred: 1
@@ -152,7 +152,7 @@ Present a fix report to the caller:
 Fix Report
 ==========
 
-Round: N (addressing reviews/round-N.yaml)
+Round: N (addressing reviews/cycle/NNN.yaml)
 
 Issues received:  <N> (N CRITICAL, N MAJOR)
 Issues fixed:     <N>

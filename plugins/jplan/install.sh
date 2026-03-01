@@ -14,30 +14,3 @@ if compgen -G "${SCRIPT_DIR}/agents/*" > /dev/null 2>&1; then
 fi
 
 echo "Installed jplan plugin to ${DEST}"
-
-# Clean up old jp-plan-* skill directories renamed in current phase
-rm -rf "${DEST}/skills/jp-plan-code-review"
-rm -rf "${DEST}/skills/jp-plan-execute"
-rm -rf "${DEST}/skills/jp-plan-fix"
-rm -rf "${DEST}/skills/jp-plan-init"
-rm -rf "${DEST}/skills/jp-plan-new"
-rm -rf "${DEST}/skills/jp-plan-prd"
-rm -rf "${DEST}/skills/jp-plan-prd-review"
-rm -rf "${DEST}/skills/jp-plan-summary"
-rm -rf "${DEST}/skills/jp-plan-task-breakdown"
-rm -rf "${DEST}/skills/jp-plan-task-review"
-rm -rf "${DEST}/skills/jp-plan-task-validate"
-rm -rf "${DEST}/skills/jp-plan-workflow"
-
-# Clean up old jp-persona-* skill directories renamed to role-*
-rm -rf "${DEST}/skills/jp-persona-python"
-rm -rf "${DEST}/skills/jp-persona-nodejs"
-rm -rf "${DEST}/skills/jp-persona-frontend"
-rm -rf "${DEST}/skills/jp-persona-devops"
-rm -rf "${DEST}/skills/jp-persona-docs"
-rm -rf "${DEST}/skills/jp-persona-agent-skills"
-
-# Clean up old agent files renamed in current phase
-rm -f "${DEST}/agents/jp-developer.md"
-
-echo "Cleaned up old skill and agent artefacts"

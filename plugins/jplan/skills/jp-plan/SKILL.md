@@ -115,8 +115,8 @@ Create the phase directory and its required subdirectories:
 
 ```text
 .plans/YYYY/MM/DD/NN-<slug>/
-.plans/YYYY/MM/DD/NN-<slug>/logs/
 .plans/YYYY/MM/DD/NN-<slug>/reviews/
+.plans/YYYY/MM/DD/NN-<slug>/reviews/cycle/
 ```
 
 **Examples:**
@@ -179,4 +179,4 @@ Report the following to the user:
 - The full path of the created phase directory
 - The branch that is active (newly created or existing)
 - A reminder to write their requirements in `prompt.md` before running `/jp-prd`
-- A note that `logs/` and `reviews/` subdirectories have been created for later pipeline stages
+- A note that `reviews/` and `reviews/cycle/` subdirectories have been created for later pipeline stages

@@ -28,7 +28,7 @@ See `README.md` for the complete directory structure and plugin documentation.
 - Follow the existing plugin directory structure when adding or modifying plugins.
 - Do not add external dependencies without discussing with the user first.
 - Keep skills self-contained — one `SKILL.md` per skill directory, no auxiliary files unless necessary.
-- Maintain backward compatibility with the `install.sh` script.
+- Install scripts (`install.sh`) are for local development and testing only and do not require backward compatibility.
 - Keep instructions general rather than listing specific file inventories to avoid staleness.
 - Update `README.md` when skills or agents are added, removed, or renamed.
 - Never add `Co-Authored-By` trailers to git commit messages.

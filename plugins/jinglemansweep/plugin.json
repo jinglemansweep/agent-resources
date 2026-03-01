@@ -1,14 +1,19 @@
 {
   "name": "jinglemansweep",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Personal Skills and Agents",
   "skills": [
     "jms-init",
     "jms-phase-new",
     "jms-plan",
-    "jms-review",
-    "jms-taskify",
+    "jms-prd-review",
+    "jms-task-breakdown",
+    "jms-task-review",
     "jms-execute",
+    "jms-validate",
+    "jms-code-review",
+    "jms-fix",
+    "jms-summary",
     "jms-git-push"
   ],
   "agents": [

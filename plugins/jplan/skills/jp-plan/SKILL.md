@@ -1,7 +1,7 @@
 ---
 name: jp-plan
 description: Create a new datestamped planning phase directory with sequential numbering and conventional branch naming
-allowed-tools: AskUserQuestion, Bash, Glob, Read, Write
+allowed-tools: AskUserQuestion, Bash, Edit, Glob, Read, Write
 ---
 
 # jp-plan
@@ -30,7 +30,7 @@ Ensure the `<repo-root>/.plans` directory exists. If not, stop and tell the user
 
 ### Step 2: Check Git Branch
 
-Check the current git branch. If the user is already on a non-main/master branch, skip this step silently and record the current branch name for use in Step 8.
+Check the current git branch. If the user is already on a non-main/master branch, skip this step silently and record the current branch name for use in Step 12.
 
 If on `main` or `master`, suggest creating a new branch before proceeding. Derive the suggested branch name using a **conventional prefix** based on keywords in the phase description:
 
@@ -53,7 +53,7 @@ Use `AskUserQuestion` to present the suggestion and ask the user to choose one o
 2. **Edit the branch name** -- let the user type a different name.
 3. **Stay on the current branch** -- skip branch creation and continue on main/master.
 
-Record the active branch name (whether newly created or existing) for use in Step 8.
+Record the active branch name (whether newly created or existing) for use in Step 12.
 
 #### Example Interaction
 
@@ -160,7 +160,50 @@ Create `prompt.md` inside the new phase directory with the following structured 
 
 Replace `NN-<slug>` in the heading with the actual phase directory name (e.g. `01-auth-implementation`).
 
-### Step 7: Initialize State File
+### Step 7: Prompt Ingestion
+
+Use `AskUserQuestion` to ask the user whether they have finished writing their prompt content. Present two options:
+
+1. **"I've finished editing prompt.md"** (recommended) -- proceed with the prompt review.
+2. **"Skip prompt review"** -- bypass the review entirely and jump directly to the state file step (Step 11).
+
+If the user chooses to skip, proceed immediately to Step 11 (Initialize State File) without performing Steps 8-10.
+
+If the user confirms they have finished editing, use the Read tool to read the full contents of `prompt.md` into context before continuing to Step 8.
+
+### Step 8: High-Level Prompt Review
+
+Perform a lightweight scan of the ingested `prompt.md` content. For each section (Overview, Goals, Requirements, Constraints, Out of Scope, References), check for:
+
+- **Empty or placeholder-only sections** -- the section contains no user-written content and only has the original HTML comment placeholder (e.g. `<!-- Briefly describe what this phase is about and why it is needed. -->`).
+- **Obvious contradictions between sections** -- for example, a goal that directly conflicts with an out-of-scope item, or a constraint that contradicts a requirement.
+
+Build a list of identified gaps from these checks.
+
+**Important:** Do NOT perform deep requirements analysis, suggest additional requirements, question the user's technical decisions, or evaluate the quality of the content. This step is limited to detecting clear omissions and contradictions only.
+
+If no gaps are found, skip Steps 9 and 10 and proceed directly to Step 11 (Initialize State File) with a brief note to the user that the prompt looks complete.
+
+### Step 9: Interactive Interview
+
+If gaps were identified in Step 8, present them to the user as a brief interview using `AskUserQuestion`. Group all gaps into a single interaction where possible -- aim for 1-3 questions and never exceed 5. Each question should:
+
+- Clearly identify what is missing or contradictory.
+- Ask the user to either provide the missing content or explicitly dismiss the gap (e.g. "intentionally left blank").
+
+The entire interview must complete in one round of questions and one round of answers. Do not ask follow-up questions or start a second round.
+
+### Step 10: Update prompt.md
+
+If the user provided content for any gaps during the interview in Step 9, use the Edit tool to update `prompt.md` in place:
+
+- Replace the HTML comment placeholders in the relevant sections with the user's responses.
+- Preserve all existing user-written content -- only fill gaps or apply corrections.
+- Maintain the same Markdown structure and heading hierarchy.
+
+If the user dismissed all gaps (nothing to change), do not modify `prompt.md`. Note in the final report (Step 12) that the prompt was reviewed but no updates were applied.
+
+### Step 11: Initialize State File
 
 Create `state.yaml` inside the new phase directory with the following content:
 
@@ -172,7 +215,7 @@ branch: <active-branch-name>
 
 Replace the placeholder values with the actual phase path and the active branch name recorded in Step 2.
 
-### Step 8: Report
+### Step 12: Report
 
 Report the following to the user:
 
@@ -180,3 +223,4 @@ Report the following to the user:
 - The branch that is active (newly created or existing)
 - A reminder to write their requirements in `prompt.md` before running `/jp-prd`
 - A note that `reviews/` and `reviews/cycle/` subdirectories have been created for later pipeline stages
+- Whether `prompt.md` was reviewed and what updates (if any) were applied during the prompt review step

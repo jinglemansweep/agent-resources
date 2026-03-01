@@ -88,7 +88,7 @@ Planning Pipeline Skills and Agents.
 **Skills:**
 
 - `jp-setup` — Initialize the `.plans` directory structure for a project
-- `jp-plan` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
+- `jp-plan` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup, prompt review, and interactive gap resolution
 - `jp-prd` — Generate a structured product requirements document (`prd.md`) from a prompt file
 - `jp-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
 - `jp-task-list` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)

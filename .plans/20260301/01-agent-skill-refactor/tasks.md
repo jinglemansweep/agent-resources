@@ -91,7 +91,7 @@
 
 ### Create `jms-validate`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-validate/SKILL.md`** — New skill for post-task automated validation. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-validate/SKILL.md`** — New skill for post-task automated validation. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
   - Accept as input the files created or modified by the current task (file paths provided by the caller)
   - Run only checks relevant to the file types involved:
     - Syntax validation / linting (language-appropriate)
@@ -106,7 +106,7 @@
 
 ### Create `jms-code-review`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-code-review/SKILL.md`** — New skill for holistic code review. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-code-review/SKILL.md`** — New skill for holistic code review. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
   - Accept a phase path and an optional scope: `full` (first run — review entire codebase) or `changed` (fix rounds — review only changed files)
   - Read task context from the phase directory (`tasks.yaml`, `prd.md`)
   - Write issues to `reviews/round-N.yaml` in the phase directory (N determined by counting existing review files + 1)
@@ -120,7 +120,7 @@
 
 ### Create `jms-fix`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-fix/SKILL.md`** — New skill for applying corrections based on code review feedback. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-fix/SKILL.md`** — New skill for applying corrections based on code review feedback. This is a standalone, user-invocable skill primarily called by the Execute orchestrator. The skill must:
   - Accept as input: CRITICAL and MAJOR issues from the latest review round (issue IDs, descriptions, affected files), and original task context from the phase directory
   - Address only the issues provided — no unrelated refactoring
   - Maintain existing code style and patterns
@@ -132,7 +132,7 @@
 
 ### Create `jms-summary`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-summary/SKILL.md`** — New skill for generating a final workflow summary report. This is a standalone, user-invocable skill primarily called by the Execute orchestrator at pipeline end. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-summary/SKILL.md`** — New skill for generating a final workflow summary report. This is a standalone, user-invocable skill primarily called by the Execute orchestrator at pipeline end. The skill must:
   - Accept a phase path argument (optional — if omitted, list 5 most recent phases for selection)
   - Read all logs (`logs/task-NNN.md`), review reports (`reviews/round-N.yaml`), `fix-ledger.yaml`, `tasks.yaml`, `prd.md`, and `state.yaml` from the phase directory
   - Generate `summary.md` in the phase directory containing:

@@ -20,7 +20,7 @@
 
 ### Rewrite `jms-plan`
 
-- [ ] **Rewrite `plugins/jinglemansweep/skills/jms-plan/SKILL.md`** — Replace the existing skill that generates three files (`research.md`, `plan.md`, `issues.md`) with a new version that generates a single `prd.md`. The rewritten skill must:
+- [x] **Rewrite `plugins/jinglemansweep/skills/jms-plan/SKILL.md`** — Replace the existing skill that generates three files (`research.md`, `plan.md`, `issues.md`) with a new version that generates a single `prd.md`. The rewritten skill must:
   - Accept a phase path argument (optional — if omitted, list the 5 most recent phase directories sorted by date and increment, prompt the user to select one)
   - Read `prompt.md` from the phase directory
   - Generate `prd.md` containing: project overview and goals, functional requirements (each with an ID like `REQ-001`), non-functional requirements (performance, security, accessibility), technical constraints and assumptions, scope boundaries (in-scope / out-of-scope), acceptance criteria for each requirement, and suggested tech stack

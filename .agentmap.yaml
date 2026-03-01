@@ -42,12 +42,12 @@ tree:
         jp-codereview-fix/: "skill: apply targeted fixes for review issues"
         jp-summary/: "skill: generate final summary report"
         jp-quick/: "skill: end-to-end pipeline orchestration"
-        jp-persona-python/: "domain skill: Python conventions and quality gates"
-        jp-persona-nodejs/: "domain skill: Node.js/TypeScript conventions"
-        jp-persona-frontend/: "domain skill: frontend/UI conventions"
-        jp-persona-devops/: "domain skill: infrastructure and CI/CD conventions"
-        jp-persona-docs/: "domain skill: documentation conventions"
-        jp-persona-agent-skills/: "domain skill: skill authoring conventions"
+        role-python/: "domain skill: Python conventions and quality gates"
+        role-nodejs/: "domain skill: Node.js/TypeScript conventions"
+        role-frontend/: "domain skill: frontend/UI conventions"
+        role-devops/: "domain skill: infrastructure and CI/CD conventions"
+        role-docs/: "domain skill: documentation conventions"
+        role-agent-skills/: "domain skill: skill authoring conventions"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 
@@ -56,5 +56,5 @@ conventions:
   - one SKILL.md per skill directory: self-contained definition
   - agents are single markdown files: in agents/ directory
   - jms- prefix for jinglemansweep plugin: agentmap- prefix for agentmap plugin
-  - jp- prefix for jplan plugin: jp-* for planning pipeline skills, jp-persona-* for domain skills
+  - jp- prefix for jplan plugin: jp-* for planning pipeline skills, role-* for domain skills
   - install.sh copies to ~/.claude/: CLAUDE_DIR overridable

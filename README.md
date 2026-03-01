@@ -40,12 +40,12 @@ plugins/                    # Directory containing all plugins
       jp-codereview-fix/
       jp-summary/
       jp-quick/
-      jp-persona-python/
-      jp-persona-nodejs/
-      jp-persona-frontend/
-      jp-persona-devops/
-      jp-persona-docs/
-      jp-persona-agent-skills/
+      role-python/
+      role-nodejs/
+      role-frontend/
+      role-devops/
+      role-docs/
+      role-agent-skills/
     agents/                 # Agent definitions
       jp-worker-dev.md
   agentmap/                 # The agentmap plugin
@@ -102,12 +102,12 @@ Planning Pipeline Skills and Agents.
 
 Domain skills (loaded by the Developer agent based on task signals):
 
-- `jp-persona-python` — Python backend conventions and quality gates
-- `jp-persona-nodejs` — Node.js/TypeScript conventions and quality gates
-- `jp-persona-frontend` — Frontend/UI conventions and quality gates
-- `jp-persona-devops` — Infrastructure and CI/CD conventions and quality gates
-- `jp-persona-docs` — Documentation conventions and quality gates
-- `jp-persona-agent-skills` — Skill authoring conventions and quality gates
+- `role-python` — Python backend conventions and quality gates
+- `role-nodejs` — Node.js/TypeScript conventions and quality gates
+- `role-frontend` — Frontend/UI conventions and quality gates
+- `role-devops` — Infrastructure and CI/CD conventions and quality gates
+- `role-docs` — Documentation conventions and quality gates
+- `role-agent-skills` — Skill authoring conventions and quality gates
 
 **Agents:**
 

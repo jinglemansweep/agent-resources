@@ -1,5 +1,5 @@
 ---
-name: jp-persona-agent-skills
+name: role-agent-skills
 description: Skill authoring conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: skill, authoring, skill-creator, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jp-persona-agent-skills
+# role-agent-skills
 
 Skill authoring conventions, quality gates, and domain knowledge for creating and modifying SKILL.md files. Loaded by the jp-worker-dev agent when handling skill-related tasks. This is not a user-invocable skill.
 

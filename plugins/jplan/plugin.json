@@ -15,12 +15,12 @@
     "jp-codereview-fix",
     "jp-summary",
     "jp-quick",
-    "jp-persona-python",
-    "jp-persona-nodejs",
-    "jp-persona-frontend",
-    "jp-persona-devops",
-    "jp-persona-docs",
-    "jp-persona-agent-skills"
+    "role-python",
+    "role-nodejs",
+    "role-frontend",
+    "role-devops",
+    "role-docs",
+    "role-agent-skills"
   ],
   "agents": [
     "jp-worker-dev"

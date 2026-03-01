@@ -1,5 +1,5 @@
 ---
-name: jp-persona-nodejs
+name: role-nodejs
 description: Node.js/TypeScript conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: nodejs, typescript, javascript, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jp-persona-nodejs
+# role-nodejs
 
 Node.js and TypeScript conventions, quality gates, and domain knowledge. Loaded by the jp-worker-dev agent when handling JS/TS tasks. This is not a user-invocable skill.
 

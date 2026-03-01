@@ -1,5 +1,5 @@
 ---
-name: jp-persona-python
+name: role-python
 description: Python backend conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: python, backend, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jp-persona-python
+# role-python
 
 Python backend conventions, quality gates, and domain knowledge. Loaded by the jp-worker-dev agent when handling Python tasks. This is not a user-invocable skill.
 

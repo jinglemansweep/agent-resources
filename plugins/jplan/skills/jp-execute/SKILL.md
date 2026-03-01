@@ -73,6 +73,20 @@ summary_include_decision_log: true
 
 ## Instructions
 
+### Timestamp Convention
+
+Every `<ISO 8601 timestamp>` placeholder in this skill MUST be obtained by running the following command via the Bash tool and using the returned value verbatim:
+
+```bash
+date -u +"%Y-%m-%dT%H:%M:%SZ"
+```
+
+Rules:
+
+1. NEVER generate, estimate, or fabricate timestamp values. Always use the shell command above.
+2. For `started_at`: run the `date` command when the event begins and store the result.
+3. For `finished_at`: run the `date` command when the event completes and store the result.
+
 ### Step 0: Determine Repository Root
 
 Run `git rev-parse --show-toplevel` to determine the repository root. All `.plans/` references in this skill resolve relative to this root (i.e. `<repo-root>/.plans/`). If the command fails (not a git repository), stop and tell the user this skill requires a git repository.
@@ -121,7 +135,7 @@ Update `state.yaml` immediately to record the start of execution:
 status: running
 phase_path: <phase-path>
 branch: <current-git-branch>
-started_at: <ISO 8601 timestamp>
+started_at: <ISO 8601 timestamp>  # see Timestamp Convention
 current_phase: task_execution
 current_task: null
 fix_round: 0
@@ -166,7 +180,7 @@ tasks:
     status: running
     agent: null
     retries: 0
-    started_at: <ISO 8601 timestamp>
+    started_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 #### 5d: Record Agent Assignment
@@ -258,8 +272,8 @@ Write a task log file to `<phase-path>/logs/task-NNN.md` (matching the task ID n
 - **Role agent:** <agent used>
 - **Status:** <completed | failed | blocked>
 - **Retries:** <N>
-- **Started:** <ISO 8601 timestamp>
-- **Finished:** <ISO 8601 timestamp>
+- **Started:** <ISO 8601 timestamp>   <!-- use started_at value captured in Step 5c via shell command -->
+- **Finished:** <ISO 8601 timestamp>  <!-- run date -u +"%Y-%m-%dT%H:%M:%SZ" now and use result -->
 
 ## Files
 
@@ -291,8 +305,8 @@ tasks:
     status: <completed | failed | blocked>
     agent: <agent-name>
     retries: <N>
-    started_at: <ISO 8601 timestamp>
-    finished_at: <ISO 8601 timestamp>
+    started_at: <ISO 8601 timestamp>  # see Timestamp Convention
+    finished_at: <ISO 8601 timestamp>  # see Timestamp Convention
     validation: <PASS | FAIL>
 ```
 
@@ -310,7 +324,7 @@ After all tasks have been processed (completed, failed, or blocked), update `sta
 current_phase: review_loop
 current_task: null
 status: review_loop
-tasks_completed_at: <ISO 8601 timestamp>
+tasks_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Report a brief interim summary to the user:
@@ -401,7 +415,7 @@ When the review loop exits, update `state.yaml`:
 ```yaml
 current_phase: quality_gate
 review_loop_exit_reason: <success | round_limit | regression>
-review_loop_completed_at: <ISO 8601 timestamp>
+review_loop_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 ### Step 8: Quality Gate
@@ -434,7 +448,7 @@ Record the result in `state.yaml`:
 
 ```yaml
 quality_gate: pass
-quality_gate_completed_at: <ISO 8601 timestamp>
+quality_gate_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Proceed to Step 9 (Documentation Review).
@@ -445,7 +459,7 @@ Record the result in `state.yaml`:
 
 ```yaml
 quality_gate: fail
-quality_gate_completed_at: <ISO 8601 timestamp>
+quality_gate_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Report the validation failures to the user. Offer three options:
@@ -475,10 +489,10 @@ Report the validation failures to the user. Offer three options:
 
 After the quality gate passes (or the user overrides it), run a documentation review to ensure all project documentation reflects the changes made during this phase.
 
-Invoke `/jp-persona-docs` to review and update project documentation (README.md, inline docs, etc.):
+Invoke `/role-docs` to review and update project documentation (README.md, inline docs, etc.):
 
 ```text
-/jp-persona-docs
+/role-docs
 ```
 
 This step ensures that documentation stays current with the code changes made during the phase. The documentation skill will review affected files and update any documentation that has become stale or incomplete as a result of the implementation work.
@@ -501,7 +515,7 @@ Update `state.yaml` to mark the phase as complete:
 
 ```yaml
 status: completed
-completed_at: <ISO 8601 timestamp>
+completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 ### Step 12: Report

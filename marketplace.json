@@ -11,6 +11,11 @@
       "name": "agentmap",
       "description": "AI-powered codebase orientation maps",
       "path": "plugins/agentmap"
+    },
+    {
+      "name": "jplan",
+      "description": "Planning Pipeline Skills and Agents",
+      "path": "plugins/jplan"
     }
   ]
 }

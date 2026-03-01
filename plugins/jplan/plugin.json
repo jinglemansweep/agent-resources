@@ -1,0 +1,24 @@
+{
+  "name": "jplan",
+  "version": "0.1.0",
+  "description": "Planning Pipeline Skills and Agents",
+  "skills": [
+    "jp-plan-init",
+    "jp-plan-new",
+    "jp-plan-prd",
+    "jp-plan-prd-review",
+    "jp-plan-task-breakdown",
+    "jp-plan-task-review",
+    "jp-plan-execute",
+    "jp-plan-task-validate",
+    "jp-plan-code-review",
+    "jp-plan-fix",
+    "jp-plan-summary",
+    "jp-plan-workflow"
+  ],
+  "agents": [
+    "jp-planner",
+    "jp-developer"
+  ],
+  "commands": []
+}

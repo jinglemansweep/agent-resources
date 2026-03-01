@@ -3,18 +3,6 @@
   "version": "0.4.0",
   "description": "Personal Skills and Agents",
   "skills": [
-    "jms-plan-init",
-    "jms-plan-phase-new",
-    "jms-plan-prd",
-    "jms-plan-prd-review",
-    "jms-plan-task-breakdown",
-    "jms-plan-task-review",
-    "jms-plan-execute",
-    "jms-plan-task-validate",
-    "jms-plan-code-review",
-    "jms-plan-fix",
-    "jms-plan-summary",
-    "jms-plan-workflow",
     "jms-git",
     "jms-git-push",
     "jms-role-python",
@@ -24,9 +12,6 @@
     "jms-role-docs",
     "jms-role-agent-skills"
   ],
-  "agents": [
-    "jms-planner",
-    "jms-developer"
-  ],
+  "agents": [],
   "commands": []
 }

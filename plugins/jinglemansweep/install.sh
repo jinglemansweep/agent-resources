@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
 
-declare -r DEST="${CLAUDE_DIR:-$HOME/.claude}"
+set -euo pipefail
 
-cp -r skills/* "${DEST}/skills/"
-cp -r agents/* "${DEST}/agents/"
+declare -r DEST="${CLAUDE_DIR:-$HOME/.claude}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+declare -r SCRIPT_DIR
+
+cp -r "${SCRIPT_DIR}"/skills/* "${DEST}/skills/"
+
+# Only copy agents if the agents directory is non-empty
+if compgen -G "${SCRIPT_DIR}/agents/*" > /dev/null 2>&1; then
+  cp -r "${SCRIPT_DIR}"/agents/* "${DEST}/agents/"
+fi
+
 echo "Installed plugin to ${DEST}"
 
 # Clean up old skill directories renamed in v0.4.0
@@ -36,5 +45,23 @@ rm -rf "${DEST}/skills/jms-skill-frontend"
 rm -rf "${DEST}/skills/jms-skill-devops"
 rm -rf "${DEST}/skills/jms-skill-docs"
 rm -rf "${DEST}/skills/jms-skill-skills"
+
+# Clean up planning skills extracted to the jplan plugin
+rm -rf "${DEST}/skills/jms-plan-init"
+rm -rf "${DEST}/skills/jms-plan-phase-new"
+rm -rf "${DEST}/skills/jms-plan-prd"
+rm -rf "${DEST}/skills/jms-plan-prd-review"
+rm -rf "${DEST}/skills/jms-plan-task-breakdown"
+rm -rf "${DEST}/skills/jms-plan-task-review"
+rm -rf "${DEST}/skills/jms-plan-execute"
+rm -rf "${DEST}/skills/jms-plan-task-validate"
+rm -rf "${DEST}/skills/jms-plan-code-review"
+rm -rf "${DEST}/skills/jms-plan-fix"
+rm -rf "${DEST}/skills/jms-plan-summary"
+rm -rf "${DEST}/skills/jms-plan-workflow"
+
+# Clean up planning agents extracted to the jplan plugin
+rm -f "${DEST}/agents/jms-planner.md"
+rm -f "${DEST}/agents/jms-developer.md"
 
 echo "Cleaned up old skill and agent artefacts"

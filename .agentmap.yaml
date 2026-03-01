@@ -22,22 +22,7 @@ tree:
     jinglemansweep/:
       plugin.json: "plugin metadata: skills + agents lists (v0.4.0)"
       install.sh: "copies skills + agents to ~/.claude/, cleans old artefacts"
-      agents/:
-        jms-planner.md: "agent: guides planning pipeline workflow"
-        jms-developer.md: "agent: general-purpose developer with domain skill routing"
       skills/:
-        jms-plan-init/: "skill: init .plans directory"
-        jms-plan-phase-new/: "skill: create new plan phase"
-        jms-plan-prd/: "skill: generate PRD from prompt"
-        jms-plan-prd-review/: "skill: review PRD against prompt"
-        jms-plan-task-breakdown/: "skill: convert PRD to task list"
-        jms-plan-task-review/: "skill: validate task list against PRD"
-        jms-plan-execute/: "skill: execute task list with review-fix loop"
-        jms-plan-task-validate/: "skill: run post-task validation checks"
-        jms-plan-code-review/: "skill: holistic code review"
-        jms-plan-fix/: "skill: apply targeted fixes for review issues"
-        jms-plan-summary/: "skill: generate final summary report"
-        jms-plan-workflow/: "skill: end-to-end pipeline orchestration"
         jms-git/: "skill: structured GitHub operations via gh CLI"
         jms-git-push/: "skill: automate branch creation, PR, and auto-merge"
         jms-role-python/: "domain skill: Python conventions and quality gates"
@@ -46,6 +31,25 @@ tree:
         jms-role-devops/: "domain skill: infrastructure and CI/CD conventions"
         jms-role-docs/: "domain skill: documentation conventions"
         jms-role-agent-skills/: "domain skill: skill authoring conventions"
+    jplan/:
+      plugin.json: "plugin metadata: skills + agents lists"
+      install.sh: "copies skills + agents to ~/.claude/"
+      agents/:
+        jp-planner.md: "agent: guides planning pipeline workflow"
+        jp-developer.md: "agent: general-purpose developer with domain skill routing"
+      skills/:
+        jp-plan-init/: "skill: init .plans directory"
+        jp-plan-new/: "skill: create new plan phase"
+        jp-plan-prd/: "skill: generate PRD from prompt"
+        jp-plan-prd-review/: "skill: review PRD against prompt"
+        jp-plan-task-breakdown/: "skill: convert PRD to task list"
+        jp-plan-task-review/: "skill: validate task list against PRD"
+        jp-plan-execute/: "skill: execute task list with review-fix loop"
+        jp-plan-task-validate/: "skill: run post-task validation checks"
+        jp-plan-code-review/: "skill: holistic code review"
+        jp-plan-fix/: "skill: apply targeted fixes for review issues"
+        jp-plan-summary/: "skill: generate final summary report"
+        jp-plan-workflow/: "skill: end-to-end pipeline orchestration"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 
@@ -54,5 +58,6 @@ conventions:
   - one SKILL.md per skill directory: self-contained definition
   - agents are single markdown files: in agents/ directory
   - jms- prefix for jinglemansweep plugin: agentmap- prefix for agentmap plugin
-  - jms-plan-* prefix for planning pipeline skills: jms-role-* prefix for domain skills
+  - jp- prefix for jplan plugin: jp-plan-* for planning pipeline skills
+  - jms-role-* prefix for domain skills: jinglemansweep plugin
   - install.sh copies to ~/.claude/: CLAUDE_DIR overridable

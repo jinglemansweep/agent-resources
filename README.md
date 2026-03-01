@@ -24,7 +24,6 @@ plugins/                    # Directory containing all plugins
     install.sh              # Installation script
     skills/                 # Skill definitions (each contains a SKILL.md)
       jms-git/
-      jms-git-push/
       jms-role-python/
       jms-role-nodejs/
       jms-role-frontend/
@@ -48,7 +47,6 @@ plugins/                    # Directory containing all plugins
       jp-plan-summary/
       jp-plan-workflow/
     agents/                 # Agent definitions
-      jp-planner.md
       jp-developer.md
   agentmap/                 # The agentmap plugin
     plugin.json             # Plugin metadata (name, version, skills)
@@ -76,7 +74,6 @@ Personal Skills.
 Git skills:
 
 - `jms-git` — Structured interface for GitHub operations using the `gh` CLI (pull requests, issues, CI/workflow runs, and API queries)
-- `jms-git-push` — Automate branch creation, PR submission, and auto-merge for accidental default-branch commits
 
 Domain skills (loaded by the Developer agent based on task signals):
 
@@ -116,7 +113,6 @@ Planning Pipeline Skills and Agents.
 
 **Agents:**
 
-- `jp-planner` — Guides the planning workflow: init, phase creation, PRD generation, PRD review, task breakdown, and task review. For an automated end-to-end experience, invoke `/jp-plan-workflow` instead of stepping through the pipeline manually.
 - `jp-developer` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
 
 ### agentmap

@@ -1,5 +1,5 @@
 ---
-name: jms-skill-python
+name: jms-role-python
 description: Python backend conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: python, backend, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jms-skill-python
+# jms-role-python
 
 Python backend conventions, quality gates, and domain knowledge. Loaded by the jms-developer agent when handling Python tasks. This is not a user-invocable skill.
 

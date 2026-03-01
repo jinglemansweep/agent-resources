@@ -1,5 +1,5 @@
 ---
-name: jms-skill-nodejs
+name: jms-role-nodejs
 description: Node.js/TypeScript conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: nodejs, typescript, javascript, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jms-skill-nodejs
+# jms-role-nodejs
 
 Node.js and TypeScript conventions, quality gates, and domain knowledge. Loaded by the jms-developer agent when handling JS/TS tasks. This is not a user-invocable skill.
 

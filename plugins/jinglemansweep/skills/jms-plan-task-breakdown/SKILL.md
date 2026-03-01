@@ -90,13 +90,13 @@ For each task, determine the most appropriate `suggested_role` based on the task
 
 | Role | Domain Skill | Use When |
 |------|-------------|----------|
-| `python` | `jms-skill-python` | Python implementation, Python tests, Python tooling |
-| `nodejs` | `jms-skill-nodejs` | Node.js/TypeScript implementation, frontend build tooling |
-| `devops` | `jms-skill-devops` | Docker, CI/CD, infrastructure, deployment, shell scripts |
-| `frontend` | `jms-skill-frontend` | HTML, CSS, React/Vue/Svelte, browser-side JavaScript |
+| `python` | `jms-role-python` | Python implementation, Python tests, Python tooling |
+| `nodejs` | `jms-role-nodejs` | Node.js/TypeScript implementation, frontend build tooling |
+| `devops` | `jms-role-devops` | Docker, CI/CD, infrastructure, deployment, shell scripts |
+| `frontend` | `jms-role-frontend` | HTML, CSS, React/Vue/Svelte, browser-side JavaScript |
 | `general` | (none -- base behaviour) | Tasks that do not fit a specific domain, or span multiple domains |
-| `docs` | `jms-skill-docs` | Documentation, README, changelog, API docs |
-| `skills` | `jms-skill-skills` | Skill authoring, SKILL.md files, plugin definitions |
+| `docs` | `jms-role-docs` | Documentation, README, changelog, API docs |
+| `skills` | `jms-role-agent-skills` | Skill authoring, SKILL.md files, plugin definitions |
 
 If a task spans multiple domains, choose the primary domain. If genuinely ambiguous, use `general`.
 

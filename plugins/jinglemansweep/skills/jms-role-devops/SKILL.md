@@ -1,5 +1,5 @@
 ---
-name: jms-skill-devops
+name: jms-role-devops
 description: Infrastructure and CI/CD conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: devops, docker, ci, cd, infrastructure, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jms-skill-devops
+# jms-role-devops
 
 Infrastructure and CI/CD conventions, quality gates, and domain knowledge. Loaded by the jms-developer agent when handling DevOps tasks. This is not a user-invocable skill.
 

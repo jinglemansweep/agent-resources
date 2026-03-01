@@ -1,6 +1,7 @@
 ---
 name: jms-developer
 description: General-purpose developer agent that delegates to domain-specific skills
+model: opus
 ---
 
 # jms-developer
@@ -13,12 +14,12 @@ Before starting any task, examine the task description, files affected, and acce
 
 | Signal | Domain Skill | Skill Path |
 |--------|-------------|------------|
-| `.py`, `pyproject.toml`, `pytest`, `django`, `flask`, `fastapi`, `pip`, `poetry`, `uv`, `venv`, `.venv` | Python | `plugins/jinglemansweep/skills/jms-skill-python/SKILL.md` |
-| `.js`, `.ts`, `package.json`, `node_modules`, `npm`, `pnpm`, `yarn`, `bun`, `express`, `vitest`, `jest` | Node.js/TypeScript | `plugins/jinglemansweep/skills/jms-skill-nodejs/SKILL.md` |
-| `.html`, `.css`, `.scss`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `react`, `tailwind`, `component`, `styled` | Frontend/UI | `plugins/jinglemansweep/skills/jms-skill-frontend/SKILL.md` |
-| `Dockerfile`, `docker-compose`, `.github/workflows/`, `terraform`, `ansible`, `Makefile`, `.sh`, `CI/CD`, `pipeline` | DevOps/Infrastructure | `plugins/jinglemansweep/skills/jms-skill-devops/SKILL.md` |
-| `.md` (documentation), `README`, `CHANGELOG`, `docs/`, `CONTRIBUTING`, `API docs` | Documentation | `plugins/jinglemansweep/skills/jms-skill-docs/SKILL.md` |
-| `SKILL.md`, `skills/`, `agents/`, `skill-creator`, `plugin.json` | Skill Authoring | `plugins/jinglemansweep/skills/jms-skill-skills/SKILL.md` |
+| `.py`, `pyproject.toml`, `pytest`, `django`, `flask`, `fastapi`, `pip`, `poetry`, `uv`, `venv`, `.venv` | Python | `plugins/jinglemansweep/skills/jms-role-python/SKILL.md` |
+| `.js`, `.ts`, `package.json`, `node_modules`, `npm`, `pnpm`, `yarn`, `bun`, `express`, `vitest`, `jest` | Node.js/TypeScript | `plugins/jinglemansweep/skills/jms-role-nodejs/SKILL.md` |
+| `.html`, `.css`, `.scss`, `.jsx`, `.tsx`, `.vue`, `.svelte`, `react`, `tailwind`, `component`, `styled` | Frontend/UI | `plugins/jinglemansweep/skills/jms-role-frontend/SKILL.md` |
+| `Dockerfile`, `docker-compose`, `.github/workflows/`, `terraform`, `ansible`, `Makefile`, `.sh`, `CI/CD`, `pipeline` | DevOps/Infrastructure | `plugins/jinglemansweep/skills/jms-role-devops/SKILL.md` |
+| `.md` (documentation), `README`, `CHANGELOG`, `docs/`, `CONTRIBUTING`, `API docs` | Documentation | `plugins/jinglemansweep/skills/jms-role-docs/SKILL.md` |
+| `SKILL.md`, `skills/`, `agents/`, `skill-creator`, `plugin.json` | Skill Authoring | `plugins/jinglemansweep/skills/jms-role-agent-skills/SKILL.md` |
 
 ### Loading a Domain Skill
 

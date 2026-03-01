@@ -30,19 +30,19 @@ plugins/                    # Directory containing all plugins
       jms-plan-task-breakdown/
       jms-plan-task-review/
       jms-plan-execute/
-      jms-plan-validate/
+      jms-plan-task-validate/
       jms-plan-code-review/
       jms-plan-fix/
       jms-plan-summary/
       jms-plan-workflow/
       jms-git/
       jms-git-push/
-      jms-skill-python/
-      jms-skill-nodejs/
-      jms-skill-frontend/
-      jms-skill-devops/
-      jms-skill-docs/
-      jms-skill-skills/
+      jms-role-python/
+      jms-role-nodejs/
+      jms-role-frontend/
+      jms-role-devops/
+      jms-role-docs/
+      jms-role-agent-skills/
     agents/                 # Agent definitions
       jms-planner.md
       jms-developer.md
@@ -84,7 +84,7 @@ Planning skills:
 - `jms-plan-task-breakdown` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
 - `jms-plan-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
 - `jms-plan-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
-- `jms-plan-validate` — Post-task automated validation: syntax, linting, type checking, and tests
+- `jms-plan-task-validate` — Post-task automated validation: syntax, linting, type checking, and tests
 - `jms-plan-code-review` — Holistic code review with severity-rated issue tracking in YAML format
 - `jms-plan-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
 - `jms-plan-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
@@ -97,17 +97,17 @@ Git skills:
 
 Domain skills (loaded by the Developer agent based on task signals):
 
-- `jms-skill-python` — Python backend conventions and quality gates
-- `jms-skill-nodejs` — Node.js/TypeScript conventions and quality gates
-- `jms-skill-frontend` — Frontend/UI conventions and quality gates
-- `jms-skill-devops` — Infrastructure and CI/CD conventions and quality gates
-- `jms-skill-docs` — Documentation conventions and quality gates
-- `jms-skill-skills` — Skill authoring conventions and quality gates
+- `jms-role-python` — Python backend conventions and quality gates
+- `jms-role-nodejs` — Node.js/TypeScript conventions and quality gates
+- `jms-role-frontend` — Frontend/UI conventions and quality gates
+- `jms-role-devops` — Infrastructure and CI/CD conventions and quality gates
+- `jms-role-docs` — Documentation conventions and quality gates
+- `jms-role-agent-skills` — Skill authoring conventions and quality gates
 
 **Agents:**
 
 - `jms-planner` — Guides the planning workflow: init, phase creation, PRD generation, PRD review, task breakdown, and task review. For an automated end-to-end experience, invoke `/jms-plan-workflow` instead of stepping through the pipeline manually.
-- `jms-developer` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) (`jms-skill-python`, `jms-skill-nodejs`, `jms-skill-frontend`, `jms-skill-devops`, `jms-skill-docs`, `jms-skill-skills`) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
+- `jms-developer` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) (`jms-role-python`, `jms-role-nodejs`, `jms-role-frontend`, `jms-role-devops`, `jms-role-docs`, `jms-role-agent-skills`) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
 
 ### agentmap
 

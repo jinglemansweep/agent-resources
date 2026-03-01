@@ -66,7 +66,75 @@ Compare the PRD against the original prompt line by line. For every point, requi
 
 A prompt item is **covered** if the PRD contains a requirement (with ID) and at least one acceptance criterion that directly addresses it. A prompt item is **partially covered** if it is mentioned but lacks a concrete requirement ID or testable acceptance criterion. A prompt item is **not covered** if the PRD does not address it at all.
 
-### Step 4: Requirement-Level Evaluation
+### Step 4: Requirement Interview
+
+After completing the coverage assessment, present each requirement in `prd.md` to the user individually for review before any automated evaluation is performed. This gives the user the opportunity to approve, update, or remove requirements before the verdict is determined.
+
+#### 4.1 Collect requirements
+
+Parse `prd.md` and collect every requirement identifier in the form `REQ-NNN` in ascending numeric order. For each requirement, capture its full block: the heading line (`### REQ-NNN: <Title>`), description text, and acceptance criteria.
+
+#### 4.2 Present each requirement
+
+For each requirement in order, use the AskUserQuestion tool to present the full requirement block and ask:
+
+```text
+REQ-NNN: <Title>
+
+<Full requirement text including acceptance criteria>
+
+What would you like to do with this requirement?
+  A - Approve (keep as-is)
+  E - Edit (provide updated text)
+  R - Remove (delete from PRD)
+```
+
+Wait for the user to respond before moving to the next requirement.
+
+#### 4.3 Handle Approve
+
+If the user responds `A` (or any equivalent such as "approve", "keep", "yes"), move to the next requirement without modifying `prd.md`.
+
+#### 4.4 Handle Edit
+
+If the user responds `E` (or any equivalent such as "edit", "update", "change"):
+
+1. Use the AskUserQuestion tool to prompt the user for the updated requirement text:
+
+   ```text
+   Please provide the updated text for REQ-NNN (include title, description, and acceptance criteria):
+   ```
+
+2. Wait for the user to provide the updated text.
+3. Replace the existing requirement block in `prd.md` with the updated text provided by the user. Preserve the `REQ-NNN` identifier and ensure the heading format (`### REQ-NNN: <Title>`) is retained unless the user explicitly changes the title.
+4. Confirm to the user that `prd.md` has been updated.
+
+#### 4.5 Handle Remove
+
+If the user responds `R` (or any equivalent such as "remove", "delete", "drop"):
+
+1. Delete the full requirement block for `REQ-NNN` from `prd.md`.
+2. Renumber all subsequent requirement IDs to fill the gap and keep the sequence contiguous. For example, if `REQ-002` is removed, rename `REQ-003` to `REQ-002`, `REQ-004` to `REQ-003`, and so on throughout `prd.md`. Update every occurrence of the old IDs in the document (headings, references, cross-references).
+3. Write the updated content back to `prd.md`.
+4. Confirm to the user that the requirement was removed and that subsequent IDs were renumbered.
+
+#### 4.6 Edge case: all requirements removed
+
+After the interview loop, if no requirements remain in `prd.md`, warn the user:
+
+```text
+Warning: all requirements have been removed from prd.md. Proceeding with an empty PRD will likely result in an ESCALATE verdict.
+
+Are you sure you want to continue with an empty PRD? (yes / no)
+```
+
+If the user responds `no`, stop and tell the user to re-run the skill once they have added requirements to `prd.md`. If the user responds `yes`, continue to Step 5.
+
+#### 4.7 Continue with updated PRD
+
+Once all requirements have been reviewed and any edits or removals applied, re-read `prd.md` in full. All subsequent steps (evaluation, structural analysis, verdict) operate on this updated version of the PRD.
+
+### Step 5: Requirement-Level Evaluation
 
 For each requirement in the PRD (`REQ-NNN`), evaluate the following:
 
@@ -75,7 +143,7 @@ For each requirement in the PRD (`REQ-NNN`), evaluate the following:
 3. **Completeness** -- Does the requirement cover normal operation, edge cases, and error scenarios? Flag missing edge cases.
 4. **Consistency** -- Does this requirement contradict any other requirement in the PRD? Flag contradictions with the specific conflicting requirement IDs.
 
-### Step 5: Structural Analysis
+### Step 6: Structural Analysis
 
 Evaluate the PRD as a whole for:
 
@@ -85,9 +153,9 @@ Evaluate the PRD as a whole for:
 4. **Feasibility concerns** -- Identify requirements that may be technically infeasible, unreasonably expensive, or contradicted by stated constraints (e.g. a performance requirement that conflicts with a technology choice).
 5. **Scope consistency** -- Verify that the in-scope and out-of-scope sections in the PRD align with what the prompt stated. Flag any prompt items that appear in the PRD's out-of-scope section but were requested in the prompt, or PRD requirements that go beyond what the prompt asked for.
 
-### Step 6: Determine Verdict
+### Step 7: Determine Verdict
 
-Based on the analysis from Steps 3-5, assign one of three verdicts:
+Based on the analysis from Steps 3, 5, and 6, assign one of three verdicts:
 
 **`PASS`** -- The PRD is ready to proceed to Task Breakdown. All of the following must be true:
 
@@ -117,7 +185,7 @@ When issuing a `REVISE` verdict, provide specific, actionable feedback for each 
 
 When issuing an `ESCALATE` verdict, explain clearly why automated resolution is not possible and what specific decisions or clarifications are needed from the user.
 
-### Step 7: Generate the Review Document
+### Step 8: Generate the Review Document
 
 Write `<phase-path>/prd-review.md` with the following structure:
 
@@ -144,7 +212,7 @@ Write `<phase-path>/prd-review.md` with the following structure:
 
 ## Requirement Evaluation
 
-<!-- Per-requirement findings from Step 4. Only include requirements that
+<!-- Per-requirement findings from Step 5. Only include requirements that
      have issues. If all requirements pass, state "All requirements passed
      evaluation." -->
 
@@ -157,7 +225,7 @@ Write `<phase-path>/prd-review.md` with the following structure:
 
 ## Structural Issues
 
-<!-- Findings from Step 5. Omit subsections that have no findings. -->
+<!-- Findings from Step 6. Omit subsections that have no findings. -->
 
 ### Contradictions
 
@@ -188,7 +256,7 @@ Write `<phase-path>/prd-review.md` with the following structure:
 2. ...
 ```
 
-### Step 8: Human-in-the-Loop Gate (Optional)
+### Step 9: Human-in-the-Loop Gate (Optional)
 
 After generating the review document, check whether the user wants to approve the PRD regardless of the automated verdict. Present the following prompt:
 
@@ -215,7 +283,7 @@ Verdict overridden to **PASS** by user. Original verdict: <ORIGINAL_VERDICT>.
 
 If the user selects option 3, display the contents of `prd-review.md` and then re-present options 1 and 2.
 
-### Step 9: Report
+### Step 10: Report
 
 Report a brief summary to the user:
 

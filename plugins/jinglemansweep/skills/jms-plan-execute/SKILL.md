@@ -57,7 +57,7 @@ include_minor_in_fix_loop: false
 # Implementation agent
 agent: jms-developer  # single Developer agent handles all domains via internal skill routing
 
-# Validation checks (delegated to /jms-plan-validate)
+# Validation checks (delegated to /jms-plan-task-validate)
 validation_checks:
   - linting
   - type_checking
@@ -229,10 +229,10 @@ Implement the task and confirm what files were created or modified.
 
 After the Developer agent completes (or fallback implementation finishes), determine which files were created or modified by the task. Use the `files_affected` field from the task definition, supplemented by any additional files reported by the agent.
 
-Run `/jms-plan-validate` on the output files:
+Run `/jms-plan-task-validate` on the output files:
 
 ```text
-/jms-plan-validate <file1> <file2> ...
+/jms-plan-task-validate <file1> <file2> ...
 ```
 
 **If validation returns `PASS`:** Proceed to Step 5g.
@@ -241,7 +241,7 @@ Run `/jms-plan-validate` on the output files:
 
 1. Update `state.yaml` to increment the retry count for this task.
 2. Provide the validation error output to the Developer agent (or handle directly in fallback mode) with instructions to fix the specific issues reported.
-3. After the retry, run `/jms-plan-validate` again on the affected files.
+3. After the retry, run `/jms-plan-task-validate` again on the affected files.
 4. If validation still fails after the retry, mark the task as `failed` and proceed to Step 5g.
 
 #### 5g: Log the Result
@@ -367,10 +367,10 @@ fix_round: <N>
 
 #### 7d: Validate Fixes
 
-After fixes are applied, determine which files were changed by reading the fix report from `/jms-plan-fix`. Run `/jms-plan-validate` on those files:
+After fixes are applied, determine which files were changed by reading the fix report from `/jms-plan-fix`. Run `/jms-plan-task-validate` on those files:
 
 ```text
-/jms-plan-validate <changed-file-1> <changed-file-2> ...
+/jms-plan-task-validate <changed-file-1> <changed-file-2> ...
 ```
 
 If validation fails, log the failure but continue to the next review round -- the review will catch the issues.
@@ -467,4 +467,4 @@ If the user chooses to push and create a PR, follow the PR creation flow:
 - **State is the source of truth.** Always read and update `state.yaml` before and after each operation. This enables resumability if the orchestrator is interrupted.
 - **Log everything.** Every task execution produces a log file in `logs/`. Every review round produces a file in `reviews/`. Every fix round updates `fix-ledger.yaml`. The summary reads all of these to produce the final report.
 - **Do not modify task definitions.** The orchestrator reads `tasks.yaml` but never modifies it. Task definitions are the output of `/jms-plan-task-breakdown` and are immutable during execution.
-- **Delegate, do not implement.** The orchestrator's role is coordination. Delegate implementation to the Developer agent, validation to `/jms-plan-validate`, review to `/jms-plan-code-review`, fixes to `/jms-plan-fix`, and reporting to `/jms-plan-summary`.
+- **Delegate, do not implement.** The orchestrator's role is coordination. Delegate implementation to the Developer agent, validation to `/jms-plan-task-validate`, review to `/jms-plan-code-review`, fixes to `/jms-plan-fix`, and reporting to `/jms-plan-summary`.

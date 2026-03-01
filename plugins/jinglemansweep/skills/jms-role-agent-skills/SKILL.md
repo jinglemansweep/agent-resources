@@ -1,5 +1,5 @@
 ---
-name: jms-skill-skills
+name: jms-role-agent-skills
 description: Skill authoring conventions and quality gates
 allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 ---
@@ -7,7 +7,7 @@ allowed-tools: Read, Edit, Write, Bash, Glob, Grep
 <!-- tags: skill, authoring, skill-creator, conventions, quality -->
 <!-- category: domain-skills -->
 
-# jms-skill-skills
+# jms-role-agent-skills
 
 Skill authoring conventions, quality gates, and domain knowledge for creating and modifying SKILL.md files. Loaded by the jms-developer agent when handling skill-related tasks. This is not a user-invocable skill.
 

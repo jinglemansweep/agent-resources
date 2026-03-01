@@ -71,6 +71,9 @@ agents:
   docs:
     agent: jms-role-docs
     signals: [".md documentation", "README", "changelog", "API docs", "writing documentation"]
+  skills:
+    agent: jms-role-skills
+    signals: ["SKILL.md", "skill", "skills/", "agent skill", "skill-creator"]
   general:
     agent: jms-role-general
     signals: []
@@ -196,8 +199,9 @@ Determine the appropriate role agent for this task. Use the `suggested_role` fie
 | `frontend` | `jms-role-frontend` |
 | `general` | `jms-role-general` |
 | `docs` | `jms-role-docs` |
+| `skills` | `jms-role-skills` |
 
-If the `suggested_role` does not match the task content (e.g. the role says `python` but the task only involves Dockerfiles), override with the better-fitting role based on the signals in the Orchestrator Configuration. If no clear role emerges, use `jms-role-general`.
+If the `suggested_role` does not match the task content (e.g. the role says `python` but the task only involves Dockerfiles, or the role says `general` but the task involves creating SKILL.md files), override with the better-fitting role based on the signals in the Orchestrator Configuration. If no clear role emerges, use `jms-role-general`.
 
 Update `state.yaml` with the selected agent:
 

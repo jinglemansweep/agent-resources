@@ -24,7 +24,6 @@ tree:
       install.sh: "copies skills + agents to ~/.claude/, cleans old artefacts"
       skills/:
         jms-git/: "skill: structured GitHub operations via gh CLI"
-        jms-git-push/: "skill: automate branch creation, PR, and auto-merge"
         jms-role-python/: "domain skill: Python conventions and quality gates"
         jms-role-nodejs/: "domain skill: Node.js/TypeScript conventions"
         jms-role-frontend/: "domain skill: frontend/UI conventions"
@@ -35,7 +34,6 @@ tree:
       plugin.json: "plugin metadata: skills + agents lists"
       install.sh: "copies skills + agents to ~/.claude/"
       agents/:
-        jp-planner.md: "agent: guides planning pipeline workflow"
         jp-developer.md: "agent: general-purpose developer with domain skill routing"
       skills/:
         jp-plan-init/: "skill: init .plans directory"

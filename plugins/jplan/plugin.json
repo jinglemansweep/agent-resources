@@ -17,7 +17,6 @@
     "jp-plan-workflow"
   ],
   "agents": [
-    "jp-planner",
     "jp-developer"
   ],
   "commands": []

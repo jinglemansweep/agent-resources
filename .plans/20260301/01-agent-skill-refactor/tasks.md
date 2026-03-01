@@ -76,7 +76,7 @@
 
 ### Create `jms-task-review`
 
-- [ ] **Create `plugins/jinglemansweep/skills/jms-task-review/SKILL.md`** — New skill that validates the task list structure, ordering, and completeness. The skill must:
+- [x] **Create `plugins/jinglemansweep/skills/jms-task-review/SKILL.md`** — New skill that validates the task list structure, ordering, and completeness. The skill must:
   - Accept a phase path argument (optional — if omitted, list 5 most recent phases for selection)
   - Read `tasks.yaml` and `prd.md` from the phase directory
   - Generate `task-review.md` in the phase directory containing:

@@ -74,9 +74,9 @@ Read `<phase-path>/state.yaml` if it exists. Check for existing artifacts to det
 |----------|-----------|
 | `prompt.md` exists | Ready for Stage 3 |
 | `prd.md` exists | Stage 3 complete |
-| `prd-review.md` exists with PASS verdict | Stage 4 complete |
+| `reviews/prd.md` exists with PASS verdict | Stage 4 complete |
 | `tasks.yaml` exists | Stage 5 complete |
-| `task-review.md` exists with PASS verdict | Stage 6 complete |
+| `reviews/tasks.md` exists with PASS verdict | Stage 6 complete |
 | `state.yaml` has `status: completed` | Stage 7 complete |
 | `summary.md` exists | Stage 8 complete (all done) |
 
@@ -96,7 +96,7 @@ Report: "Stage 4/8: Reviewing PRD..."
 
 Run `/jp-prd-review <phase-path>`.
 
-Read the output `<phase-path>/prd-review.md` and check the verdict:
+Read the output `<phase-path>/reviews/prd.md` and check the verdict:
 
 - **PASS**: Continue to Step 6.
 - **REVISE**: Report the action items to the user. Re-run `/jp-prd <phase-path>` to regenerate the PRD incorporating the feedback, then re-run `/jp-prd-review <phase-path>`. Repeat up to 2 times. If still REVISE after 2 retries, escalate to the user.
@@ -114,7 +114,7 @@ Report: "Stage 6/8: Reviewing task list..."
 
 Run `/jp-task-review <phase-path>`.
 
-Read the output `<phase-path>/task-review.md` and check the verdict:
+Read the output `<phase-path>/reviews/tasks.md` and check the verdict:
 
 - **PASS**: Continue to Step 8.
 - **REVISE**: Report the action items to the user. Re-run `/jp-task-list <phase-path>` to regenerate the task list incorporating the feedback, then re-run `/jp-task-review <phase-path>`. Repeat up to 2 times. If still REVISE after 2 retries, escalate to the user.

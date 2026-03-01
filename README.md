@@ -83,7 +83,7 @@ Planning Pipeline Skills and Agents.
 
 **Phase directory format:** `.plans/YYYY/MM/DD/NN-slug`
 
-**Artifacts:** `prompt.md` (user input), `prd.md` (product requirements document), `tasks.yaml` (structured task list), `state.yaml` (pipeline state)
+**Artifacts:** `prompt.md` (user input), `prd.md` (product requirements document), `tasks.yaml` (structured task list), `state.yaml` (pipeline state), `changelog.md` (task execution log), `reviews/` (review artifacts and fix history), `summary.md` (final report)
 
 **Skills:**
 

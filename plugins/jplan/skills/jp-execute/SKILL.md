@@ -28,15 +28,15 @@ If omitted, the skill lists the 5 most recent phase directories and prompts the 
 ├── prd.md              <- input (approved PRD)
 ├── tasks.yaml          <- input (task list from jp-task-list)
 ├── state.yaml          <- input/output (execution state)
-├── fix-ledger.yaml     <- output (fix round history)
-├── logs/
-│   ├── task-001.md     <- output (per-task execution logs)
-│   ├── task-002.md
-│   └── ...
+├── changelog.md        <- output (append-only task execution log)
 ├── reviews/
-│   ├── round-1.yaml    <- output (code review rounds)
-│   ├── round-2.yaml
-│   └── ...
+│   ├── prd.md          <- output (PRD review)
+│   ├── tasks.md        <- output (task review)
+│   ├── fixes.yaml      <- output (fix round history)
+│   └── cycle/
+│       ├── 001.yaml    <- output (code review rounds)
+│       ├── 002.yaml
+│       └── ...
 └── summary.md          <- output (final report from jp-summary)
 ```
 
@@ -73,20 +73,6 @@ summary_include_decision_log: true
 
 ## Instructions
 
-### Timestamp Convention
-
-Every `<ISO 8601 timestamp>` placeholder in this skill MUST be obtained by running the following command via the Bash tool and using the returned value verbatim:
-
-```bash
-date -u +"%Y-%m-%dT%H:%M:%SZ"
-```
-
-Rules:
-
-1. NEVER generate, estimate, or fabricate timestamp values. Always use the shell command above.
-2. For `started_at`: run the `date` command when the event begins and store the result.
-3. For `finished_at`: run the `date` command when the event completes and store the result.
-
 ### Step 0: Determine Repository Root
 
 Run `git rev-parse --show-toplevel` to determine the repository root. All `.plans/` references in this skill resolve relative to this root (i.e. `<repo-root>/.plans/`). If the command fails (not a git repository), stop and tell the user this skill requires a git repository.
@@ -110,7 +96,7 @@ Verify the phase directory contains the required files:
 2. `prd.md` -- If missing, stop and tell the user to run `/jp-prd` first.
 3. `state.yaml` -- If missing, stop and tell the user to run `/jp-plan` first.
 
-Verify that the `logs/` and `reviews/` subdirectories exist inside the phase directory. Create them if they do not exist.
+Verify that the `reviews/` and `reviews/cycle/` subdirectories exist inside the phase directory. Create them if they do not exist.
 
 ### Step 3: Read Inputs and Determine Resume Point
 
@@ -135,7 +121,6 @@ Update `state.yaml` immediately to record the start of execution:
 status: running
 phase_path: <phase-path>
 branch: <current-git-branch>
-started_at: <ISO 8601 timestamp>  # see Timestamp Convention
 current_phase: task_execution
 current_task: null
 fix_round: 0
@@ -176,26 +161,12 @@ Update `state.yaml`:
 ```yaml
 current_task: <TASK-NNN>
 tasks:
-  <TASK-NNN>:
-    status: running
-    agent: null
-    retries: 0
-    started_at: <ISO 8601 timestamp>  # see Timestamp Convention
+  <TASK-NNN>: running
 ```
 
-#### 5d: Record Agent Assignment
+#### 5d: Delegate to Developer Agent
 
 All tasks are delegated to the `jp-worker-dev` agent. The Developer agent handles domain-specific routing internally via its signal-based skill loading mechanism.
-
-Update `state.yaml` with the agent:
-
-```yaml
-tasks:
-  <TASK-NNN>:
-    agent: jp-worker-dev
-```
-
-#### 5e: Delegate to Developer Agent
 
 Spawn the Developer agent using the `Task` tool with `subagent_type` set to `general-purpose`. Provide a prompt containing:
 
@@ -240,7 +211,7 @@ Implement the task and confirm what files were created or modified.
 
 **Fallback:** If the Task tool fails to spawn the Developer agent (error, agent not found, etc.), fall back to implementing the task directly using the available tools (Read, Edit, Write, Bash, Glob, Grep). Follow the same task definition and acceptance criteria.
 
-#### 5f: Validate Output
+#### 5e: Validate Output
 
 After the Developer agent completes (or fallback implementation finishes), determine which files were created or modified by the task. Use the `files_affected` field from the task definition, supplemented by any additional files reported by the agent.
 
@@ -250,69 +221,44 @@ Run `/jp-task-validate` on the output files:
 /jp-task-validate <file1> <file2> ...
 ```
 
-**If validation returns `PASS`:** Proceed to Step 5g.
+**If validation returns `PASS`:** Proceed to Step 5f.
 
 **If validation returns `FAIL`:** Allow one retry (per the `max_retries_per_task` configuration).
 
-1. Update `state.yaml` to increment the retry count for this task.
-2. Provide the validation error output to the Developer agent (or handle directly in fallback mode) with instructions to fix the specific issues reported.
-3. After the retry, run `/jp-task-validate` again on the affected files.
-4. If validation still fails after the retry, mark the task as `failed` and proceed to Step 5g.
+1. Provide the validation error output to the Developer agent (or handle directly in fallback mode) with instructions to fix the specific issues reported.
+2. After the retry, run `/jp-task-validate` again on the affected files.
+3. If validation still fails after the retry, mark the task as `failed` and proceed to Step 5f.
 
-#### 5g: Log the Result
+#### 5f: Log the Result
 
-Write a task log file to `<phase-path>/logs/task-NNN.md` (matching the task ID number, e.g. `task-001.md` for `TASK-001`):
+Append an entry to `<phase-path>/changelog.md` for this task. Each entry uses the following format:
 
 ```markdown
-# Task Log: TASK-NNN
-
-## Task
-
-- **Title:** <title>
-- **Role agent:** <agent used>
-- **Status:** <completed | failed | blocked>
-- **Retries:** <N>
-- **Started:** <ISO 8601 timestamp>   <!-- use started_at value captured in Step 5c via shell command -->
-- **Finished:** <ISO 8601 timestamp>  <!-- run date -u +"%Y-%m-%dT%H:%M:%SZ" now and use result -->
-
-## Files
-
-### Created
-
-- `path/to/new/file.py`
-
-### Modified
-
-- `path/to/existing/file.py`
-
-## Validation
-
-- **Verdict:** <PASS | FAIL>
-- **Issues:** <summary of validation issues, or "None">
-
-## Notes
-
-<Any additional notes about the execution -- decisions made, problems encountered, fallback used, etc.>
+## TASK-NNN: <title>
+**Status:** completed | failed | blocked
+### Files Created
+- `path/to/file`
+### Files Modified
+- `path/to/file`
+### Notes
+<Implementation notes -- decisions made, problems encountered, validation issues, fallback used, etc.>
+---
 ```
 
-#### 5h: Update State
+If the file does not yet exist, create it with the first entry.
+
+#### 5g: Update State
 
 Update `state.yaml` with the task result:
 
 ```yaml
 tasks:
-  <TASK-NNN>:
-    status: <completed | failed | blocked>
-    agent: <agent-name>
-    retries: <N>
-    started_at: <ISO 8601 timestamp>  # see Timestamp Convention
-    finished_at: <ISO 8601 timestamp>  # see Timestamp Convention
-    validation: <PASS | FAIL>
+  <TASK-NNN>: <completed | failed | blocked>
 ```
 
 If the task failed after retry, set status to `failed`. Subsequent tasks that depend on this task will be marked `blocked` in Step 5b.
 
-#### 5i: Continue
+#### 5h: Continue
 
 Move to the next task in the execution order. Repeat from Step 5a.
 
@@ -324,7 +270,6 @@ After all tasks have been processed (completed, failed, or blocked), update `sta
 current_phase: review_loop
 current_task: null
 status: review_loop
-tasks_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Report a brief interim summary to the user:
@@ -354,11 +299,11 @@ Enter the review-and-fix loop. This loop runs after all tasks are processed and 
 /jp-codereview <phase-path> changed
 ```
 
-The code review skill writes its findings to `<phase-path>/reviews/round-N.yaml`.
+The code review skill writes its findings to `<phase-path>/reviews/cycle/NNN.yaml` (three-digit zero-padded, e.g. `001.yaml`).
 
 #### 7b: Evaluate Review Results
 
-Read the review round file (`reviews/round-N.yaml`) and collect all issues by severity.
+Read the review round file (`reviews/cycle/NNN.yaml`) and collect all issues by severity.
 
 **Exit condition -- success:** If the review found zero CRITICAL and zero MAJOR issues, the review loop is complete. Proceed to Step 8.
 
@@ -372,7 +317,7 @@ If CRITICAL or MAJOR issues exist, run `/jp-codereview-fix`:
 /jp-codereview-fix <phase-path>
 ```
 
-The fix skill reads the latest review round file, applies targeted corrections, and updates `fix-ledger.yaml`.
+The fix skill reads the latest review round file, applies targeted corrections, and updates `reviews/fixes.yaml`.
 
 Update `state.yaml`:
 
@@ -396,7 +341,7 @@ Before starting the next review round, check the exit conditions:
 
 1. **Round limit reached:** If the current fix round equals `max_fix_rounds` (3), exit the loop. Log all remaining CRITICAL and MAJOR issues as known issues. Proceed to Step 8.
 
-2. **Regression detected:** Compare the issue counts between the current round and the previous round. If the new review round has MORE new issues (issues not present in the previous round) than issues resolved, a regression has occurred. Exit the loop immediately. Log the regression in `state.yaml` and in the fix ledger. Proceed to Step 8.
+2. **Regression detected:** Compare the issue counts between the current round and the previous round. If the new review round has MORE new issues (issues not present in the previous round) than issues resolved, a regression has occurred. Exit the loop immediately. Log the regression in `state.yaml` and in `reviews/fixes.yaml`. Proceed to Step 8.
 
 3. **Otherwise:** Loop back to Step 7a for the next review round.
 
@@ -415,7 +360,6 @@ When the review loop exits, update `state.yaml`:
 ```yaml
 current_phase: quality_gate
 review_loop_exit_reason: <success | round_limit | regression>
-review_loop_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 ### Step 8: Quality Gate
@@ -427,8 +371,8 @@ After the review-fix loop exits, run a final quality gate check against all file
 Gather the full list of files created or modified during execution. Sources:
 
 1. The `files_affected` field from each task in `tasks.yaml`.
-2. Any additional files reported in per-task log files under `<phase-path>/logs/`.
-3. Files changed by fix rounds (from `fix-ledger.yaml`).
+2. Any additional files reported in `<phase-path>/changelog.md` (parse the "Files Created" and "Files Modified" sections from each entry).
+3. Files changed by fix rounds (from `reviews/fixes.yaml`).
 
 Deduplicate the list.
 
@@ -448,7 +392,6 @@ Record the result in `state.yaml`:
 
 ```yaml
 quality_gate: pass
-quality_gate_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Proceed to Step 9 (Documentation Review).
@@ -459,21 +402,13 @@ Record the result in `state.yaml`:
 
 ```yaml
 quality_gate: fail
-quality_gate_completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 Report the validation failures to the user. Offer three options:
 
 - **(a) Attempt to fix the issues** -- Re-enter a targeted fix cycle for the reported failures. After fixes are applied, re-run `/jp-task-validate` on the affected files. Update `state.yaml` with the new result (`quality_gate: pass` or `quality_gate: fail`). If the gate now passes, proceed to Step 9 (Documentation Review). If it still fails, present the three options again.
 
-- **(b) Proceed with PR creation despite failures** -- Log that the user chose to override the quality gate. Update `state.yaml`:
-
-  ```yaml
-  quality_gate: fail
-  quality_gate_override: true
-  ```
-
-  Proceed to Step 9 (Documentation Review), Step 10 (Generate Summary), and Step 12 (Report), where PR creation is offered normally.
+- **(b) Proceed with PR creation despite failures** -- Log that the user chose to override the quality gate. Proceed to Step 9 (Documentation Review), Step 10 (Generate Summary), and Step 12 (Report), where PR creation is offered normally.
 
 - **(c) Stop** -- Do not proceed further. Update `state.yaml`:
 
@@ -507,7 +442,7 @@ Run `/jp-summary` to generate the final report:
 /jp-summary <phase-path>
 ```
 
-This reads all logs, review reports, the fix ledger, tasks, and the PRD to produce `<phase-path>/summary.md`.
+This reads `changelog.md`, review reports, `reviews/fixes.yaml`, tasks, and the PRD to produce `<phase-path>/summary.md`.
 
 ### Step 11: Finalize
 
@@ -515,7 +450,6 @@ Update `state.yaml` to mark the phase as complete:
 
 ```yaml
 status: completed
-completed_at: <ISO 8601 timestamp>  # see Timestamp Convention
 ```
 
 ### Step 12: Report
@@ -567,6 +501,6 @@ Include the auto-merge status (enabled or not available) in the final summary ou
 - **Fix only what review finds.** The review-and-fix loop addresses issues found by `/jp-codereview`. Do not add extra fixes, refactoring, or improvements beyond what is reported.
 - **Stop on regression.** If a fix round introduces more new issues than it resolves, stop the loop immediately. Continuing would make the codebase worse.
 - **State is the source of truth.** Always read and update `state.yaml` before and after each operation. This enables resumability if the orchestrator is interrupted.
-- **Log everything.** Every task execution produces a log file in `logs/`. Every review round produces a file in `reviews/`. Every fix round updates `fix-ledger.yaml`. The summary reads all of these to produce the final report.
+- **Log to changelog.md.** Every task execution appends an entry to `changelog.md`. Every review round produces a file in `reviews/cycle/`. Every fix round updates `reviews/fixes.yaml`. The summary reads all of these to produce the final report.
 - **Do not modify task definitions.** The orchestrator reads `tasks.yaml` but never modifies it. Task definitions are the output of `/jp-task-list` and are immutable during execution.
 - **Delegate, do not implement.** The orchestrator's role is coordination. Delegate implementation to the Developer agent, validation to `/jp-task-validate`, review to `/jp-codereview`, fixes to `/jp-codereview-fix`, and reporting to `/jp-summary`.

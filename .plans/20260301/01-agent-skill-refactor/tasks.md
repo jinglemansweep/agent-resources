@@ -149,7 +149,7 @@
 
 ### Rewrite `jms-execute`
 
-- [ ] **Rewrite `plugins/jinglemansweep/skills/jms-execute/SKILL.md`** — Major rewrite as a full pipeline orchestrator. This is the most complex skill. Requires: Phase Management, Task Breakdown, and all Execution Sub-Skills groups to be complete. The rewritten skill must:
+- [x] **Rewrite `plugins/jinglemansweep/skills/jms-execute/SKILL.md`** — Major rewrite as a full pipeline orchestrator. This is the most complex skill. Requires: Phase Management, Task Breakdown, and all Execution Sub-Skills groups to be complete. The rewritten skill must:
   - Accept a phase path argument (optional — if omitted, list 5 most recent phases for selection)
   - Read `tasks.yaml` and `prd.md` from the phase directory
   - Read `state.yaml` on start to determine where to resume if interrupted mid-run

@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(jp-setup)",
+      "Skill(jp-plan)",
+      "Skill(jp-prd)",
+      "Skill(jp-prd-review)",
+      "Skill(jp-task-list)",
+      "Skill(jp-task-review)",
+      "Skill(jp-execute)",
+      "Skill(jp-task-validate)",
+      "Skill(jp-codereview)",
+      "Skill(jp-codereview-fix)",
+      "Skill(jp-summary)",
+      "Skill(jp-quick)",
+      "Skill(jp-persona-python)",
+      "Skill(jp-persona-nodejs)",
+      "Skill(jp-persona-frontend)",
+      "Skill(jp-persona-devops)",
+      "Skill(jp-persona-docs)",
+      "Skill(jp-persona-agent-skills)",
+      "Skill(agentmap-read)",
+      "Skill(agentmap-init)",
+      "Skill(agentmap-generate)",
+      "Skill(jms-git)",
+      "Task(jp-worker-dev)",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(test:*)",
+      "Bash(pre-commit run:*)",
+      "WebSearch",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

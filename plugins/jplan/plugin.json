@@ -3,21 +3,27 @@
   "version": "0.1.0",
   "description": "Planning Pipeline Skills and Agents",
   "skills": [
-    "jp-plan-init",
-    "jp-plan-new",
-    "jp-plan-prd",
-    "jp-plan-prd-review",
-    "jp-plan-task-breakdown",
-    "jp-plan-task-review",
-    "jp-plan-execute",
-    "jp-plan-task-validate",
-    "jp-plan-code-review",
-    "jp-plan-fix",
-    "jp-plan-summary",
-    "jp-plan-workflow"
+    "jp-setup",
+    "jp-plan",
+    "jp-prd",
+    "jp-prd-review",
+    "jp-task-list",
+    "jp-task-review",
+    "jp-execute",
+    "jp-task-validate",
+    "jp-codereview",
+    "jp-codereview-fix",
+    "jp-summary",
+    "jp-quick",
+    "jp-persona-python",
+    "jp-persona-nodejs",
+    "jp-persona-frontend",
+    "jp-persona-devops",
+    "jp-persona-docs",
+    "jp-persona-agent-skills"
   ],
   "agents": [
-    "jp-developer"
+    "jp-worker-dev"
   ],
   "commands": []
 }

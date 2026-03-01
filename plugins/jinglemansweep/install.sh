@@ -64,4 +64,12 @@ rm -rf "${DEST}/skills/jms-plan-workflow"
 rm -f "${DEST}/agents/jms-planner.md"
 rm -f "${DEST}/agents/jms-developer.md"
 
+# Clean up jms-role-* skill directories moved to the jplan plugin
+rm -rf "${DEST}/skills/jms-role-python"
+rm -rf "${DEST}/skills/jms-role-nodejs"
+rm -rf "${DEST}/skills/jms-role-frontend"
+rm -rf "${DEST}/skills/jms-role-devops"
+rm -rf "${DEST}/skills/jms-role-docs"
+rm -rf "${DEST}/skills/jms-role-agent-skills"
+
 echo "Cleaned up old skill and agent artefacts"

@@ -23,26 +23,29 @@ plugins/                    # Directory containing all plugins
     plugin.json             # Plugin metadata (name, version, skills, agents)
     install.sh              # Installation script
     skills/                 # Skill definitions (each contains a SKILL.md)
-      jms-init/
-      jms-phase-new/
-      jms-plan/
-      jms-prd-review/
-      jms-task-breakdown/
-      jms-task-review/
-      jms-execute/
-      jms-validate/
-      jms-code-review/
-      jms-fix/
-      jms-summary/
+      jms-plan-init/
+      jms-plan-phase-new/
+      jms-plan-prd/
+      jms-plan-prd-review/
+      jms-plan-task-breakdown/
+      jms-plan-task-review/
+      jms-plan-execute/
+      jms-plan-validate/
+      jms-plan-code-review/
+      jms-plan-fix/
+      jms-plan-summary/
+      jms-plan-workflow/
+      jms-git/
       jms-git-push/
+      jms-skill-python/
+      jms-skill-nodejs/
+      jms-skill-frontend/
+      jms-skill-devops/
+      jms-skill-docs/
+      jms-skill-skills/
     agents/                 # Agent definitions
       jms-planner.md
-      jms-role-general.md
-      jms-role-python.md
-      jms-role-nodejs.md
-      jms-role-frontend.md
-      jms-role-devops.md
-      jms-role-docs.md
+      jms-developer.md
   agentmap/                 # The agentmap plugin
     plugin.json             # Plugin metadata (name, version, skills)
     install.sh              # Installation script
@@ -62,9 +65,9 @@ README.md                   # This file
 
 Personal Skills and Agents.
 
-**Version:** 0.3.0
+**Version:** 0.4.0
 
-**Pipeline:** New Phase -> Plan -> PRD Review -> Task Breakdown -> Task Review -> Execute (with Validate, Code Review, Fix, Summary sub-stages)
+**Pipeline:** New Phase -> PRD -> PRD Review -> Task Breakdown -> Task Review -> Execute (with Validate, Code Review, Fix, Summary sub-stages)
 
 **Phase directory format:** `.plans/YYYY/MM/DD/NN-slug`
 
@@ -72,28 +75,39 @@ Personal Skills and Agents.
 
 **Skills:**
 
-- `jms-init` — Initialize the `.plans` directory structure for a project
-- `jms-phase-new` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
-- `jms-plan` — Generate a structured product requirements document (`prd.md`) from a prompt file
-- `jms-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
-- `jms-task-breakdown` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
-- `jms-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
-- `jms-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
-- `jms-validate` — Post-task automated validation: syntax, linting, type checking, and tests
-- `jms-code-review` — Holistic code review with severity-rated issue tracking in YAML format
-- `jms-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
-- `jms-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
+Planning skills:
+
+- `jms-plan-init` — Initialize the `.plans` directory structure for a project
+- `jms-plan-phase-new` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
+- `jms-plan-prd` — Generate a structured product requirements document (`prd.md`) from a prompt file
+- `jms-plan-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
+- `jms-plan-task-breakdown` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
+- `jms-plan-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
+- `jms-plan-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
+- `jms-plan-validate` — Post-task automated validation: syntax, linting, type checking, and tests
+- `jms-plan-code-review` — Holistic code review with severity-rated issue tracking in YAML format
+- `jms-plan-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
+- `jms-plan-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
+- `jms-plan-workflow` — End-to-end planning pipeline orchestration: runs the full pipeline from prompt to summary in a single invocation, with review verdict handling and resumption support
+
+Git skills:
+
+- `jms-git` — Structured interface for GitHub operations using the `gh` CLI (pull requests, issues, CI/workflow runs, and API queries)
 - `jms-git-push` — Automate branch creation, PR submission, and auto-merge for accidental default-branch commits
+
+Domain skills (loaded by the Developer agent based on task signals):
+
+- `jms-skill-python` — Python backend conventions and quality gates
+- `jms-skill-nodejs` — Node.js/TypeScript conventions and quality gates
+- `jms-skill-frontend` — Frontend/UI conventions and quality gates
+- `jms-skill-devops` — Infrastructure and CI/CD conventions and quality gates
+- `jms-skill-docs` — Documentation conventions and quality gates
+- `jms-skill-skills` — Skill authoring conventions and quality gates
 
 **Agents:**
 
-- `jms-planner` — Guides the planning workflow: init, phase creation, plan generation, PRD review, task breakdown, and task review
-- `jms-role-general` — General-purpose implementation specialist for mixed or unclassified tasks
-- `jms-role-python` — Python backend implementation specialist
-- `jms-role-nodejs` — JavaScript/TypeScript/Node implementation specialist
-- `jms-role-frontend` — Frontend/UI implementation specialist
-- `jms-role-devops` — Infrastructure and CI/CD implementation specialist
-- `jms-role-docs` — Documentation implementation specialist
+- `jms-planner` — Guides the planning workflow: init, phase creation, PRD generation, PRD review, task breakdown, and task review. For an automated end-to-end experience, invoke `/jms-plan-workflow` instead of stepping through the pipeline manually.
+- `jms-developer` — General-purpose developer agent that delegates to domain-specific skills. Examines task signals (file extensions, tools, frameworks) to automatically load the appropriate domain skill(s) (`jms-skill-python`, `jms-skill-nodejs`, `jms-skill-frontend`, `jms-skill-devops`, `jms-skill-docs`, `jms-skill-skills`) and follows their conventions during implementation. Falls back to general software engineering practices when no domain matches.
 
 ### agentmap
 
@@ -137,13 +151,13 @@ CLAUDE_DIR=/path/to/custom/.claude bash install.sh
 
 ## Configuration
 
-Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `jinglemansweep` plugin includes a settings file at `plugins/jinglemansweep/.claude/settings.local.json` which configures automatic permission for the `jms-init` skill:
+Plugins may include their own `.claude/settings.local.json` with plugin-specific settings. The `jinglemansweep` plugin includes a settings file at `plugins/jinglemansweep/.claude/settings.local.json` which configures automatic permission for the `jms-plan-init` skill:
 
 ```json
 {
   "permissions": {
     "allow": [
-      "Skill(jms-init)"
+      "Skill(jms-plan-init)"
     ]
   }
 }

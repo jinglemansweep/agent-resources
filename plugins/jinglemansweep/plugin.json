@@ -1,30 +1,32 @@
 {
   "name": "jinglemansweep",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Personal Skills and Agents",
   "skills": [
-    "jms-init",
-    "jms-phase-new",
-    "jms-plan",
-    "jms-prd-review",
-    "jms-task-breakdown",
-    "jms-task-review",
-    "jms-execute",
-    "jms-validate",
-    "jms-code-review",
-    "jms-fix",
-    "jms-summary",
-    "jms-git-push"
+    "jms-plan-init",
+    "jms-plan-phase-new",
+    "jms-plan-prd",
+    "jms-plan-prd-review",
+    "jms-plan-task-breakdown",
+    "jms-plan-task-review",
+    "jms-plan-execute",
+    "jms-plan-validate",
+    "jms-plan-code-review",
+    "jms-plan-fix",
+    "jms-plan-summary",
+    "jms-plan-workflow",
+    "jms-git",
+    "jms-git-push",
+    "jms-skill-python",
+    "jms-skill-nodejs",
+    "jms-skill-frontend",
+    "jms-skill-devops",
+    "jms-skill-docs",
+    "jms-skill-skills"
   ],
   "agents": [
     "jms-planner",
-    "jms-role-general",
-    "jms-role-python",
-    "jms-role-nodejs",
-    "jms-role-frontend",
-    "jms-role-devops",
-    "jms-role-docs",
-    "jms-role-skills"
+    "jms-developer"
   ],
   "commands": []
 }

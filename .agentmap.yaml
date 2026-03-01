@@ -1,7 +1,7 @@
 meta:
   project: agent-resources
   version: 1
-  updated: "2026-02-27"
+  updated: "2026-03-01"
   stack:
     - claude-code
     - bash
@@ -17,19 +17,35 @@ tree:
       example.agentmap.yaml: "reference agentmap for other projects"
       skills/:
         agentmap-generate/: "skill: generate .agentmap.yaml"
+        agentmap-init/: "skill: check for and guide .agentmap.yaml setup"
         agentmap-read/: "skill: consume .agentmap.yaml"
     jinglemansweep/:
-      plugin.json: "plugin metadata: skills + agents lists"
-      install.sh: "copies skills + agents to ~/.claude/"
-      agents/: "planner + role-based agent definitions (jms-*)"
+      plugin.json: "plugin metadata: skills + agents lists (v0.4.0)"
+      install.sh: "copies skills + agents to ~/.claude/, cleans old artefacts"
+      agents/:
+        jms-planner.md: "agent: guides planning pipeline workflow"
+        jms-developer.md: "agent: general-purpose developer with domain skill routing"
       skills/:
-        jms-init/: "skill: init .plans directory"
-        jms-phase-new/: "skill: create new plan phase"
-        jms-plan/: "skill: generate plan from prompt"
-        jms-review/: "skill: review plan issues"
-        jms-taskify/: "skill: convert plan to task list"
-        jms-execute/: "skill: execute task list"
+        jms-plan-init/: "skill: init .plans directory"
+        jms-plan-phase-new/: "skill: create new plan phase"
+        jms-plan-prd/: "skill: generate PRD from prompt"
+        jms-plan-prd-review/: "skill: review PRD against prompt"
+        jms-plan-task-breakdown/: "skill: convert PRD to task list"
+        jms-plan-task-review/: "skill: validate task list against PRD"
+        jms-plan-execute/: "skill: execute task list with review-fix loop"
+        jms-plan-validate/: "skill: run post-task validation checks"
+        jms-plan-code-review/: "skill: holistic code review"
+        jms-plan-fix/: "skill: apply targeted fixes for review issues"
+        jms-plan-summary/: "skill: generate final summary report"
+        jms-plan-workflow/: "skill: end-to-end pipeline orchestration"
+        jms-git/: "skill: structured GitHub operations via gh CLI"
         jms-git-push/: "skill: automate branch creation, PR, and auto-merge"
+        jms-skill-python/: "domain skill: Python conventions and quality gates"
+        jms-skill-nodejs/: "domain skill: Node.js/TypeScript conventions"
+        jms-skill-frontend/: "domain skill: frontend/UI conventions"
+        jms-skill-devops/: "domain skill: infrastructure and CI/CD conventions"
+        jms-skill-docs/: "domain skill: documentation conventions"
+        jms-skill-skills/: "domain skill: skill authoring conventions"
   .plans/: "planning phase artifacts (generated)"
   .github/workflows/: "CI: pre-commit hooks"
 
@@ -38,4 +54,5 @@ conventions:
   - one SKILL.md per skill directory: self-contained definition
   - agents are single markdown files: in agents/ directory
   - jms- prefix for jinglemansweep plugin: agentmap- prefix for agentmap plugin
+  - jms-plan-* prefix for planning pipeline skills: jms-skill-* prefix for domain skills
   - install.sh copies to ~/.claude/: CLAUDE_DIR overridable

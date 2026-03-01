@@ -26,9 +26,14 @@ plugins/                    # Directory containing all plugins
       jms-init/
       jms-phase-new/
       jms-plan/
-      jms-review/
-      jms-taskify/
+      jms-prd-review/
+      jms-task-breakdown/
+      jms-task-review/
       jms-execute/
+      jms-validate/
+      jms-code-review/
+      jms-fix/
+      jms-summary/
       jms-git-push/
     agents/                 # Agent definitions
       jms-planner.md
@@ -57,21 +62,32 @@ README.md                   # This file
 
 Personal Skills and Agents.
 
-**Version:** 0.2.0
+**Version:** 0.3.0
+
+**Pipeline:** New Phase -> Plan -> PRD Review -> Task Breakdown -> Task Review -> Execute (with Validate, Code Review, Fix, Summary sub-stages)
+
+**Phase directory format:** `.plans/YYYY/MM/DD/NN-slug`
+
+**Artifacts:** `prompt.md` (user input), `prd.md` (product requirements document), `tasks.yaml` (structured task list), `state.yaml` (pipeline state)
 
 **Skills:**
 
 - `jms-init` — Initialize the `.plans` directory structure for a project
-- `jms-phase-new` — Create a new datestamped planning phase directory with sequential numbering
-- `jms-plan` — Generate a high-level implementation plan, research, and issues from a prompt file
-- `jms-review` — Review and resolve issues in a plan directory through interactive user decisions
-- `jms-taskify` — Generate a detailed, actionable task list from an existing plan
-- `jms-execute` — Implement tasks from a task list with quality gates and git commits per group
+- `jms-phase-new` — Create a new datestamped planning phase directory (`YYYY/MM/DD/NN-slug`) with branch setup
+- `jms-plan` — Generate a structured product requirements document (`prd.md`) from a prompt file
+- `jms-prd-review` — Critically evaluate the PRD for coverage, contradictions, ambiguity, and feasibility
+- `jms-task-breakdown` — Convert an approved PRD into a structured YAML task list (`tasks.yaml`)
+- `jms-task-review` — Validate the task list structure, dependency ordering, and PRD coverage
+- `jms-execute` — Full pipeline orchestrator: processes tasks sequentially with agent delegation, validation, code review, fix loops, and summary generation
+- `jms-validate` — Post-task automated validation: syntax, linting, type checking, and tests
+- `jms-code-review` — Holistic code review with severity-rated issue tracking in YAML format
+- `jms-fix` — Apply corrections based on code review feedback (CRITICAL and MAJOR issues)
+- `jms-summary` — Generate a final workflow summary report covering tasks, reviews, and decisions
 - `jms-git-push` — Automate branch creation, PR submission, and auto-merge for accidental default-branch commits
 
 **Agents:**
 
-- `jms-planner` — Guides the full planning workflow: init, phase selection, plan creation, issue review, and task list generation
+- `jms-planner` — Guides the planning workflow: init, phase creation, plan generation, PRD review, task breakdown, and task review
 - `jms-role-general` — General-purpose implementation specialist for mixed or unclassified tasks
 - `jms-role-python` — Python backend implementation specialist
 - `jms-role-nodejs` — JavaScript/TypeScript/Node implementation specialist

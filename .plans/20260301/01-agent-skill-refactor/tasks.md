@@ -204,13 +204,13 @@
 
 ### Remove Deprecated Skills and Agents
 
-- [ ] **Delete `plugins/jinglemansweep/skills/jms-taskify/SKILL.md`** — Remove the old `jms-taskify` skill directory entirely. It has been replaced by `jms-task-breakdown`. Verify the `jms-task-breakdown` skill exists before deleting.
+- [x] **Delete `plugins/jinglemansweep/skills/jms-taskify/SKILL.md`** — Remove the old `jms-taskify` skill directory entirely. It has been replaced by `jms-task-breakdown`. Verify the `jms-task-breakdown` skill exists before deleting.
 
-- [ ] **Delete `plugins/jinglemansweep/skills/jms-review/SKILL.md`** — Remove the old `jms-review` skill directory entirely. It has been replaced by `jms-prd-review` and `jms-task-review`. Verify both replacement skills exist before deleting.
+- [x] **Delete `plugins/jinglemansweep/skills/jms-review/SKILL.md`** — Remove the old `jms-review` skill directory entirely. It has been replaced by `jms-prd-review` and `jms-task-review`. Verify both replacement skills exist before deleting.
 
 ### Update Plugin Metadata
 
-- [ ] **Update `plugins/jinglemansweep/plugin.json`** — Modify the skills and agents arrays to reflect the refactored pipeline. Changes:
+- [x] **Update `plugins/jinglemansweep/plugin.json`** — Modify the skills and agents arrays to reflect the refactored pipeline. Changes:
   - Remove `jms-review` from the `skills` array
   - Remove `jms-taskify` from the `skills` array
   - Add the following to the `skills` array: `jms-prd-review`, `jms-task-breakdown`, `jms-task-review`, `jms-validate`, `jms-code-review`, `jms-fix`, `jms-summary`
@@ -221,7 +221,7 @@
 
 ### Update Documentation
 
-- [ ] **Update `README.md`** — Update the project documentation to reflect the refactored skill set. Changes:
+- [x] **Update `README.md`** — Update the project documentation to reflect the refactored skill set. Changes:
   - Update the directory tree to show the new skill directories (`jms-prd-review`, `jms-task-breakdown`, `jms-task-review`, `jms-validate`, `jms-code-review`, `jms-fix`, `jms-summary`) and the removal of `jms-taskify` and `jms-review`
   - Update the pipeline description to reflect the new stages: New Phase → Plan → PRD Review → Task Breakdown → Task Review → Execute (with Validate, Code Review, Fix, Summary sub-stages)
   - Update skill descriptions to match the new skill purposes

@@ -59,12 +59,20 @@ Before running checks, detect which tools and configurations are available in th
 - `tsconfig.json` -- TypeScript configuration
 - `.eslintrc*`, `eslint.config.*` -- ESLint configuration
 - `biome.json`, `biome.jsonc` -- Biome configuration
+- `.markdownlint.yaml`, `.markdownlint.yml`, `.markdownlint.json`, `.markdownlint-cli2.yaml`, `.markdownlintrc` -- Markdownlint configuration
 - `.flake8`, `.ruff.toml`, `ruff.toml`, `pyproject.toml` (with `[tool.ruff]`) -- Python linting
 - `.mypy.ini`, `mypy.ini`, `pyproject.toml` (with `[tool.mypy]`) -- Python type checking
+- `.yamllint`, `.yamllint.yaml`, `.yamllint.yml` -- Yamllint configuration
 - `Makefile` -- Make targets
 - `.pre-commit-config.yaml` -- Pre-commit hooks
 
-Record which tools are available. Only run checks for which tooling is configured -- do not install or configure tools.
+Also check PATH availability for CLI tools that may not have project-level config files:
+
+- `markdownlint` or `markdownlint-cli2` -- Markdown linting
+- `yamllint` -- YAML linting
+- `shellcheck` -- Shell script linting
+
+Record which tools are available. Only run checks for which tooling is configured or the CLI tool is present in PATH -- do not install or configure tools.
 
 ### Step 3: Syntax Validation and Linting
 
@@ -87,7 +95,13 @@ Run syntax and lint checks appropriate to the file types involved. Only run chec
 
 **YAML files:**
 
-1. Syntax check: `python -c "import yaml; yaml.safe_load(open('<file>'))"` for each YAML file, or `yamllint <file>` if `yamllint` is available.
+1. If `yamllint` is available: `yamllint <files>` for each YAML file. Yamllint performs both syntax checking and linting, so no separate syntax check is needed. Capture errors with file path and line number; prefix findings with the tool name (`yamllint`).
+2. If `yamllint` is not available: fall back to basic syntax check: `python -c "import yaml; yaml.safe_load(open('<file>'))"` for each YAML file.
+
+**Markdown files:**
+
+1. If `markdownlint` (or `markdownlint-cli2`) is available: run `markdownlint <files>` (or `markdownlint-cli2 <files>`) against each Markdown file. Capture errors with file path and line number; prefix findings with the tool name (`markdownlint`).
+2. If `markdownlint` is not available, skip Markdown-specific linting silently -- do not produce an error or warning.
 
 **Shell scripts:**
 

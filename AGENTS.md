@@ -19,7 +19,9 @@ Shared opencode configuration and customization resources.
 - `opencode/skills/<name>/SKILL.md` — Skills. Each has YAML front
   matter with `name`, `description`, `license`, `compatibility`,
   `metadata` fields, then the skill instructions in markdown
-- `opencode/agents/` — Agent definitions (currently empty)
+- `opencode/agents/*.md` — Agent definitions. Each has YAML front
+  matter with `description`, `mode`, `permission` fields, then the
+  agent system prompt in markdown
 
 ## Editing Rules
 

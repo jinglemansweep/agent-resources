@@ -1,6 +1,7 @@
 ---
 description: Review a plan for issues, gaps, and conflicts
 model: deepseek/deepseek-v4-pro
+agent: plan-agent
 ---
 
 You are reviewing a PRD-style plan document. Follow these steps in

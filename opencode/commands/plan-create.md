@@ -1,6 +1,7 @@
 ---
 description: Create a timestamped PRD-style plan from a high-level summary
 model: zai-coding-plan/glm-5.1
+agent: plan-agent
 ---
 
 You are creating a PRD-style plan document. Follow these steps in order:

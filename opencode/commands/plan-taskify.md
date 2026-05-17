@@ -1,6 +1,7 @@
 ---
 description: Break a reviewed plan into actionable tasks with checkboxes
 model: deepseek/deepseek-v4-pro
+agent: plan-agent
 ---
 
 You are breaking a finalized plan into actionable tasks. Follow these

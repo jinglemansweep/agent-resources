@@ -1,13 +1,11 @@
 ---
 description: Commit, push, and open a PR
-subtask: true
 ---
 
 You are creating a git commit and pull request. Follow these steps:
 
 1. **Check branch** — Run `git branch --show-current`. If the result
    is `main` or `master`, derive a branch name from the changes:
-
    - Analyze the diff to determine the prefix (`feat`, `fix`,
      `chore`, `docs`) and a short hyphen-separated slug.
    - Present the recommended name (e.g. `feat/add-cool-feature`)
@@ -21,18 +19,13 @@ You are creating a git commit and pull request. Follow these steps:
 
 3. **Run quality gates** — First read `AGENTS.md` and `README.md` to
    discover project-specific requirements and test commands. Then:
-
    - If a `.pre-commit-config.yaml` exists, run
      `pre-commit run --all-files`. Fix any failures before
      proceeding.
    - If no pre-commit config, detect the language/framework and run
-     the appropriate linters:
-     - Nix: `nix run nixpkgs#statix -- check .` and
-       `nix run nixpkgs#deadnix -- --fail
-       --no-lambda-pattern-names .`
-     - Python: `ruff check .` or the project's configured linter
-     - JavaScript/TypeScript: `npm run lint` or `npx eslint .`
-     - Go: `go vet ./...` and `golangci-lint run`
+     the appropriate linters: - Nix: `nix run nixpkgs#statix -- check .` and
+     `nix run nixpkgs#deadnix -- --fail
+--no-lambda-pattern-names .` - Python: `ruff check .` or the project's configured linter - JavaScript/TypeScript: `npm run lint` or `npx eslint .` - Go: `go vet ./...` and `golangci-lint run`
    - Run any project-specific test commands discovered from
      `AGENTS.md` / `README.md` (e.g. `pytest`, `npm run test`).
    - If `nix flake check` is applicable (project has a `flake.nix`),

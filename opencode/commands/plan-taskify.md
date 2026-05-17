@@ -91,3 +91,8 @@ Follow these steps in order:
 
 5. Ensure `tasks.md` passes markdownlint (80-char line limit, no
    trailing whitespace, ends with a newline).
+
+6. STOP. Your task is complete. Do NOT proceed to implement
+   the plan. Do NOT modify any source code, configuration, or
+   other files outside the plan directory. Report the created
+   tasks file path to the user and stop.

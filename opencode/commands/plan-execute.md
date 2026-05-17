@@ -1,10 +1,13 @@
 ---
 description: Execute all tasks from a plan's task list sequentially
 model: zai-coding-plan/glm-5.1
-agent: plan-agent
 ---
 
 You are executing a finalized task list. Follow these steps in order:
+
+**QUALITY GATES**: Run quality gate checks (pre-commit, tests) ONLY
+ONCE — after ALL tasks have been completed. Do NOT run them before
+implementation starts or after individual tasks or groups.
 
 1. Determine the plan to execute:
 
@@ -46,18 +49,6 @@ You are executing a finalized task list. Follow these steps in order:
      - **Other project types**: Follow conventions found in
        AGENTS.md/README.md.
 
-   c. Run the full quality gate suite once on the current codebase
-     to establish a baseline. Run all of the following that apply:
-
-     - Pre-commit: `pre-commit run --all-files`
-     - Tests: `pytest`, `npm test`, or equivalent based on
-       project type
-
-     If there are pre-existing failures, fix them first before
-     proceeding to task implementation. All quality gates must pass
-     as a clean starting point. Inform the user about any
-     pre-existing issues you discover and fix.
-
 4. Implement tasks from `tasks.md` sequentially, group by group:
 
    For each group in `tasks.md`:
@@ -67,21 +58,11 @@ You are executing a finalized task list. Follow these steps in order:
      task. Implement changes carefully, following the project's
      coding conventions discovered in step 3.
 
-   b. After completing all tasks within a group, run the full
-     quality gate suite:
-
-     - Pre-commit: `pre-commit run --all-files`
-     - Tests: `pytest`, `npm test`, or equivalent
-
-     If any quality gate fails, fix the failures before proceeding
-     to the next group. Do not move on until ALL gates pass.
-
-   c. After the group passes all quality gates, update `tasks.md`
+   b. After completing all tasks within a group, update `tasks.md`
      by marking every completed task and subtask in that group with
      `[x]` instead of `[ ]`.
 
-5. After all groups are complete, run the final full quality gate
-   suite one more time:
+5. After all groups are complete, run the quality gate suite:
 
    - Pre-commit: `pre-commit run --all-files`
    - Tests: `pytest`, `npm test`, or equivalent

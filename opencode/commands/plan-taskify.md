@@ -1,7 +1,6 @@
 ---
 description: Break a reviewed plan into actionable tasks with checkboxes
 model: deepseek/deepseek-v4-pro
-agent: plan-agent
 ---
 
 You are breaking a finalized plan into actionable tasks.
@@ -89,7 +88,6 @@ Follow these steps in order:
      type-checking, testing, and manual verification.
    - Do not pre-check any boxes — all tasks start unchecked.
 
-5. STOP. Your task is complete. Do NOT proceed to implement
-   the plan. Do NOT modify any source code, configuration, or
-   other files outside the plan directory. Report the created
-   tasks file path to the user and stop.
+5. Report the created tasks file path to the user, then prompt them:
+
+   "Run /compact to free context, then run /plan-execute to start implementing tasks."

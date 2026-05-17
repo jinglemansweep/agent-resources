@@ -1,7 +1,6 @@
 ---
 description: Create a timestamped PRD-style plan from a high-level summary
 model: zai-coding-plan/glm-5.1
-agent: plan-agent
 ---
 
 You are creating a PRD-style plan document.
@@ -84,8 +83,6 @@ Follow these steps in order:
    - <Related docs/plans/\*/plan.md if any exist>
    - <Relevant git commits or issues>
 
-7. STOP. Your task is complete. Do NOT proceed to implement
-   the plan. Do NOT create any files other than `plan.md`.
-   Do NOT modify any source code, configuration, or other
-   files in the repository. Report the created plan path to
-   the user and stop.
+7. Report the created plan path to the user, then prompt them:
+
+   "Run /compact to free context, then run /plan-review to review this plan."

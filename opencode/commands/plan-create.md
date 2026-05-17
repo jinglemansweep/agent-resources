@@ -1,6 +1,6 @@
 ---
 description: Create a timestamped PRD-style plan from a high-level summary
-model: zai/glm-5.1
+model: zai-coding-plan/glm-5.1
 ---
 
 You are creating a PRD-style plan document. Follow these steps in order:
@@ -21,14 +21,14 @@ You are creating a PRD-style plan document. Follow these steps in order:
 5. Research context for the plan:
 
    a. Review the current codebase — examine directory structure, key
-      files, and architecture.
+   files, and architecture.
 
    b. Review recent git history (`git log --oneline -20`) to
-      understand current development activity and direction.
+   understand current development activity and direction.
 
    c. Review any existing plans in `docs/plans/*/plan.md` to
-      understand prior decisions and avoid duplicating effort. If
-      related plans exist, note them as references.
+   understand prior decisions and avoid duplicating effort. If
+   related plans exist, note them as references.
 
 6. Create `plan.md` inside the timestamped directory with the following
    PRD-style structure. Fill in each section based on the summary in
@@ -46,41 +46,33 @@ You are creating a PRD-style plan document. Follow these steps in order:
    relevant git history or prior plans.>
 
    ## Goals
-
    - <Goal 1>
    - <Goal 2>
 
    ## Non-Goals
-
    - <Explicitly out of scope>
 
    ## Requirements
 
    ### Functional Requirements
-
    - <Requirement 1>
 
    ### Technical Requirements
-
    - <Requirement 1>
 
    ## Implementation Plan
 
    ### Phase 1: <Name>
-
    - <Step>
 
    ### Phase 2: <Name>
-
    - <Step>
 
    ## Open Questions
-
    - <Question 1>
 
    ## References
-
-   - <Related docs/plans/*/plan.md if any exist>
+   - <Related docs/plans/\*/plan.md if any exist>
    - <Relevant git commits or issues>
 
 7. Ensure `plan.md` passes markdownlint (80-char line limit, no

@@ -1,0 +1,19 @@
+# Fix ledger
+# Phase: .plans/2026/03/01/12-readme-tutorial
+# Maintained by: /jp-codereview-fix
+
+rounds:
+  - round: 1
+    review_file: "reviews/cycle/001.yaml"
+    issues_input: 1
+    issues_fixed: 1
+    issues_deferred: 0
+    issues_remaining: 0
+    regressions_introduced: 0
+    exit_reason: "fixes_applied"
+    fixes:
+      - issue_id: "ISSUE-001"
+        status: "fixed"
+        files_changed:
+          - "README.md"
+        description: "Reworded Stage 7 (/jp-execute) description to distinguish per-task validation from the post-execution review loop. Per-task: delegates to jp-worker-dev and validates output via /jp-task-validate. Post-execution: enters a review-and-fix loop with /jp-codereview and /jp-codereview-fix."

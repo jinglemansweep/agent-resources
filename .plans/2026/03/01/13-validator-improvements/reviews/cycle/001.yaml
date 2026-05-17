@@ -1,0 +1,38 @@
+round: 1
+scope: full
+file_reviewed: plugins/jplan/skills/jp-task-validate/SKILL.md
+issues:
+  - id: "ISSUE-001"
+    severity: "MINOR"
+    file: "plugins/jplan/skills/jp-task-validate/SKILL.md"
+    line: 103
+    description: >
+      Markdown section uses "If `markdownlint` is not available" phrasing while the
+      analogous Shell scripts section (line 108) uses "Otherwise" for its fallback.
+      The YAML section (line 99) also uses "If `yamllint` is not available". The two
+      new sections are internally consistent with each other but differ stylistically
+      from the pre-existing Shell scripts pattern. This is cosmetic only.
+    suggestion: >
+      Consider aligning the fallback phrasing to use "Otherwise" for consistency with
+      the Shell scripts section, e.g. "Otherwise, skip Markdown-specific linting
+      silently." and "Otherwise, fall back to basic syntax check: ...". Alternatively,
+      leave as-is since the current phrasing is clear and unambiguous.
+  - id: "ISSUE-002"
+    severity: "MINOR"
+    file: "plugins/jplan/skills/jp-task-validate/SKILL.md"
+    line: 71
+    description: >
+      The new PATH availability paragraph adds `shellcheck` detection to Step 2.
+      Shellcheck was previously only referenced in Step 3 without corresponding
+      detection in Step 2. While this is a beneficial fix to a pre-existing gap,
+      it is technically outside the stated scope of the PRD (which covers only
+      markdownlint and yamllint changes).
+    suggestion: >
+      No change required -- the addition is correct and improves consistency.
+      Note it in the changelog as a bonus fix if not already documented.
+summary:
+  critical: 0
+  major: 0
+  minor: 2
+  total: 2
+  verdict: "PASS"

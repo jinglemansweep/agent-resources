@@ -1,0 +1,99 @@
+status: completed
+phase_path: .plans/2026/03/01/08-fixes-renames
+branch: fix/fixes-and-renames
+started_at: "2026-03-01T08:00:00Z"
+completed_at: "2026-03-01T08:21:00Z"
+current_phase: completed
+current_task: null
+fix_round: 1
+last_review_round: 2
+review_loop_exit_reason: success
+review_loop_completed_at: "2026-03-01T08:20:00Z"
+quality_gate: pass
+quality_gate_completed_at: "2026-03-01T08:20:30Z"
+tasks_completed_at: "2026-03-01T08:17:13Z"
+tasks:
+  TASK-001:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:00:01Z"
+    finished_at: "2026-03-01T08:01:33Z"
+    validation: PASS
+  TASK-002:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:01:34Z"
+    finished_at: "2026-03-01T08:01:59Z"
+    validation: PASS
+  TASK-003:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:02:00Z"
+    finished_at: "2026-03-01T08:02:54Z"
+    validation: PASS
+  TASK-004:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:02:55Z"
+    finished_at: "2026-03-01T08:10:17Z"
+    validation: PASS
+  TASK-005:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:14:50Z"
+    finished_at: "2026-03-01T08:16:00Z"
+    validation: PASS
+  TASK-006:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:10:18Z"
+    finished_at: "2026-03-01T08:10:41Z"
+    validation: PASS
+  TASK-007:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:10:42Z"
+    finished_at: "2026-03-01T08:11:19Z"
+    validation: PASS
+  TASK-008:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:11:20Z"
+    finished_at: "2026-03-01T08:12:53Z"
+    validation: PASS
+  TASK-009:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:12:54Z"
+    finished_at: "2026-03-01T08:14:18Z"
+    validation: PASS
+  TASK-010:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:14:19Z"
+    finished_at: "2026-03-01T08:14:49Z"
+    validation: PASS
+  TASK-011:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:16:01Z"
+    finished_at: "2026-03-01T08:16:24Z"
+    validation: PASS
+  TASK-012:
+    status: completed
+    agent: jp-developer
+    retries: 0
+    started_at: "2026-03-01T08:16:25Z"
+    finished_at: "2026-03-01T08:17:13Z"
+    validation: PASS

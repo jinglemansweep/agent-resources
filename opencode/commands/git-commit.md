@@ -1,5 +1,6 @@
 ---
 description: Commit, push, and open a PR
+subtask: true
 ---
 
 You are creating a git commit and pull request. Follow these steps:

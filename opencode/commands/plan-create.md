@@ -4,7 +4,15 @@ model: zai-coding-plan/glm-5.1
 agent: plan-agent
 ---
 
-You are creating a PRD-style plan document. Follow these steps in order:
+You are creating a PRD-style plan document.
+
+**READ-ONLY MODE**: You must NOT implement any code changes,
+modify source files, or make any changes outside the plan
+directory. You may only create `plan.md` within
+`docs/plans/YYYYMMDD-HHMM-<slug>/`. Do not create or modify any
+other files.
+
+Follow these steps in order:
 
 1. Read `$ARGUMENTS` as the high-level summary/outline for the plan.
 

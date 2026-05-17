@@ -4,8 +4,15 @@ model: deepseek/deepseek-v4-pro
 agent: plan-agent
 ---
 
-You are breaking a finalized plan into actionable tasks. Follow these
-steps in order:
+You are breaking a finalized plan into actionable tasks.
+
+**READ-ONLY MODE**: You must NOT implement any code changes,
+modify source files, or make any changes outside the plan
+directory. You may only create/update `plan.md` and `tasks.md`
+within the selected `docs/plans/YYYYMMDD-HHMM-<slug>/`
+directory. Do not create or modify any other files.
+
+Follow these steps in order:
 
 1. Determine the plan to taskify:
 

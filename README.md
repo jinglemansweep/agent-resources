@@ -70,7 +70,6 @@ The `.pre-commit-config.yaml` configures:
 - **pre-commit-hooks** (v5.0.0) — JSON/YAML validation, trailing whitespace,
   end-of-file fixes, merge conflict detection, large file checks,
   private key detection
-- **markdownlint-cli** (v0.44.0) — Markdown linting
 - **shellcheck** (v0.10.0) — Shell script linting
 
 ## License

@@ -4,7 +4,6 @@ Shared opencode configuration and customization resources.
 
 ## Conventions
 
-- All markdown must pass markdownlint (80-char line limit, MD013)
 - Pre-commit hooks are mandatory — run `pre-commit run --all-files`
   before committing
 - JSON files must pass `check-json`, YAML must pass `check-yaml`

@@ -90,8 +90,7 @@ You are executing a finalized task list. Follow these steps in order:
    before the command is considered complete.
 
 6. Final update of `tasks.md`: verify every checkbox is marked
-   `[x]`. Ensure the file passes markdownlint (80-char line limit,
-   no trailing whitespace, ends with a newline).
+   `[x]`.
 
 7. Report a summary to the user: number of tasks completed,
    any issues encountered and how they were resolved, and the

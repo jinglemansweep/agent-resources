@@ -84,10 +84,7 @@ Follow these steps in order:
    - <Related docs/plans/\*/plan.md if any exist>
    - <Relevant git commits or issues>
 
-7. Ensure `plan.md` passes markdownlint (80-char line limit, no
-   trailing whitespace, ends with a newline).
-
-8. STOP. Your task is complete. Do NOT proceed to implement
+7. STOP. Your task is complete. Do NOT proceed to implement
    the plan. Do NOT create any files other than `plan.md`.
    Do NOT modify any source code, configuration, or other
    files in the repository. Report the created plan path to

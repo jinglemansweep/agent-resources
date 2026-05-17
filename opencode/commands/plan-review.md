@@ -85,10 +85,7 @@ Follow these steps in order:
    directly into the relevant sections. Remove any "Open Questions"
    that were resolved during the review.
 
-7. Ensure the updated `plan.md` passes markdownlint (80-char line
-   limit, no trailing whitespace, ends with a newline).
-
-8. STOP. Your task is complete. Do NOT proceed to implement
+7. STOP. Your task is complete. Do NOT proceed to implement
    the plan. Do NOT modify any source code, configuration, or
    other files outside the plan directory. Report the review
    results to the user and stop.

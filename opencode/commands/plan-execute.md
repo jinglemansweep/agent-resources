@@ -1,6 +1,5 @@
 ---
 description: Execute all tasks from a plan's task list sequentially
-model: zai-coding-plan/glm-5.1
 ---
 
 You are executing a finalized task list. Follow these steps in order:

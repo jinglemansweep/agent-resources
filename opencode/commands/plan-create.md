@@ -1,6 +1,5 @@
 ---
 description: Create a timestamped PRD-style plan from a high-level summary
-model: zai-coding-plan/glm-5.1
 ---
 
 You are creating a PRD-style plan document.

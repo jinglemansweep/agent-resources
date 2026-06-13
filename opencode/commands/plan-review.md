@@ -1,6 +1,5 @@
 ---
 description: Review a plan for issues, gaps, and conflicts
-model: deepseek/deepseek-v4-pro
 ---
 
 You are reviewing a PRD-style plan document.

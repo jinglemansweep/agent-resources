@@ -27,8 +27,7 @@
       "npm": "@ai-sdk/anthropic",
       "name": "Qwen Cloud",
       "options": {
-        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
-        "apiKey": "YOUR_API_KEY"
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
       },
       "models": {
         "qwen3.8-max-preview": {

@@ -60,7 +60,7 @@ Stages changes, runs quality gates, and creates a commit. The command:
 
 Generates images from text descriptions via the QwenCloud Token Plan
 text-to-image API. Extracts the prompt, model, and size from the user
-request (default model `qwen-image-3.0`, default size `1024*1024`),
+request (default model `wan2.7-image`, default size `1024*1024`),
 calls the multimodal generation endpoint, and downloads the resulting
 image to the current directory.
 

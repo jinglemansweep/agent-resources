@@ -9,7 +9,7 @@ Call the QwenCloud Token Plan text-to-image API to generate an image based on th
 
 ## Steps
 
-1. Extract prompt (image description), model, and size (default: `1024*1024`) from the user request. If the user explicitly specifies a model (for example, `model=wan2.7-image` or `use wan2.7-image to draw`), use that model name exactly and do not fall back to the default; use `qwen-image-3.0` only when no model is specified. Common image generation models include `qwen-image-3.0`, `qwen-image-2.0`, `qwen-image-2.0-pro`, `wan2.7-image`, and `wan2.7-image-pro`; see the QwenCloud model list for the full set.
+1. Extract prompt (image description), model, and size (default: `1024*1024`) from the user request. If the user explicitly specifies a model (for example, `model=wan2.7-image` or `use wan2.7-image to draw`), use that model name exactly and do not fall back to the default; use `wan2.7-image` only when no model is specified. Common image generation models include `wan2.7-image` and `wan2.7-image-pro`; see the QwenCloud model list for the full set.
 
 2. Call the API to generate an image (use the Bash tool to run curl):
 

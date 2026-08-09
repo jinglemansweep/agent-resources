@@ -11,7 +11,9 @@ Shared configuration and customization resources for
 ├── LICENSE                       # GPL-3.0
 └── opencode/
     ├── opencode.json             # opencode configuration (server, MCP servers)
-    ├── agents/                   # Custom agent definitions (placeholder)
+    ├── agents/                   # Custom agent definitions
+    │   ├── qwen-image-generation.md  # QwenCloud Token Plan image generation
+    │   └── qwen-video-generation.md  # QwenCloud Token Plan video generation
     ├── commands/                 # Custom slash commands
     │   └── git-commit.md         # /git-commit command
     └── skills/                   # Custom skills
@@ -51,6 +53,28 @@ Stages changes, runs quality gates, and creates a commit. The command:
 3. Stages relevant files
 4. Creates a commit with an imperative-mood message
 5. Confirms the working tree state
+
+## Custom Agents
+
+### qwen-image-generation
+
+Generates images from text descriptions via the QwenCloud Token Plan
+text-to-image API. Extracts the prompt, model, and size from the user
+request (default model `qwen-image-2.0`, default size `1024*1024`),
+calls the multimodal generation endpoint, and downloads the resulting
+image to the current directory.
+
+### qwen-video-generation
+
+Generates videos via the QwenCloud Token Plan video generation API
+using the `happyhorse-1.1-t2v` (text-to-video), `happyhorse-1.1-i2v`
+(image-to-video), and `happyhorse-1.1-r2v` (reference-to-video)
+models. Uses an asynchronous task pattern: submit a synthesis task,
+poll the task status, then download the video to the current
+directory.
+
+Both agents require the `QWENCLOUD_API_KEY` environment variable
+(QwenCloud Token Plan API key) to be set.
 
 ## Custom Skills
 
